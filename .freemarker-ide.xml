@@ -1,0 +1,10 @@
+<config>
+	<context-values>
+		<resource path="src/main/webapp/WEB-INF/templates/_editProductData.ftl">
+			<value key="product" object-class="com.megalogika.sv.model.Product"/>
+			<value key="category" object-class="com.megalogika.sv.model.ProductCategory"/>
+		</resource>
+	</context-values>
+	<macro-library>
+	</macro-library>
+</config>

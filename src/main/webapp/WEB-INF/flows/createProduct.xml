@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+        http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+	<secured attributes="ROLE_USER,ROLE_ADMIN" />
+	<persistence-context />
+
+	<var name="product" class="com.megalogika.sv.model.Product" />
+	<input name="step" />
+	
+	<on-start>
+		<set name="flowScope.hazardDescriptions" value="eService.getHazardDescriptions()" />
+		<set name="flowScope.cp" value="frontendService.getContextPath(externalContext.contextPath)" />
+	</on-start>
+
+	<action-state id="createProduct">
+		<evaluate expression="productService.createProduct(flowRequestContext, currentUser.principal)" result="flowScope.product"/>
+		<transition to="haveBarcode"/>
+	</action-state>
+	
+	<decision-state id="haveBarcode">
+		<if test="null != externalContext.sessionMap.barcode" then="assignBarcodeToProduct" else="requestBarcode" />
+	</decision-state>
+	
+	<action-state id="assignBarcodeToProduct">
+		<evaluate expression="flowScope.product.setBarcode(externalContext.sessionMap.barcode)" />
+		<transition to="preparePhotoRequest">
+			<evaluate expression="externalContext.sessionMap.barcode = null" />
+		</transition>
+	</action-state>
+	
+	<action-state id="preparePhotoRequest">
+		<set name="flowScope.thanks" value="true" />
+		<transition to="addProductPhotos" />
+	</action-state>
+	
+	<view-state id="requestBarcode" model="product">
+		<binder>
+			<binding property="barcode" required="true"/>
+		</binder>	
+		<transition on="submit" to="checkBarcode" validate="true" bind="true" />
+	</view-state>
+	
+	<decision-state id="checkBarcode">
+		<on-entry>
+			<evaluate expression="productService.getOneByBarcode(product.barcode)" result="flowScope.foundProduct" />
+		</on-entry>
+		<if test="null == foundProduct" then="addProductPhotos" else="sorryProductExists" />
+	</decision-state>
+	
+	<view-state id="addProductPhotos" model="product">
+		<transition on="submit" to="resizePhotos" bind="false">
+			<evaluate expression="uploadService.uploadProductPhoto(messageContext, flowRequestContext, product)" />
+			<evaluate expression="uploadService.uploadConservantsPhoto(messageContext, flowRequestContext, product)" />
+			<evaluate expression="cropService.resizeAndCrop(product.label)" />
+			<evaluate expression="product.ingredients.updateMeasurements(cropService)" />
+		</transition>
+		<transition on="cancel" to="requestBarcode" validate="false" bind="false">
+		</transition>
+	</view-state>
+
+	<view-state id="resizePhotos" model="product">
+		<binder>
+			<binding property="label.cropping.x1" required="true"/>
+			<binding property="label.cropping.y1" required="true"/>
+			<binding property="label.cropping.x2" required="true"/>
+			<binding property="label.cropping.y2" required="true"/>
+			<binding property="label.cropping.width" required="true"/>
+			<binding property="label.cropping.height" required="true"/>						
+			<binding property="ingredients.cropping.x1" required="true"/>
+			<binding property="ingredients.cropping.y1" required="true"/>
+			<binding property="ingredients.cropping.x2" required="true"/>
+			<binding property="ingredients.cropping.y2" required="true"/>
+			<binding property="ingredients.cropping.width" required="true"/>
+			<binding property="ingredients.cropping.height" required="true"/>			
+		</binder>	
+		<on-render>
+			<evaluate expression="cropService.currentTimestamp()" result="viewScope.timestamp"/>
+		</on-render>
+		<transition on="turnLabelLeft">
+			<evaluate expression="product.label.cropping.turnLeft()"></evaluate>
+			<evaluate expression="cropService.rotate(product.label)" result="flowScope.photoDims"></evaluate>
+		</transition>
+		<transition on="turnLabelRight" >
+			<evaluate expression="product.label.cropping.turnRight()"></evaluate>
+			<evaluate expression="cropService.rotate(product.label)" result="flowScope.photoDims"></evaluate>
+		</transition>
+		<transition on="turnIngredientsLeft">
+			<evaluate expression="product.ingredients.cropping.turnLeft()"></evaluate>
+			<evaluate expression="cropService.rotateIngredientPhoto(product.ingredients)" result="flowScope.photoDims"></evaluate>
+		</transition>
+		<transition on="turnIngredientsRight" >
+			<evaluate expression="product.ingredients.cropping.turnRight()"></evaluate>
+			<evaluate expression="cropService.rotateIngredientPhoto(product.ingredients)" result="flowScope.photoDims"></evaluate>
+		</transition>
+		<transition on="cancel" to="addProductPhotos" validate="false" bind="false" />
+		<transition on="submit" to="editProductData">
+			<evaluate expression="cropService.crop(product.label)"></evaluate>
+			<evaluate expression="cropService.cropIngredients(product.ingredients)"></evaluate>
+		</transition>
+	</view-state>
+	
+	<view-state id="editProductData" model="product">
+		<binder>
+			<binding property="name" required="true"/>
+			<binding property="company" required="true" />
+			<binding property="category" required="true" converter="stringToProductCategory"/>
+			<binding property="gmo" />
+		</binder>
+		<on-render>
+			<evaluate expression="categoryService.getList()" result="viewScope.categoryList" />
+		</on-render>		
+		<transition on="submit" to="editIngredients" bind="true" validate="false" />
+		<transition on="cancel" to="resizePhotos" validate="false" bind="false" />
+	</view-state>
+	
+	<subflow-state id="editIngredients" subflow="editIngredients" >
+		<input name="product" value="flowScope.product" required="true" />
+		<output name="product" />
+		<transition on="success" to="success" />
+		<transition on="cancelled" to="editProductData" />
+	</subflow-state>
+	
+	<end-state id="success" view="flowRedirect:product?id=${product.id}" />
+	
+	<end-state id="cancelled" view="flowRedirect:productList?clear=yes"/>
+
+	<end-state id="sorryProductExists" view="flowRedirect:foundBarcode?id=${foundProduct.id}" />
+</flow>

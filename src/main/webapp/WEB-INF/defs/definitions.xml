@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+
+<tiles-definitions>
+	<definition name="template" template="/WEB-INF/templates/template.ftl">
+		<put-attribute name="header" value="/WEB-INF/templates/_header.ftl"/>
+		<put-attribute name="footer" value="_footer"/>
+		<put-attribute name="title" value="/WEB-INF/templates/titles/default.ftl"/>
+		<put-attribute name="bodyId" value=""/>
+		<put-attribute name="paginatorURI" value="" type="string" cascade="true" />		
+		<put-attribute name="alternateFeedLink" value="" />
+		<put-attribute name="printStylesheet" value="" />
+		<put-attribute name="legend" value="/WEB-INF/templates/legend.ftl" cascade="true"/>
+		<put-attribute name="barcode" value="/WEB-INF/templates/barcode.ftl" cascade="true" />
+		<put-attribute name="breadcrumbs" value="/WEB-INF/templates/breadcrumbs.ftl" cascade="true" />
+		<put-attribute name="paginator" value="/WEB-INF/templates/_paginator.ftl" cascade="true" />
+		<put-attribute name="categoryList" value="" />
+		<put-attribute name="commentForm" value="" />
+		<put-attribute name="titleField" value=""/>
+		<put-attribute name="companyField" value=""/>
+		<put-attribute name="categoryField" value=""/>
+		<put-attribute name="barcodeField" value=""/>
+		<put-attribute name="barcodeField" value=""/>	
+		<put-attribute name="fbMetadata" type="string" value="" />
+	</definition>
+	
+	<definition name="_footer" template="/WEB-INF/templates/_footer.ftl">
+		<put-attribute name="bottomLinks" value="/WEB-INF/templates/_bottomLinks.ftl" />
+	</definition>
+
+	<definition name="zymejimoPaaiskinimai" extends="template">
+		<put-attribute name="body" value="/WEB-INF/templates/zymejimoPaaiskinimai.ftl"/>
+		<put-attribute name="title" value="/WEB-INF/templates/titles/zymejimoPaaiskinimai.ftl"/>
+		<put-attribute name="bodyId" value="zymejimas"/>
+	</definition>
+
+	<definition name="index" extends="template">
+		<put-attribute name="body" value="/WEB-INF/templates/_index.ftl"/>
+		<put-attribute name="breadcrumbs" value="/WEB-INF/templates/breadcrumbs/index.ftl"/>
+		<put-attribute name="paginatorURI" value="productList" type="string" cascade="true" />
+	</definition>
+	
+	<definition name="mobileTemplate" template="/WEB-INF/templates/mobile/_template.ftl">
+		<put-attribute name="title" value="/WEB-INF/templates/titles/default.ftl"/>
+	</definition>
+	 
+	<definition name="index.mobile" extends="mobileTemplate">
+		<put-attribute name="body" value="/WEB-INF/templates/mobile/index.ftl"/>
+		<put-attribute name="paginatorURI" value="productList" type="string" cascade="true"  />
+	</definition>
+
+	<definition name="searchResults.mobile" extends="mobileTemplate">
+		<put-attribute name="body" value="/WEB-INF/templates/mobile/searchResults.ftl"/>
+		<put-attribute name="eTable" value="/WEB-INF/templates/mobile/eTable.ftl" cascade="true"/>
+	</definition>
+	
+	<definition name="product.mobile" extends="mobileTemplate">
+		<put-attribute name="body" value="/WEB-INF/templates/mobile/product.ftl"/>
+		<put-attribute name="eTable" value="/WEB-INF/templates/mobile/eTable.ftl" cascade="true"/>
+ 	</definition>
+
+	<definition name="form" extends="template">
+		<put-attribute name="body" value="/WEB-INF/templates/_form.ftl"/>
+	</definition>
+
+
+	<definition name="creatingProduct" extends="template">
+		<put-attribute name="body" value="/WEB-INF/templates/_requestBarcode.ftl"/>
+		<put-attribute name="breadcrumbs" value="/WEB-INF/templates/breadcrumbs/requestBarcode.ftl" cascade="true" />
+		<put-attribute name="barcode" value="" />
+		<put-attribute name="eTable" value="/WEB-INF/templates/eTable.ftl" cascade="true" />
+	</definition>	
+
+	<definition name="requestBarcode" extends="creatingProduct">
+		<put-attribute name="body" value="/WEB-INF/templates/_requestBarcode.ftl"/>
+		<put-attribute name="breadcrumbs" value="/WEB-INF/templates/breadcrumbs/requestBarcode.ftl" cascade="true" />
+	</definition>	
+	
+	<definition name="addProductPhotos" extends="creatingProduct">
+		<put-attribute name="body" value="/WEB-INF/templates/_addProductPhotos.ftl"/>
+		<put-attribute name="breadcrumbs" value="/WEB-INF/templates/breadcrumbs/addProductPhotos.ftl" cascade="true" />
+	</definition>
+	
+	<definition name="resizePhotos" extends="creatingProduct">
+		<put-attribute name="body" value="/WEB-INF/templates/_resizePhotos.ftl"/>
+		<put-attribute name="breadcrumbs" value="/WEB-INF/templates/breadcrumbs/resizePhotos.ftl" cascade="true" />
+	</definition>
+
+	<definition name="editProductData" extends="creatingProduct">
+		<put-attribute name="body" value="/WEB-INF/templates/_editProductData.ftl"/>
+		<put-attribute name="breadcrumbs" value="/WEB-INF/templates/breadcrumbs/editProductData.ftl" cascade="true" />
+	</definition>
+	
+	<definition name="eTable" template="/WEB-INF/templates/eTable.ftl" >
+		<put-attribute name="eTable" value="/WEB-INF/templates/eTable.ftl" />	
+	</definition>
+
+	<definition name="editIngredients" extends="creatingProduct">
+		<put-attribute name="body" value="/WEB-INF/templates/_editIngredients.ftl"/>
+		<put-attribute name="breadcrumbs" value="/WEB-INF/templates/breadcrumbs/editIngredients.ftl" cascade="true" />
+		<put-attribute name="eTable" value="/WEB-INF/templates/eTable.ftl" />
+	</definition>	
+	
+	<definition name="crop" extends="template">
+		<put-attribute name="body" value="/WEB-INF/templates/_crop.ftl"/>
+	</definition>
+	
+	<definition name="productList" extends="template">
+		<put-attribute name="body" value="/WEB-INF/templates/productList.ftl"/>
+		<put-attribute name="legend" value="/WEB-INF/templates/legend.ftl" cascade="true"/>
+		<put-attribute name="alternateFeedLink" value="/WEB-INF/templates/_productsFeedLink.ftl" />
+		<put-attribute name="categoryList" value="/WEB-INF/templates/_categoryList.ftl" cascade="true" />
+		<put-attribute name="breadcrumbs" value="/WEB-INF/templates/breadcrumbs/productList.ftl" />
+		<put-attribute name="paginatorURI" value="productList" type="string" cascade="true"  />
+		<put-attribute name="eTable" value="/WEB-INF/templates/mobile/eTable.ftl" cascade="true"/>
+	</definition>
+
+	<definition name="product" extends="template">
+		<put-attribute name="bodyId" value="product" type="string" />
+		<put-attribute name="body" value="/WEB-INF/templates/product.ftl"/>
+		<put-attribute name="eTable" value="/WEB-INF/templates/eTable.ftl" cascade="true"/>
+		<put-attribute name="title" value="/WEB-INF/templates/titles/productTitle.ftl"/>
+		<put-attribute name="categoryList" value="/WEB-INF/templates/_categoryList.ftl" cascade="true" />
+		<put-attribute name="commentForm" value="/WEB-INF/templates/_commentForm.ftl" cascade="true" />
+		<put-attribute name="breadcrumbs" value="/WEB-INF/templates/breadcrumbs/product.ftl" />
+		<put-attribute name="paginatorURI" value="comment/page" type="string" cascade="true"  />
+		<put-attribute type="template" name="fbMetadata" value="/WEB-INF/templates/_fbMetadata.ftl" />
+	</definition>
+
+	<definition name="productEdit" extends="template">
+		<put-attribute name="bodyId" value="product" type="string" />
+		<put-attribute name="body" value="/WEB-INF/templates/productEdit.ftl"/>
+		<put-attribute name="eTable" value="/WEB-INF/templates/eTable.ftl" cascade="true"/>
+		<put-attribute name="title" value="/WEB-INF/templates/titles/productTitle.ftl"/>
+		<put-attribute name="categoryList" value="/WEB-INF/templates/_categoryList.ftl" cascade="true" />
+		<put-attribute name="commentForm" value="/WEB-INF/templates/_commentForm.ftl" cascade="true" />
+		<put-attribute name="breadcrumbs" value="/WEB-INF/templates/breadcrumbs/product.ftl" />
+		<put-attribute name="paginatorURI" value="comment/page" type="string" cascade="true"  />
+		<put-attribute name="titleField" value="/WEB-INF/templates/fields/titleField.ftl" cascade="true" />
+		<put-attribute name="companyField" value="/WEB-INF/templates/fields/companyField.ftl" cascade="true" />
+		<put-attribute name="categoryField" value="/WEB-INF/templates/fields/categoryField.ftl" cascade="true" />
+		<put-attribute name="barcodeField" value="/WEB-INF/templates/fields/barcodeField.ftl" cascade="true" />
+		<put-attribute name="ingredientsField" value="/WEB-INF/templates/fields/ingredientsField.ftl" cascade="true" />
+	</definition>
+
+	<definition name="foundBarcode" extends="product">
+		<put-attribute name="body" value="/WEB-INF/templates/foundBarcode.ftl"/>
+		<put-attribute name="breadcrumbs" value="/WEB-INF/templates/breadcrumbs/foundBarcode.ftl" />
+	</definition>
+
+	<definition name="barcodeNotFound" extends="login">
+		<put-attribute name="message" value="/WEB-INF/templates/barcodeNotFound.ftl" cascade="true" />
+	</definition>
+
+	<definition name="barcodeNotFoundLoggedOn" extends="login">
+		<put-attribute name="message" value="/WEB-INF/templates/barcodeNotFound.ftl" cascade="true" />
+	</definition>
+
+	<definition name="emailSent" extends="template">
+		<put-attribute name="body" value="/WEB-INF/templates/emailSent.ftl"/>
+		<put-attribute name="title" value="/WEB-INF/templates/titles/productTitle.ftl"/>
+	</definition>
+	
+	<definition name="searchResults" extends="template">
+		<put-attribute name="body" value="/WEB-INF/templates/productList.ftl"/>
+		<put-attribute name="legend" value="/WEB-INF/templates/legend.ftl" cascade="true"/>
+		<put-attribute name="alternateFeedLink" value="/WEB-INF/templates/_productsFeedLink.ftl" />
+		<put-attribute name="categoryList" value="/WEB-INF/templates/_categoryList.ftl" cascade="true" />
+		<put-attribute name="breadcrumbs" value="/WEB-INF/templates/breadcrumbs/productList.ftl" />
+		<put-attribute name="paginatorURI" value="search" type="string" cascade="true"  />
+		<put-attribute name="eTable" value="/WEB-INF/templates/mobile/eTable.ftl" cascade="true"/>
+	</definition>
+
+	<definition name="eform" extends="template">
+		<put-attribute name="body" value="/WEB-INF/templates/_eform.ftl"/>
+	</definition>
+
+	<definition name="eList" extends="template">
+		<put-attribute name="body" value="/WEB-INF/templates/eList.ftl"/>
+		<put-attribute name="eTable" value="/WEB-INF/templates/eTable.ftl" cascade="true"/>
+		<put-attribute name="breadcrumbs" value="/WEB-INF/templates/breadcrumbs/eList.ftl" />
+		<put-attribute name="categoryList" value="/WEB-INF/templates/_categoryList.ftl" cascade="true" />
+		<put-attribute name="paginatorURI" value="eList" type="string" cascade="true"  />
+	</definition>
+	
+	<definition name="replaceE" extends="template">
+		<put-attribute name="breadcrumbs" value="/WEB-INF/templates/breadcrumbs/replaceEForm.ftl" />
+		<put-attribute name="body" value="/WEB-INF/templates/replaceEForm.ftl"/>
+	</definition>
+	
+	<definition name="success" extends="template">
+		<put-attribute name="body" value="/WEB-INF/templates/_success.ftl"/>
+		<put-attribute name="control" value="/WEB-INF/templates/_ok.ftl" cascade="true"/>
+	</definition>
+	
+	<definition name="createProductSuccess" extends="success">
+		<put-attribute name="title" value="/WEB-INF/templates/titles/success.ftl" cascade="true"/>
+		<put-attribute name="control" value="/WEB-INF/templates/_createAnotherProduct.ftl" cascade="true"/>
+		<put-attribute name="message" value="Sėkmingai išsaugotas produktas" cascade="true"/>
+	</definition>
+
+	<definition name="createESuccess" extends="success">
+		<put-attribute name="title" value="/WEB-INF/templates/titles/success.ftl" cascade="true"/>
+		<put-attribute name="message" value="Sėkmingai išsaugotas konservantas" cascade="true"/>
+		<put-attribute name="control" value="/WEB-INF/templates/_createAnotherE.ftl" cascade="true"/>
+	</definition>
+	
+	<definition name="login" extends="template">
+		<put-attribute name="title" value="/WEB-INF/templates/titles/login.ftl"/>
+		<put-attribute name="body" value="/WEB-INF/templates/login.ftl"/>
+		<put-attribute name="breadcrumbs" value="/WEB-INF/templates/breadcrumbs/login.ftl"/>
+		<put-attribute name="message" value="/WEB-INF/templates/defaultLoginMessage.ftl" cascade="true"/>
+	</definition>
+	
+	<definition name="reset" extends="template">
+		<put-attribute name="title" value="/WEB-INF/templates/titles/resetPassword.ftl"/>
+		<put-attribute name="body" value="/WEB-INF/templates/reset.ftl"/>
+		<put-attribute name="breadcrumbs" value="/WEB-INF/templates/breadcrumbs/reset.ftl" />
+	</definition>
+	
+	<definition name="resetSuccess" extends="template">
+		<put-attribute name="title" value="/WEB-INF/templates/titles/resetPasswordSuccess.ftl"/>
+		<put-attribute name="body" value="/WEB-INF/templates/resetSuccess.ftl"/>
+		<put-attribute name="breadcrumbs" value="/WEB-INF/templates/breadcrumbs/reset.ftl" />
+	</definition>	
+	
+	<definition name="loginError" extends="login">
+		<put-attribute name="body" value="/WEB-INF/templates/loginError.ftl"/>
+	</definition>
+	
+	<definition name="companies" template="/WEB-INF/templates/jsonList.ftl">
+	</definition>
+
+	<definition name="conservants" template="/WEB-INF/templates/jsonList.ftl">
+	</definition>
+	
+	<definition name="registerForm" extends="template">
+		<put-attribute name="title" value="/WEB-INF/templates/titles/register.ftl"/>
+		<put-attribute name="body" value="/WEB-INF/templates/registerForm.ftl"/>
+		<put-attribute name="breadcrumbs" value="/WEB-INF/templates/breadcrumbs/registerForm.ftl" cascade="true" />
+	</definition>
+	
+	<definition name="registerSuccess" extends="success">
+		<put-attribute name="title" value="/WEB-INF/templates/titles/success.ftl" cascade="true"/>
+		<put-attribute name="message" value="/WEB-INF/templates/titles/registerSuccessMsg.ftl" cascade="true"/>
+		<put-attribute name="control" value="/WEB-INF/templates/_afterRegister.ftl" cascade="true"/>
+		<put-attribute name="breadcrumbs" value="/WEB-INF/templates/breadcrumbs/registerSuccess.ftl" cascade="true" />
+	</definition>
+	
+	<definition name="error" template="/WEB-INF/templates/error.ftl">
+		<put-attribute name="title" value="/WEB-INF/templates/titles/error.ftl" />
+		<put-attribute name="errorPic" value="vaikas.png" />
+		<put-attribute name="errMsg" value="/WEB-INF/templates/titles/errorMsg.ftl" />
+		<put-attribute name="bottomLinks" value="/WEB-INF/templates/_bottomLinks.ftl" />
+	</definition>
+	
+	<definition name="friends" extends="template">
+		<put-attribute name="title" value="/WEB-INF/templates/titles/friends.ftl" />
+		<put-attribute name="body" value="/WEB-INF/templates/friends.ftl"/>
+		<put-attribute name="breadcrumbs" value="/WEB-INF/templates/breadcrumbs/friends.ftl" cascade="true" />
+	</definition>
+	
+	<definition name="400" template="/WEB-INF/templates/error.ftl">
+		<put-attribute name="title" value="/WEB-INF/templates/titles/error.ftl" />
+		<put-attribute name="errMsg" value="/WEB-INF/templates/messages/400.ftl" />
+		<put-attribute name="header" value="/WEB-INF/templates/_header.ftl"/>
+		<put-attribute name="footer" value="_footer"/>
+		<put-attribute name="legend" value="/WEB-INF/templates/legend.ftl" cascade="true"/>
+		<put-attribute name="barcode" value="/WEB-INF/templates/barcode.ftl" cascade="true" />
+		<put-attribute name="breadcrumbs" value="/WEB-INF/templates/breadcrumbs/error.ftl" cascade="true" />
+	</definition>
+
+	<definition name="403" template="/WEB-INF/templates/error.ftl">
+		<put-attribute name="title" value="/WEB-INF/templates/titles/error.ftl" />
+		<put-attribute name="errMsg" value="/WEB-INF/templates/messages/403.ftl" />
+		<put-attribute name="header" value="/WEB-INF/templates/_header.ftl"/>
+		<put-attribute name="footer" value="_footer"/>
+		<put-attribute name="legend" value="/WEB-INF/templates/legend.ftl" cascade="true"/>
+		<put-attribute name="barcode" value="/WEB-INF/templates/barcode.ftl" cascade="true" />
+		<put-attribute name="breadcrumbs" value="/WEB-INF/templates/breadcrumbs/error.ftl" cascade="true" />
+	</definition>
+
+	<definition name="404" template="/WEB-INF/templates/error.ftl">
+		<put-attribute name="title" value="/WEB-INF/templates/titles/error.ftl" />
+		<put-attribute name="errMsg" value="/WEB-INF/templates/messages/404.ftl" />
+		<put-attribute name="header" value="/WEB-INF/templates/_header.ftl"/>
+		<put-attribute name="footer" value="_footer"/>
+		<put-attribute name="legend" value="/WEB-INF/templates/legend.ftl" cascade="true"/>
+		<put-attribute name="barcode" value="/WEB-INF/templates/barcode.ftl" cascade="true" />
+		<put-attribute name="breadcrumbs" value="/WEB-INF/templates/breadcrumbs/error.ftl" cascade="true" />
+	</definition>
+
+	<definition name="500" template="/WEB-INF/templates/error.ftl">
+		<put-attribute name="title" value="/WEB-INF/templates/titles/error.ftl" />
+		<put-attribute name="errMsg" value="/WEB-INF/templates/messages/500.ftl" />
+		<put-attribute name="header" value="/WEB-INF/templates/_header.ftl"/>
+		<put-attribute name="footer" value="_footer"/>
+		<put-attribute name="legend" value="/WEB-INF/templates/legend.ftl" cascade="true"/>
+		<put-attribute name="barcode" value="/WEB-INF/templates/barcode.ftl" cascade="true" />
+	</definition>
+	
+	<definition name="ajaxReply" template="/WEB-INF/templates/ajaxReply.ftl">
+	</definition>
+	
+	<definition name="409" template="/WEB-INF/templates/ajaxReply.ftl">
+	</definition>	
+		
+	
+</tiles-definitions>

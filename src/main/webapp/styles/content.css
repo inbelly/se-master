@@ -1,0 +1,764 @@
+/* products list */
+
+.products-list {
+    float: left;
+}
+
+.products-list.columns-2 {
+    width: 480px;
+    margin-right: 10px;
+}
+
+.products-list.columns-3 {
+    width: 725px;
+    margin-right: 10px;
+}
+
+.products-list .product {
+    float: left;
+    position: relative;
+    width: 215px;
+    height: 321px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    padding: 7px;
+    border: 1px solid #ddd;
+    background: white;
+}
+
+.products-list .product > a {
+    display: block;
+    border: none;
+}
+
+.products-list .product.last {
+    margin-right: 0;
+}
+
+#product #product-info-quick img.picture,
+.products-list .product img.picture {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.products-list .product img.hazard {
+    float: right;
+    margin-left: 4px;
+    margin-bottom: 4px;
+}
+
+#product #product-info-quick h3,
+#product #product-info-edit h3,
+#product #product-info h3,
+.products-list .product h3 {
+    margin-bottom: 4px;
+    font-size: 14.4px;
+}
+
+#product #product-info-quick h4,
+#product #product-info-edit h4,
+#product #product-info h4,
+.products-list .product h4 {
+    margin-bottom: 9px;
+    font-size: 12px;
+}
+
+.products-list .product .additives {
+    position: absolute;
+    bottom: 2px;
+}
+
+/* product */
+
+#product,
+#e-list {
+    float: left;
+    width: 707px;
+    margin-right: 10px;
+    padding: 8px;
+    border: 1px solid #eee;
+    background: white;
+}
+
+#product #product-info-quick {
+    float: left;
+    width: 217px;
+    margin-right: 10px;
+}
+
+#product #product-info-details {
+    float: left;
+    width: 480px;
+}
+
+#product #product-info-details .picture-big {
+    overflow: auto;
+    width: 480px;
+    height: 217px;
+    margin-bottom: 8px;
+}
+
+#product #product-info-details .picture-big img {
+    display: block;
+}
+
+#product #product-info-details .actions {
+    float: left;
+}
+
+#product #product-info-details .actions .action {
+    padding-left: 20px;
+}
+
+#product #product-info-details .actions .action.comment {
+    background: url('../images/comment-ico.png') left center no-repeat;
+}
+
+#product #product-info-details .actions .action.list {
+    background: url('../images/list-ico.png') 2px center no-repeat;
+}
+
+#product #product-info-details .rating {
+    float: right;
+}
+
+#product #product-info-details .rating form,
+#product #product-info-details .rating form p {
+    display: inline;
+}
+
+#product #product-info-details .rating form p input {
+    margin: 0;
+    padding: 0;
+}
+
+#product #product-info-details .history {
+    border-top: 1px solid #ddd;
+    font-size: 11px;
+    color: #8d8d8d;
+}
+
+/* additives */
+
+#additives.additives-list {
+    float: left;
+    width: 707px;
+    margin-right: 10px;
+    padding: 8px;
+    border: 1px solid #eee;
+    background: white;
+}
+
+#additives .additive {
+    margin-bottom: 9px;
+    border-bottom: 1px solid #ddd;
+}
+
+#additives .additive .additive-info-wrapper {
+    margin-bottom: 9px;
+    background: url('../images/border-bg.png') 216px top repeat-y;
+}
+
+#additives .additive .additive-admin {
+    float: right;
+    display: inline;
+}
+
+#additives .additive .additive-info-quick {
+    float: left;
+    position: relative;
+    width: 207px;
+    padding-right: 9px;
+    margin-right: 10px;
+}
+
+#additives .additive .additive-info-quick .action {
+    position: absolute;
+    right: 0;
+    margin-right: 10px;
+}
+
+#additives .additive .additive-info-quick .action.edit a {
+    padding-right: 20px;
+    background: url('../images/edit-ico.png') right center no-repeat;
+}
+
+#additives .additive .additive-info-quick .action.delete a {
+    padding-right: 20px;
+    background: url('../images/delete-ico.png') right center no-repeat;
+}
+
+#additives .additive .additive-info-quick img.hazard {
+    display: block;
+    float: left;
+    margin-right: 9px;
+    margin-bottom: 9px;
+}
+
+#additives .additive .additive-info-quick h3 {
+    display: block;
+    margin-left: 56px;
+    line-height: 46px;
+}
+
+#additives .additive .additive-info-quick h3 span {
+    display: inline-block;
+    line-height: 27px;
+}
+
+#additives .additive .additive-info-quick .action + img + h3 {
+    float: left;
+    width: 100px;
+    margin-left: 0;
+}
+
+#additives .additive .additive-info-quick h4,
+#additives .additive .additive-info-quick p {
+    clear: both;
+    margin-bottom: 9px;
+}
+
+#additives .additive .additive-info-details {
+    float: left;
+    width: 480px;
+}
+
+#additives .additive .additive-info-details p {
+    margin-bottom: 9px;
+}
+
+#additives .additive .additive-info-details p.diseases {
+     font-size: 110%;
+}
+
+#additives .additive .additive-info-details p.secondary a {
+    font-size: 90%;
+    color: #646464;
+}
+
+
+#additives .additive .additive-info-details p:last-child {
+    margin-bottom: 0;
+}
+
+/* Comments */
+
+#product #comments .comment {
+    margin-bottom: 9px;
+    border-bottom: 1px solid #ddd;
+}
+
+#product #comments .comment .comment-info-wrapper {
+    margin-bottom: 9px;
+    background: url('../images/border-bg.png') 216px top repeat-y;
+}
+
+#product #comments .comment .comment-info-quick {
+    float: left;
+    width: 217px;
+    margin-right: 10px;
+}
+
+#product #comments .comment .comment-info-quick h4,
+#product #comments .comment .comment-info-quick .email {
+    margin-bottom: 9px;
+}
+
+#product #comments .comment .comment-info-details {
+    float: left;
+    width: 480px;
+}
+
+#product #comments .comment .comment-info-details p {
+    margin-bottom: 9px;
+}
+
+#product #comments .comment .comment-info-details p:last-child {
+    margin-bottom: 0;
+}
+
+/* blog */
+#blog {
+    float: left;
+    width: 440px;
+    padding-left: 20px;
+}
+
+#blog .post {
+    margin-top: 15px;
+}
+
+#blog .post h3 a {
+    border-bottom: 0;
+    color: black;
+}
+
+#blog .post h3 a:hover {
+    border-bottom: 1px solid #ccc;
+}
+
+#blog .post p,
+#blog .post .date {
+    display: block;
+    margin-bottom: 18px;
+}
+
+#blog .post .image {
+    float: right;
+    margin-left: 18px;
+    border: 1px solid #DDD;
+    padding: 3px;
+}
+
+/* categories */
+
+#categories {
+    float: left;
+    width: 205px;
+    padding-left: 10px;
+}
+
+#categories ul {
+    list-style: none;
+}
+
+#categories ul li {
+    margin-bottom: 9px;
+}
+
+#categories ul li ul {
+    margin-left: 18px;
+    /*list-style: disc;*/
+}
+
+#categories ul li ul li {
+    /*margin-bottom: 0;*/
+}
+
+/* friends */
+
+#friends .left,
+#friends .right {
+    float: left;
+    width: 465px;
+}
+
+#friends .addFriend h4 {
+    float: left;
+    margin-right: 8px;
+}
+
+#friends .left {
+    margin-right: 20px;
+}
+
+#friends .friend {
+    margin-bottom: 9px;
+    padding-right: 8px;
+    border: 1px solid #eee;
+    background: white;
+}
+
+#friends .friend img {
+    float: left;
+    display: block;
+    margin: 8px;
+}
+
+#friends .friend .text {
+    float: left;
+    width: 329px;
+    padding-top: 8px;
+}
+
+#friends .friend .text p {
+    margin-bottom: 9px;
+}
+
+#friends .donator {
+    margin-bottom: 9px;
+    padding-right: 8px;
+    border: 1px solid #eee;
+    background: white;
+}
+
+#friends .donator .image {
+    float: left;
+    padding: 8px;
+}
+
+#friends .donator .image img {
+    display: block;
+    margin-bottom: 8px;
+}
+
+#friends .donator .image .green {
+    color: #3ab44a;
+}
+
+#friends .donator .text {
+    float: left;
+    width: 389px;
+    padding-top: 8px;
+}
+
+/* editing */
+
+/* editing barcode */
+
+#barcode-editing form {
+    width: 330px;
+    margin: auto;
+    padding-left: 100px;
+}
+
+#barcode-editing form img {
+    display: block;
+}
+
+#barcode-editing form .barcode {
+    width: 120px;
+    margin-left: 7px;
+    padding: 0;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-size: 16px;
+    text-align: right;
+}
+
+#barcode-editing form .checksum {
+    padding-right: 5px;
+    line-height: 32px;
+    font-size: 18px;
+    color: red;
+}
+
+#barcode-editing form button {
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+/* editing login/register */
+
+#login-editing form,
+#login-editing p,
+#login-editing h4 {
+    margin-left: 350px;
+}
+
+#login-editing form .field {
+    margin-bottom: 9px;
+}
+
+/* editing product */
+
+#product.inline #waiting-approval {
+    font-size: 11px;
+    border-width: 1px 0 1px 0;
+    border-style: solid;
+    border-color: #b9c4bb;
+    background: #fbec30;
+}
+
+#product.inline #waiting-approval .message {
+    float: left;
+    width: 540px;
+    padding: 10px;
+    padding-left: 43px;
+    background: #fbec30 url('../images/waiting-yellow-ico.png') 13px 13px no-repeat;
+}
+
+#product.inline #waiting-approval .confirm {
+    float: right;
+    width: 100px;
+    margin-top: 13px;
+    margin-right: 13px;
+    text-align: right;
+}
+
+#product.inline #product-info-edit {
+    margin-bottom: 9px;
+    background: url('../images/border-bg.png') 216px top repeat-y;
+}
+
+#product.inline #product-info .left,
+#product.inline #product-info-edit .left {
+    float: left;
+    width: 207px;
+    margin-right: 10px;
+    padding-right: 9px;
+}
+
+#product.inline #product-info .right,
+#product.inline #product-info-edit .right {
+    float: left;
+    width: 480px;
+}
+
+#product.editing.inline #product-info-edit .field label {
+    font-weight: bold;
+}
+
+#product.editing.inline #product-info-edit .field .input,
+#product.editing.inline #product-info-edit .field .text {
+    margin-bottom: 5px;
+}
+
+#product.editing.inline #product-info-edit .field .input input[type="text"] {
+    display: block;
+    width: 199px;
+}
+
+#product.editing.inline #product-info-edit .field .input select {
+    display: block;
+    width: 199px;
+}
+
+#product.editing.inline #product-info-edit .field .input .note {
+    float: left;
+}
+
+#product.editing.inline #product-info-edit .field .input input[type="submit"] {
+    float: right;
+}
+
+#product.editing.inline #product-info-edit .field.checkbox label {
+    float: left;
+}
+
+#product.editing.inline #product-info-edit .field.checkbox .input {
+    float: left;
+}
+
+#product.editing.inline #product-info-edit .field {
+    position: relative;
+}
+
+#product.editing #product-info-edit .field .text h3 {
+    font-size: 14.4px;
+}
+
+#product.editing #product-info-edit .field a.action.edit {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    padding-right: 20px;
+    background: url('../images/edit-ico.png') right center no-repeat;
+}
+
+#product.editing #product-info-edit #product-info-edit-inform {
+    position: relative;
+    float: right;
+    margin-bottom: -26px;
+}
+
+#product.editing #product-info-edit .done a {
+    margin-left: 15px;
+}
+
+#product.editing #product-info-edit #conservantsText {
+    float: left;
+}
+
+#product.editing #product-info-edit #conservantsText textarea {
+    display: block;
+    width: 472px;
+}
+
+#product.editing #product-info-edit #conservantsText .text {
+    width: 478px;
+    margin-top: 5px;
+}
+
+#product.editing #product-info-edit #product-info-edit-actions {
+    margin-top: -5px;
+    margin-bottom: 18px;
+}
+
+#product.editing #product-info-edit #product-info-edit-actions .ico {
+    float: left;
+    width: 123px;
+    padding-left: 27px;
+    padding-right: 10px;
+    font-size: 11px;
+}
+
+#product.editing #product-info-edit #product-info-edit-actions .ico.report {
+    background: url('../images/report-ico.png') left 5px no-repeat;
+}
+
+#product.editing #product-info-edit #product-info-edit-actions .ico.edit-photo {
+    background: url('../images/photo-ico.png') left 5px no-repeat;
+}
+
+#product.editing #product-info-edit #product-info-edit-actions .ico.comment {
+    background: url('../images/comment-ico.png') left 5px no-repeat;
+}
+
+#product.editing #additives .additive.unknown .additive-info-quick input.code {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+#product.editing #additives .additive.unknown .additive-info-quick input.name {
+    display: block;
+    clear: both;
+    width: 199px;
+    margin-bottom: 9px;
+}
+
+#product.editing #additives .additive.unknown .additive-info-details.suggestions ol {
+    list-style: none;
+    float: left;
+    width: 230px;
+    padding-right: 10px;
+}
+
+/* editing crop */
+
+#crop-editing .large,
+#crop-editing .small {
+    float: left;
+    width: 456px;
+}
+
+#crop-editing .large {
+    margin-right: 20px;
+}
+
+#crop-editing .small {
+    width: 217px;
+    height: 217px;
+    overflow: hidden;
+}
+
+#crop-editing .small.overflow {
+    position: relative;
+    width: 456px;
+    height: auto;
+    max-height: 480px;
+    overflow: auto;
+}
+
+#crop-editing .small.overflow .overflow-container {
+    position: absolute;
+    overflow: hidden;
+}
+
+#crop-editing .small img {
+    height: auto;
+}
+
+.jcrop-holder {
+    text-align: left;
+}
+
+.jcrop-vline,
+.jcrop-hline {
+    font-size: 0;
+    position: absolute;
+    background: white url('../images/Jcrop.gif') top left repeat;
+}
+
+.jcrop-vline {
+    height: 100%;
+    width: 1px !important;
+}
+
+.jcrop-hline {
+    width: 100%;
+    height: 1px !important;
+}
+
+.jcrop-handle {
+    font-size: 1px;
+    width: 7px !important;
+    height: 7px !important;
+    border: 1px #eee solid;
+    background-color: #333;
+    *width: 9px;
+    *height: 9px;
+}
+
+.jcrop-tracker {
+    width: 100%;
+    height: 100%;
+}
+
+/* editing donate */
+
+#donate .form {
+    width: 450px;
+    margin: auto;
+}
+
+#donate .form .amount .field {
+    float: left;
+    margin-right: 10px;
+}
+
+#donate .form .amount .field .amount-input,
+#donate .form .amount .field select {
+    width: 50px;
+}
+
+#donate .form .subform {
+    padding: 8px;
+    border: 1px solid #ddd;
+    background: #e5f4e6;
+}
+
+#donate .form .subform .field {
+    margin-bottom: 9px;
+}
+
+#donate .form .subform .field label {
+    display: block;
+}
+
+#donate .form .subform .field textarea,
+#donate .form .subform .field input {
+    width: 400px;
+}
+
+#donate .form .actions input {
+    display: block;
+    margin-bottom: 9px;
+}
+
+#tAc ul {
+    margin-top: 9px;
+    margin-left: 23px;
+    margin-bottom: 9px;
+}
+
+/* sort */
+
+#sort {
+    
+}
+
+#sort p a {
+    margin-left: 15px;
+}
+
+#sort p a.ico {
+    margin-left: 7px;
+    padding-left: 12px;
+    border-bottom: none;
+}
+
+#sort p a.ico.remove:hover,
+#sort p a.ico.remove:focus {
+    background: url('../images/delete-filter-ico.png') left center no-repeat;
+}
+
+#sort p a.ico.remove:hover span,
+#sort p a.ico.remove:focus span {
+    border-bottom: 1px solid #ccc;
+}
+
+#product-barcode-img {
+    width: 207px;
+    align: center;
+}

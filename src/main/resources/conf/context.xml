@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context docBase="${docbase.on.server}" reloadable="${webapp.reloadable}">
+<!-- 
+	<WatchedResource>WEB-INF/web.xml</WatchedResource>
+	<WatchedResource>META-INF/context.xml</WatchedResource>
+-->
+</Context>

@@ -1,0 +1,635 @@
+AS Valio Eesti : valio
+Blue dragon : bluedragon
+Ferrero : ferrero
+Glockengold : glockengold
+Kraft foods : kraftfoods
+Pakruojis,''Morkūnas'' : morkunas
+Pieno Žvaigždės : pienozvaigzdes
+Rigas Piensaimnieks,Latvija : piensaimnieks
+Rokiškio sūris : rokiskiosuris
+sibirsky bereg : bereg
+UAB "Jovaigė” : jovaige
+UAB ''MORKŪNAS'',Pakruojis : morkunas
+VICI duona : viciduona
+Vilniaus konservai : viko
+"Ardeks" : ardeks
+"Elmenhorster" : elmenhorster
+"Ilgezeem" : ilgezeem
+"Javinė" : javine
+"Naujasis Nevėžis" : naujasisnevezis
+"Palink" : palink
+"Rokiškio pienas" : rokiskiopienas
+"Samsonas" : samsonas
+"Sauda" : sauda
+"Setrida" : setrida
+"Varėnos pienelis" : varenospienas
+"Viktorija ir partneriai" : viktorijairpartneriai
+Daisena : daisena
+Kelmės grietinė : kelmesgrietine
+Kėdainių konservų fabrikas : vikonda
+Maag : maag
+Palink : palink
+Vejolita : vejolita
+Vilniaus majonezo gamykla : vilniausmajonezas
+"Anira" : anira
+"Birštono mineralinai vandenys” : birstonovandenys
+"Gerove" : gerove
+"La Sota" : lasota
+"Laeva meierei" Estija : alevameierei
+"Libella" : libella
+"Marijampolės pieno konservai” : marijampolespienas
+"Masterfoods" : masterfoods
+"Naujasis Nevėžis" : naujasisnevezis
+Ost-Akva : ostakva
+"Rokiškio pienas" : rokiskiopienas
+"Rokiškio sūris" : rokiskiosuris
+"Saldva" : saldva
+"Santa Maria" : santamaria
+"Spilva" : spilva
+"Šilutės Rambynas" : rambynas
+"Žemaitijos pienas" : zemaitijospienas
+Jamar : jamar
+AB "Vilniaus pergalė" : vilniauspergale
+AB Kraft Foods Lietuva : kraftfoods
+AB Santa Maria : santamaria
+AB Vilkyškių pieninė : vilkyskiupienine
+ACP International : acpintl
+Adugs : adugs
+Agrogrupė : agrogrupe
+Akmedita : akmedita
+Alaista : alaista
+Aldigus : aldigus
+Alfred Ritter : ritter
+Alksnio dūmas : alksniodumas 
+Aloja Starkelsen : alojastarkelsen
+Alojas : alojas
+Alpenrose : alpenrose
+Alvo : alvo
+Amiko : amiko
+Anakom : anakom
+Anira : anira
+AOR N.V. / Grace
+Arimex : arimex
+ArteOliva : arteoliva
+ARVI kalakutai : arvi 
+Arvi kalakutai : arvi
+AS Paulig Baltic : paulig
+Asta : asta
+Aston : aston
+Atrona : atrona
+AURA : aura
+Avokado : avokado
+AXA harmony Natural : axa
+Balbiino : balbiino
+Baltijos delikatesai : baltijosdelikatesai
+Baltijos mineralinių vandenų kompanija : bmvk
+Baltoji snaigė : baltojisnaige
+Baltoji varnelė : baltojivarnele
+BAWAG Vokietija : bawag
+Bernardo Alfageme : bernardoalfageme
+Biovela : biovela
+BIOVELA : biovela
+BIOVELA / Maxima : biovela
+BK-FOOD POLAND : bkfoodpl
+Blue lagoon : bluelagoon
+Bolero : bolero
+Bona Dea : bonadea
+BONA VITA : bonavita
+Bonduelle : bonduelle
+Bono : bono
+Borges : borges
+Boso : boso
+Bouton d'Or : boutondor
+Brokelmann : brokelmann
+Buities rojus : buitiesrojus
+Böhme : bohme
+Campina : campina
+CANDIDO MIRO S.A. : candidomiro
+Cappy : cappy
+Caprice : caprice
+Carl Kuhne : carlkuhne
+Casale : casale
+Caviar Club : caviarclub
+Celiko : celiko
+Cepejs : cepejs
+Chain Kwo : chainkwo
+Chipita : chipita
+Christian Potier SA : cristianpotier
+Cido : cido
+CIDO Grupa : cido
+Clearspring : clearsp
+Coca - Cola : cocacola
+Coca - Cola HBC Lietuva : cocacola
+Coca cola : cocacola
+Coca-Cola : cocacola
+Coca-Cola Company : cocacola
+Columbus : columbus
+Contimax : contimax
+Corny Big : corny
+Crown Foods : crownfoods
+D.Gelombickienė ir partneriai : gelombickiene
+D.Gelombickienė : gelombickiene
+D.Gelombickiene ir partneriai : gelombickiene
+D.Gelombickiene : gelombickiene
+Dadu : dadu
+Daisena : daisena
+Daivida : daivida
+Danisco Sugar A/S : dansukker
+Dansukker : dansukker
+Danone : danone
+Danvita : danvita
+Dargita : dargita
+De Lucia : delucia
+Deilena : deilena
+Del Monte International : delmonteintl
+Delikat : delikat
+Delikatesas : delikatesas
+Desė : dese
+Diamond : diamond
+Dirol cadburry : dirol
+Dirol cadbury : dirol
+Dobavkin : dobavkin
+Domina : domina
+Dorset cereals : dorset
+Dr Oetker : droetker 
+Dr Hellus : drhellus
+dr Vitt : drvitt
+Dr.Oetker : droetker
+Drinktech : drinktech
+Droga Kolinska :  drogakolinska
+DYNAMIT : dynamit
+Dzūkija : dzukija
+EBpagalba : ebpagalba
+Eclipse : eclipse
+"Eifelperle Milch eG Erftstadt, Vokietija" : eifelperle
+EKOVALDA : ekovalda
+Elenos skanėstai, Kaunas : elenosskanestai
+Elmenhorster : elmenhorster
+Elpozo : elpozo
+Emborg : emborg
+Emix : emix
+Engelsviken : engelsviken
+Essen Production : essenprod
+Eurialė : euriale
+euroaliment : euroaliment
+F. Duerr & Sons : duerrsons
+Fasma : fasma
+Favorit : favorit
+Fazer kepyklos : fazer
+Fazer : fazer
+Felix : felix
+FELIX : felix
+Fererro : ferrero
+Ferrero : ferrero
+Fiji : fiji
+Finetti : fineti
+Finn Crisp : finncrisp
+Fiorini : fiorini
+Fit Müsli : fitmuesli
+Fragata : fragata
+Frank Pott : frankpott
+Fresco : fresco
+Frosta : frosta
+Frutico : frutico
+Funny Family : funnyfamily
+Gaivineta : gaivineta
+Galinta : galinta
+Gallina Blanca : gallinablanca
+Gardner : gardner
+Gardėsis : gardesis
+Gerovė : gerove
+Gerovės konservų fabrikas : gerove
+Giana : giana
+Globus Canning Industry : globalcanningindustry
+Goccia d'oro : gocciadoro
+Gosupi : gosupi
+GOSUPI EXPORT : gosupi
+Grabower Susswaren GmbH : grabower
+Gran-Pik : granpik
+Grandner : grandner
+Granex : granex
+GRANUM EXTRA : granum
+GRANUM food : granum
+GRANUM food / GRANUM EXTRA : granum
+Grimeda : grimeda
+Guangdong foodstuffs corp. : guangdong
+Gubernija : gubernija
+Gudobelė : gudobele
+Gutta : gutta
+H.J. Heinz : heinz
+Hamker : hamker
+Hamlet : hamlet
+Haribo : haribo
+Haribo GMBH : haribo
+heinz : heinz
+Heinz : heinz
+Heinz ABC : heinz 
+Hellmann's : hellmann
+Herbapol lublin : herbapol
+Heuschen & Schrouff : heuschenschrouff
+Hijos de Ybarra S.A. : hijosybarra
+Hipp : hipp
+Hofmeister : hofmeister
+Hommiku : hommiku
+I.D.C. Holding : idc
+Igoris ir partneriai UAB : igorisirpartneriai
+Indykpol : indykpol
+Ingman : ingman
+Ingman ledai : ingman
+Jacobs : jacobs
+JACQUOT : jacquot
+JAMAR : jamar
+Jamar : jamar
+Javine : javine
+Javinė : javine
+JBRA Darida : darida
+Jean Floc'h : jeanfloc
+Jovaigė : jovaige
+Jovaige : jovaige
+Joya : joya
+JUDEX : judex
+Judex : judex
+Jukna : jukna
+JUKNA : jukna
+Kaišiadorių paukštynas : kaisiadoriupaukstynas
+Jungtinis duonos centras : jungtinisduonoscentras
+Kalev : kalev
+Karūna : karuna
+karuna: karuna
+Kauno pieno centras : kaunopienocentras
+Kazanskij žirovoi kombinat : kazanskijzirovojkombinat
+Kelmės pieninė : kelmespienas
+Kendy : kendy
+Kikkoman : kikkoman
+Kikkoman Foods Europe : kikkoman
+KILARGO : kilargo
+Kinkartz : kinkartz
+Klaipėdos duona : klaipedosduona
+Klaipėdos maistas : klaipedosmaistas
+Klaipėdos mėsinė : klaipedosmesine
+Klaipėdos pienas : klaipedospienas
+Knorr : knorr
+Kogus : kogus
+Kolumbo : kolumbo
+Kornita : kornita
+Kotanyi : kotanyi
+Kraft foods : kraftfoods
+Kraft Foods Deutschland GmbH : kraftfoods
+Kraft Foods Lietuva : kraftfoods
+Kraitenė : kraitene
+Kraitene : kraitene
+Krekenava : krekenava
+Krekenavos : krekenava
+Krekenavos agrofirma : krekenava
+Krekenavos Agrofirma : krekenava
+Kretingalės mėsa : kretingalesmesa
+Krum : krum
+Krynica Vitamin Sp. : krynica
+Krynica Vitamin : krynica
+Krynica : krynica 
+Krüger : krueger
+Kubus : kubus
+kubuš : kubus
+Kuhne : kuhne
+Kurskaja masložirovaja kompanija : kurskajamaslozhirovaja
+Kurskij žirovoi kombinat : kurskajamaslozhirovaja
+Kėdainiu konservų fabrikas : vikonda
+Kėdainių konservų fabrikas : vikonda
+L.Kužmarskienės IĮ : kuzmarskiene
+lapalma : lapalma
+La Palma : lapalma
+lasevillana : sevillana
+La Sevillana : sevillana
+Sevillana : sevillana
+La Sota : lasota
+La vache qui rit : lavache
+LaFesta : lafesta
+La Festa : lafesta
+Laima : laima
+Laragis : laragis
+Lay's : lays
+Lays : lays
+LE Mažoji Ragainė : mazojiragaine
+Mažoji Ragainė : mazojiragaine
+Le sirop de Monin : monin
+monin : monin
+Monin : monin
+Leader Price : leaderprice
+LeaderPrice : leaderprice
+Leiner Health Products : leinerhealth
+Leiner Health : leinerhealth
+Leiner Products : leinerhealth
+Lesieur int'l : lesieur
+Lesieur international : lesieur
+Lesieur : lesieur
+Lian Yi development : lianyi
+Lian Yi : lianyi
+Lignesa : lignesa
+Linea Vitalis : lineavitalis
+LineaVitalis : lineavitalis
+Lithuania Snacks : lithuaniasnacks
+Lombardi Claudio : lombardiclaudio
+Ludwig Schokolade : ludwigschokolade
+Lukšių pieninė : luksiupienine
+Lukšių pienas : luksiupienine
+Lukšių : luksiupienine
+Maggi : maggi
+Maggi GmbH, Vokietija : maggi
+Mahashian Di Hatti : mahashian
+Malpils piensaimnieks : malpils
+Malsena : malsena
+Mamee : mamee
+Manner : manner
+Mantinga : mantinga
+Marijampolės pieno konservai : marijampolespienas
+Mario's : marios
+Maris Gilden : marisgilden
+Marks & Spencer : marksspencer
+Mars Chocolat France : marsfoods
+Mars foods : marsfoods
+Mars Lietuva : marsfoods
+Mars Polska : marsfoods
+Maspex : maspex
+Mattoni : mattoni
+Maxima : maxima
+MAXIMA : maxima
+Maxima LT : maxima
+Mažeikių mėsinė : mazeikiumesa
+McCarter : mccarter
+Med International s.a. : medinternational
+Med International : medinternational
+MELANGE : melange
+MENTORA : mentora
+Mentora : mentora
+Mentora ir ko : mentora
+Milka : milka
+MIVINA : mivina
+Mlekovita : mlekovita
+Mogyi : mogyi
+Mokate : mokate
+Monty & TOTCO CO., LTD : montytotco
+Myllyn Paras OY : myllyn
+Nantecom OU : nantecom
+Natali : nantali
+Naturalis : naturalis
+Naturata : naturata
+Naturland : naturland
+Naujasis nevėžis : naujasisnevezis
+Naujoji rūta : naujojiruta
+Nematekas : nematekas
+NEMATEKAS : nematekas
+Nemli : nemli
+Neptūno vandenys : neptunovandenys
+Nescafe : nescafe
+Nestea : nestea
+Nestle : nestle
+Nestle Baltics : nestle
+Nordic : nordic
+Norfa : norfa
+Norvelita : norvelita
+Notre Jardin : notrejardin
+Nowaco : nowaco
+Nowaco Lietuva : nowaco
+Nutrisun : nutrisun
+Ocean : ocean
+OHO : oho
+Olive Line : oliveline
+Optima linija : optimalinija
+Optimalinija : optimalinija
+Orbit : orbit
+Orient : orient
+OSAMA LAFESTA : osamalafesta
+Osterna : osterna
+pagamintas Estijoje pagal Rimi užsakymą : rimi
+pagaminta Estijoje pagal Rimi užsakymą : rimi
+Pajuva : pajuva
+Palasėja : palaseja
+Panevėžio pienas : paneveziopienas
+Pasvalio sūrinė : pasvaliosurine
+Paul Paulet : paulpaulet
+Paulig Baltic : paulig
+paulig : paulig
+Pekny : pekny
+Pelamidė : pelamide
+PEPSI COLA : pepsico
+Pepsi Cola General Bottlers Poland : pepsico
+Pienalita : pienalita
+Pieno zvaigzdes : pienozvaigzdes
+PIENO ŽVAIGŽDĖS : pienozvaigzdes
+Pieno Žvaigždės : pienozvaigzdes
+Pieno žvaigždės : pienozvaigzdes
+Piimatoostus : piimatoostus
+Platintojas UAB "Rivona" : rivona
+Plungės duona : plungesduona
+Podravka : podravka
+PODRAVKA d.d. : podravka
+Polser : polser
+PPH EMIX : pphemix
+Premia : premia
+Premia Tallinna Kulmhoone : premia 
+President : president
+Pringles : pringles
+Procter & Gamble : proctergamble
+Proctor & Gamble : proctergamble
+Proexpo : proexpo
+Provitus : provitus
+Prymat Spółka z o. o. : prymat
+Prymat Spółka : prymat
+Pure Food : purefood
+Quinta's : quinta
+Quintas : quinta
+Quinta : quinta
+Radviliškio duona : radviliskioduona
+Ragutis : ragutis
+AB Ragutis : ragutis
+Raimondos Navickienės : navickiene
+Raisio Nutrition : raisionutrition
+Rama : rama
+Rasa : rasa
+Red Band : redband
+RED BULL Sugarfree : redbull
+RED BULL : redbull
+Remina : remina
+Rigas Piensaimnieks : piensaimnieks
+Rilva / Maxima : maxima
+Rimi : rimi
+Rimi Lietuva : rimi
+Rivona : rivona
+Rokiskio pienas : rokiskiopienas
+Rokiskio suris : rokiskiosuris
+Rokiškio : rokiskiopienas
+Rokiškio pienas : rokiskiopienas
+Rokiškio sūris : rokiskiosuris
+Rolanta : rolanta
+Rubezahl Schokoladen : rubezahl
+Rubezahl : rubezahl
+Rubicon : rubicon
+Rucker : rucker
+Rūcker Gmbh Vokietija : rucker
+Rūta : naujojiruta
+Saimeta : saimeta
+Saint Eloi : sainteloi
+Saldoga : saldoga
+Saldukas : saldukas
+Salov : salov
+Salvest : salvest
+Samsonas : samsonas
+Samsono : samsonas
+Sauda : sauda
+Saulės : saulespienas
+Saulės pienas : saulespienas
+Save plus : saveplus
+SCAMAR : scamar
+SCAMARK : scamar
+Schani : schani
+Schogetten : schogetten
+Schwartauer Werke : schwartauer
+Selita : selita
+Selita ir Ko : selita
+Serwar : serwar
+Shwarzwaldhof : shwarzwaldhof
+SIA "Ardeks" : ardeks
+Ardeks : ardeks
+SIA Saldus galas kombinats : saldusgala
+SKG Premium : saldusgala
+Saldus galas kombinats : saldusgala
+SIA GAMMA-A : gammaa
+GAMMA-A : gammaa
+Sipahh : sipahh
+Skanėja : skaneja
+SMILGA : smilga
+Soda-Club Ltd, Izraelis : sodaclub
+Soda-Club : sodaclub
+Sokolka : sokolka
+Sokpol : sokpol
+Sonda : sonda
+sonko : sonko
+Sovena Espana : sovena
+Sovena : sovena
+Spilva : spilva
+Stilsas : stilksas
+Stollenwerk : stollenwerk
+Suslavicius-Felix : felix
+suslavičius : felix
+Suslavičius – Felix : felix
+Taffel : taffel
+Taste of Asia  : tasteofasia
+Tekmar : tekmar
+Thai-Choice : thaichoice
+Tichė : tiche
+Tiche : tiche
+Tikras kelias : tikraskelias
+Torčin : torcin
+Torcin : torcin
+Toska : toska 
+Treknas : treknas
+TROLLI : trolli
+TRS Asia's finest foods : asiasfinestfoods
+Asia's finest foods : asiasfinestfoods
+Tymbark : tymbark
+UAB "Alvas ir ko" : alvasirko
+Alvas ir ko : alvasirko
+UAB "Baltasis pyragas" : baltasispyragas
+Baltasis pyragas : baltasispyragas
+UAB "Dzūkija" : dzukija
+Dzūkija : dzukija 
+UAB "Granex" : granex
+Granex : granex
+UAB "Jukna ir Ko" : juknairko
+Jukna ir Ko : juknairko
+UAB "Klaipėdos mėsinė" : klaipedosmesine
+Klaipėdos mėsinė : klaipedosmesine
+UAB "Krum" : krum
+Krum : krum
+UAB "Palink" : palink
+Palink : palink
+Iki : palink
+UAB "Pieno žvaigždės" : pienozvaigzdes
+Pieno žvaigždės : pienozvaigzdes
+UAB "Rokiškio pienas" : rokiskiopienas
+UAB "Saldukas" : saldukas
+UAB "Saldva" : saldva
+UAB "Salų žuvys" : saluzuvys
+Salų žuvys : saluzuvys
+UAB "Samsonas" : samsonas
+Samsonas : samsonas
+UAB "Valdorfo didmenos" : valdorfas
+Valdorfo didmenos : valdorfas
+valdorfas : valdorfas
+UAB "Vesiga" : vesiga
+UAB "Vikeda" : vikeda
+UAB "Vilniaus konservai" : vilniauskonservai
+Vilniaus konservai : vilniauskonservai
+UAB "Vilniaus maistas" : vilniausmaistas
+Vilniaus maistas : vilniausmaistas
+UAB "Vilniaus margarino gamykla” : vilniausmargarinas
+Vilniaus margarino gamykla : vilniausmargarinas
+UAB "Vičiūnai ir partneriai" : viciunai
+Vičiūnai ir partneriai : viciunai
+UAB Gemaga : gemaga
+gemaga: gemaga
+UAB Dreigsas : dreigsas
+Dreigsas : dreigsas
+UAB Rimi Lietuva : rimi
+Rimi Lietuva : rimi
+UAB Sauda : sauda
+Unilever : unilever
+Unilever Lietuva : unilever
+Uniliever Polska: unilever
+Uriga : uriga
+Ustukių malūnas : ustukiumalunas
+Utenos duona : utenosduona
+Utenos mėsa : utenosmesa
+Valdorfo didmenos : valdorfas
+Valgeda : valgeda
+Valio : valio
+Valio Alma : valio
+Varenos pienelis : varenospienas
+Veiveriu skonis : veiveriai
+Veiverių skonis : veiveriai
+Vejolita : vejolita
+Vesiga : vesiga
+Vici : vici
+Vigora : vigora
+Vika : vika
+Vikeda : vikeda
+Viko : vilniauskonservai
+Viktorija ir partneriai : viktorija
+VILKYŠKIŲ SŪRIAI : vilkyskiai
+Vilkyškių pieninė : vilkyskiai
+Vilniaus duona : vilniausduona
+"Vichy" : vichy
+"Vilniaus duona" : vilniausduona
+Vilniaus konservai : vilniauskonservai
+Vilniaus majonezo gamykla : vilniausmajonezas
+Vilniaus margarino gamykla : vilniausmargarinas
+Vilniaus paukštynas : vilniauspaukstynas
+Vilniaus Pergale : pergale
+VILNIAUS PERGALĖ : pergale
+Vilniaus pergalė : pergale
+Vilniauspergalė : pergale
+Vilnius : vilnius
+Vitana : vitana
+VIČI DUONA : vici
+Viči : vici
+Vičiūnai : viciunai
+Vytauto Paulaičio įmonė "Libro” : libro
+Waldi Ben : waldiben
+Wewalka : wewalka
+Wrigley's : wrigleys
+ZAO ČUMAK : chumak
+Zemaitijos pienas : zemaitijospienas
+Zeynalabdin 94 : zeynalabdin
+Zila lagūna : zilolaguna
+Zimbo : zimbo
+ZIOLOPEX : ziolopex
+Zott : zott
+Čumak : chumak
+Šiaurės kompanija : siaureskompanija
+Švyturys - Utenos alus : svyturys
+Ūkininkas V.Kvedaras : kvedaras
+Žemaitijos pienas : zemaitijospienas
+ŽEMAITIJOS PIENAS : zemaitijospienas
+Žydrūno Marčausko IĮ : marchauskas
+Žydrūno Marčausko įmonė : marchauskas
+žemaitijos pienas : zemaitijospienas

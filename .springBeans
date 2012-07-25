@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[2.2.1.v200811281800]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[true]]></enableImports>
+	<configs>
+		<config>src/main/resources/conf/applicationContext.xml</config>
+		<config>src/main/resources/conf/mail.xml</config>
+		<config>src/main/resources/conf/security-config.xml</config>
+		<config>src/main/resources/conf/spring-servlet.xml</config>
+		<config>src/main/resources/conf/view-config.xml</config>
+		<config>src/main/resources/conf/webflow-config.xml</config>
+	</configs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>
