@@ -230,6 +230,7 @@
 		<e.dictionary.name>english_e</e.dictionary.name>
 		<dictionary.name>english</dictionary.name>
 		<blog.url>http://blog.sveikasvaikas.lt/?feed=rss2</blog.url>
+		<build.tag>${env.BUILD_TAG}</build.tag>
 	</properties>
 
 	<build>

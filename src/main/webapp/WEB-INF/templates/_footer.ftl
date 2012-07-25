@@ -27,5 +27,5 @@
                             <a href="mailto:info@inbelly.co.uk">Contact us</a>
                         </p>
 
-			<p><small>${env.BUILD_TAG}</small></p>
+			<p><small>${build.tag}</small></p>
                     </div>
