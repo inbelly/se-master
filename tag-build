@@ -1,0 +1,3 @@
+#!/bin/sh
+
+perl -pi -e's/__build.tag__/${BUILD_TAG}/' src/main/webapp/WEB-INF/templates/_footer.ftl
