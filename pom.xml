@@ -138,19 +138,19 @@
 		</profile>
 
 		<profile>
-			<id>sidekick</id>
+			<id>inbelly-se</id>
 			<properties>
 				<serverId>inbelly_tomcat</serverId>
 				<site.db.host>localhost</site.db.host>
-				<site.db.database>inbelly</site.db.database>
+				<site.db.database>se_inbelly</site.db.database>
 				<site.db.username>ml</site.db.username>
 				<site.db.password>ml</site.db.password>
-				<site.files.directory>/home/webapps/files/inbelly.com</site.files.directory>
+				<site.files.directory>/home/webapps/files/se.inbelly.com</site.files.directory>
 				<flowDevelopment>false</flowDevelopment>
-				<tomcatMgr>http://inbelly.com/manager</tomcatMgr>
-				<messages.locale>en_GB</messages.locale>
-				<e.dictionary.name>english_e</e.dictionary.name>
-				<dictionary.name>english</dictionary.name>
+				<tomcatMgr>http://se.inbelly.com/manager</tomcatMgr>
+				<messages.locale>se_SE</messages.locale>
+				<e.dictionary.name>swedish_e</e.dictionary.name>
+				<dictionary.name>swedish</dictionary.name>
 				<site.mail.smtpHost>localhost</site.mail.smtpHost>
 				<webappPath>/</webappPath>
 				<blog.url>http://blog.inbelly.co.uk/?feed=rss2</blog.url>
