@@ -9,6 +9,7 @@
 	<profiles>
 		<profile>
 			<id>opit</id>
+			<!-- off -->
 			<properties>
 				<serverId>opit_tomcat</serverId>
 				<site.db.host>stroike</site.db.host>
