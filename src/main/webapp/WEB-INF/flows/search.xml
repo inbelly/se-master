@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+	parent="common">
+
+	<persistence-context/>
+	
+	<input name="q" />
+
+	<decision-state id="ifHaveQ">
+		<if test="null == q" then="searchResults" else="setQ" />
+	</decision-state>
+
+	<view-state id="searchResults">
+		<on-render>
+			<set name="requestScope.criteria" value="productSearchCriteria" />
+			<evaluate expression="searchService.search(productSearchCriteria)" result="flowScope.searchResults" />
+			<evaluate expression="categoryService.getList()" result="viewScope.categoryList" />
+			<set name="viewScope.conservants" value="searchResults.conservants" />
+		</on-render>
+		<transition on="page" to="searchResults">
+			<evaluate expression="productSearchCriteria.setPage(requestParameters.page)" />
+		</transition>
+		<transition on="setPageSize" to="searchResults">
+			<evaluate expression="productSearchCriteria.updateItemsPerPage(requestParameters.pageSize)" />
+		</transition>		
+	</view-state>
+	
+	<action-state id="setQ">
+		<on-entry>
+			<evaluate expression="productSearchCriteria.clear()" />
+		</on-entry>
+		<evaluate expression="productSearchCriteria.setQ(q)" />
+		<transition to="searchResults" />
+	</action-state>
+	
+
+</flow>

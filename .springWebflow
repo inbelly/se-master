@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webflow-project-description>
+	<version>1</version>
+	<pluginVersion><![CDATA[2.3.0.200912170948-RELEASE]]></pluginVersion>
+	<configs>
+		<config>
+			<file>src/main/webapp/WEB-INF/flows/createProduct.xml</file>
+			<name><![CDATA[createProduct]]></name>
+		</config>
+		<config>
+			<file>src/main/webapp/WEB-INF/flows/register.xml</file>
+			<name><![CDATA[register]]></name>
+		</config>
+		<config>
+			<file>src/main/webapp/WEB-INF/flows/replace.xml</file>
+			<name><![CDATA[replace]]></name>
+		</config>
+		<config>
+			<file>src/main/webapp/WEB-INF/flows/reset.xml</file>
+			<name><![CDATA[reset]]></name>
+		</config>
+		<config>
+			<file>src/main/webapp/WEB-INF/flows/editIngredients.xml</file>
+			<name><![CDATA[editIngredients]]></name>
+		</config>
+	</configs>
+</webflow-project-description>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+        http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+	<secured attributes="ROLE_USER,ROLE_ADMIN" />
+	<persistence-context />
+
+	<input name="product" type="com.megalogika.sv.model.Product" />
+	<input name="id" />
+	
+	<on-start>
+		<set name="flowScope.hazardDescriptions" value="eService.getHazardDescriptions()" />
+		<set name="flowScope.cp" value="frontendService.getContextPath(externalContext.contextPath)" />
+	</on-start>
+
+	<decision-state id="isProductDefined">
+		<if test="null != product" then="editIngredients" else="loadProduct" />
+	</decision-state>
+
+	<action-state id="loadProduct">
+		<evaluate expression="productService.load(id)" result="flowScope.product" />
+		<transition to="editIngredients" />
+	</action-state>
+
+	<view-state id="editIngredients" model="product" >
+		<binder>
+			<binding property="conservantsText" />
+			<binding property="conservantFree" />
+			<binding property="conservantsParsed" />
+		</binder>
+		<transition on="add" bind="true" validate="true" >
+			<evaluate expression="productService.updateConservants(product)" />
+			<set name="flashScope.reverse" value="true" />
+			<render fragments="eTable"  />
+		</transition>
+		<transition on="submit" to="success" bind="true" validate="true">
+			<evaluate expression="productService.save(product)" result="product" />
+		</transition>
+		<transition on="cancel" to="cancelled" validate="false" bind="true"/>
+	</view-state>
+	
+	<end-state id="success" commit="true">
+		<output name="product" value="product" />	
+	</end-state>
+	<end-state id="cancelled" commit="true">
+		<output name="product" value="product" />	
+	</end-state>
+</flow>

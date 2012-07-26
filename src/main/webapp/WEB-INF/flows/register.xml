@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+        http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+	
+	<persistence-context/>
+	<var name="user" class="com.megalogika.sv.model.User"/>
+	
+	
+	<view-state id="registerForm" model="user">
+		<on-entry>
+			<evaluate result="flowScope.cp" expression="frontendService.getContextPath(externalContext.contextPath)" />
+		</on-entry>
+		<transition on="submit" to="success">
+			<evaluate expression="userService.save(user)" />
+			<evaluate expression="userService.forceLogin(user)" />
+		</transition>
+		<transition on="cancel" to="cancelled" bind="false" validate="false"/>
+	</view-state>
+	
+	<end-state id="success" view="registerSuccess" commit="true"/>
+	<end-state id="cancelled" view="flowRedirect:index"/>
+</flow>

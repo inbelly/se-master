@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:webflow="http://www.springframework.org/schema/webflow-config"
+	xmlns:faces="http://www.springframework.org/schema/faces"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/webflow-config
+           http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.0.xsd">
+
+	<!-- Enables FlowHandler URL mapping -->
+	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
+	    <property name="flowExecutor" ref="flowExecutor" />
+	</bean>
+
+	<!--
+		Executes flows: the central entry point into the Spring Web Flow
+		system
+	-->
+	<webflow:flow-executor id="flowExecutor">
+		<webflow:flow-execution-listeners>
+			<webflow:listener ref="jpaFlowExecutionListener" />
+			<webflow:listener ref="securityFlowExecutionListener" />
+		</webflow:flow-execution-listeners>
+		<webflow:flow-execution-repository
+			max-executions="3" max-execution-snapshots="12" />
+	</webflow:flow-executor>
+
+	<!-- The registry of executable flow definitions -->
+	<webflow:flow-registry id="flowRegistry"
+		flow-builder-services="flowBuilderServices">
+		<webflow:flow-location-pattern value="/WEB-INF/flows/**/*.xml" />
+	</webflow:flow-registry>
+	<!-- Plugs in a custom creator for Web Flow views -->
+	<webflow:flow-builder-services id="flowBuilderServices"
+		view-factory-creator="mvcViewFactoryCreator" conversion-service="sveikasVaikasConversionService"
+		development="${flowDevelopment}" />
+
+	<!--
+		Configures Web Flow to use Tiles to create views for rendering; Tiles
+		allows for applying consistent layouts to your views
+	-->
+	<bean id="mvcViewFactoryCreator"
+		class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
+		<!-- property name="viewResolvers" ref="viewResolver"/-->
+		<property name="flowViewResolver">
+			<bean class="com.megalogika.sv.view.MobileFlowViewResolver">
+				<constructor-arg>
+					<list>
+						<ref bean="viewResolver" />
+					</list>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- Installs a listener to apply Spring Security authorities -->
+	<bean id="securityFlowExecutionListener"
+		class="org.springframework.webflow.security.SecurityFlowExecutionListener" />
+
+	<bean id="jpaFlowExecutionListener"
+		class="org.springframework.webflow.persistence.JpaFlowExecutionListener">
+		<constructor-arg ref="entityManagerFactory" />
+		<constructor-arg ref="transactionManager" />
+	</bean>
+
+</beans>

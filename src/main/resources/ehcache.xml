@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <diskStore path="java.io.tmpdir"/>
+
+  <defaultCache
+      maxElementsInMemory="20000"
+      eternal="false"
+      timeToIdleSeconds="120"
+      timeToLiveSeconds="120"
+      overflowToDisk="true"
+      diskPersistent="false"
+      diskExpiryThreadIntervalSeconds="120"
+      memoryStoreEvictionPolicy="LRU"
+      />
+  
+  <cache
+    name="com.megalogika.sv.model.E"
+    maxElementsInMemory="1000"
+    eternal="false"
+    timeToIdleSeconds="300"
+    timeToLiveSeconds="600"
+    overflowToDisk="true"
+	/>
+  <cache
+    name="com.megalogika.sv.model.E.products"
+    maxElementsInMemory="1000"
+    eternal="false"
+    timeToIdleSeconds="300"
+    timeToLiveSeconds="600"
+    overflowToDisk="true"
+  />	
+
+  <cache
+    name="com.megalogika.sv.model.Product"
+    maxElementsInMemory="10000"
+    eternal="false"
+    timeToIdleSeconds="300"
+    timeToLiveSeconds="600"
+    overflowToDisk="true"
+  />  
+
+  <cache
+    name="com.megalogika.sv.model.Product.conservants"
+    maxElementsInMemory="10000"
+    eternal="false"
+    timeToIdleSeconds="300"
+    timeToLiveSeconds="600"
+    overflowToDisk="true"
+  />  
+
+  <cache
+    name="com.megalogika.sv.model.Comment"
+    maxElementsInMemory="10000"
+    eternal="false"
+    timeToIdleSeconds="300"
+    timeToLiveSeconds="600"
+    overflowToDisk="true"
+  /> 
+  
+  <cache
+    name="com.megalogika.sv.model.Product.comments"
+    maxElementsInMemory="10000"
+    eternal="false"
+    timeToIdleSeconds="300"
+    timeToLiveSeconds="600"
+    overflowToDisk="true"
+  /> 
+  
+  <cache
+    name="com.megalogika.sv.model.Friend"
+    maxElementsInMemory="10000"
+    eternal="false"
+    timeToIdleSeconds="300"
+    timeToLiveSeconds="600"
+    overflowToDisk="true"
+  /> 
+
+  <cache
+    name="com.megalogika.sv.model.User"
+    maxElementsInMemory="10000"
+    eternal="false"
+    timeToIdleSeconds="300"
+    timeToLiveSeconds="600"
+    overflowToDisk="true"
+  /> 
+  
+  
+  
+  
+</ehcache>

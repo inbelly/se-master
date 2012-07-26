@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+	<persistence-context/>
+
+	<on-start>
+		<set name="flowScope.criteria" value="frontendService.getESearchCriteria(externalContext)" /> 
+		<set name="flowScope.hazardDescriptions" value="eService.getHazardDescriptions()" />
+		<set name="flowScope.cp" value="frontendService.getContextPath(externalContext.contextPath)" />
+		<evaluate expression="eService.load(requestParameters.eid)" result="flowScope.e" />
+	</on-start>
+
+	<view-state id="replaceE">
+		<on-render>
+			<evaluate expression="eService.getList(externalContext.sessionMap.get('com.megalogika.sv.service.ESearchCriteria'))" result="viewScope.list"/>
+		</on-render>
+		<transition on="replace" to="eReplace" />
+	</view-state>
+	
+	<subflow-state id="eReplace" subflow="eReplace">
+		<input name="from" value="e.id"/>
+		<input name="to" value="requestParameters.replacement"/>
+		<transition to="eList" />
+		<on-exit>
+			<evaluate expression="persistenceContext.clear()"/>
+		</on-exit>
+	</subflow-state>
+	
+	<view-state id="eList" view="flowRedirect:eList" />
+</flow>

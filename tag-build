@@ -1,0 +1,3 @@
+#!/bin/sh
+
+sed -i "s/__build.tag__/build:$BUILD_ID-$BUILD_TAG/" src/main/webapp/WEB-INF/templates/_footer.ftl

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+        http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+        
+	<persistence-context/>
+        <on-start>
+                <set name="flowScope.cp" value="frontendService.getContextPath(externalContext.contextPath)" />
+        </on-start>
+	
+	<view-state id="resetForm" view="reset">
+		<transition on="submit" to="reset">
+			<evaluate expression="userService.resetPassword(requestParameters.email)" result="flowScope.passwordReset"/>
+		</transition>
+		<transition on="cancel" to="cancelled" bind="false" validate="false"/>
+		<transition on-exception="javax.persistence.NoResultException" to="resetForm">
+			<set name="flowScope.emailNotFound" value="true" />
+		</transition>
+	</view-state>
+	
+	<decision-state id="reset">
+		<if test="passwordReset" then="resetSuccess" else="resetForm" />
+	</decision-state>
+	
+	<end-state id="resetSuccess" view="resetSuccess" commit="true" />
+	<end-state id="cancelled" view="flowRedirect:index" />
+</flow>
