@@ -28,7 +28,7 @@
                       	<#if product.canBeConfirmedBy(currentUser)>
 	                        <div id="waiting-approval" class="mb clearfix">
 	                        	<div class="message">
-		                            <p>By entering data you submit that you have read and agree with our <a href="javascript:void(0);" class="toggle-handle js">Terms and Conditions</a>.</p>
+		                            <p>Genom att skriva in data som du har gjort gällande att du har läst och accepterat våra <a href="javascript:void(0);" class="toggle-handle js">villkor</a>.</p>
 		                        </div>
                                 <ul id="termsandconditions" class="hidden"><@spring.message code="createproduct.form.terms" /></ul>	                            
 	                        </div>
@@ -89,7 +89,7 @@
 		                                    <input type="hidden" name="id" value="${product.id}" />
 		                                    <button type="submit">Done editing</button>
 					        				<@sec.authorize ifAllGranted="ROLE_ADMIN">
-		                                    	<a href="${cp}spring/product/delete?id=${product.id}" class="red" onclick="return confirm('are you sure?');">delete product</a>
+		                                    	<a href="${cp}spring/product/delete?id=${product.id}" class="red" onclick="return confirm('är du säker?');">bort produkten</a>
 											</@sec.authorize>    		                                    
 		                                </p>
 	                                </form>		                        	

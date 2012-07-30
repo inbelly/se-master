@@ -1,5 +1,5 @@
                 <div class="clear clearfix">&nbsp;</div>
-                <#-- h3 class="mbh">Join our campaign</h3 -->
+                <#-- h3 class="mbh">Gå med i vår kampanj</h3 -->
                 <div class="help-us small">
                     <span class="c top"></span>
                     <div class="content">

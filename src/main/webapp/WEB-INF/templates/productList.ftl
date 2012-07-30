@@ -14,7 +14,7 @@
 					<#assign productDescription>
 						<@spring.message code='searchResults.productsContaining' />:
 					</#assign>
-					<#--assign feedLinks='<span id="rss"><a href="products.rss?e=${q}" alt="RSS" title="Paieškos rezultatai RSS formatu"><img src="../img/rss.png" alt="RSS" title="Paieškos rezultatai RSS formatu" /></a> <a href="products.atom?e=${q}" alt="ATOM" title="Paieškos rezultatai ATOM formatu"><img src="../img/rss.png" alt="ATOM" title="Paieškos rezultatai ATOM formatu" /></a> <a href="products.JSON?e=${q}" alt="JSON" title="Paieškos rezultatai JSON formatu"><img src="../img/rss.png" alt="JSON" title="Paieškos rezultatai JSON formatu" /></a></span>' /-->
+					<#--assign feedLinks='<span id="rss"><a href="products.rss?e=${q}" alt="RSS" title="Sökresultat RSS format"><img src="../img/rss.png" alt="RSS" title="Sökresultat RSS format" /></a> <a href="products.atom?e=${q}" alt="ATOM" title="Sökresultat ATOM format"><img src="../img/rss.png" alt="ATOM" title="Sökresultat ATOM format" /></a> <a href="products.JSON?e=${q}" alt="JSON" title="Sökresultat JSON format"><img src="../img/rss.png" alt="JSON" title="Sökresultat JSON format" /></a></span>' /-->
 					<#assign feedLinks="" />
 				<#elseif searchResults.isProduct()>
 					<#assign productDescription><@spring.message code="searchResults.productsByQuery" arguments="${q?xhtml}" />:	</#assign>
@@ -68,7 +68,7 @@
 							</#list>
 							<@tiles.insertAttribute name="paginator" />	
 						<#else/>
-							<p>No products</p>
+							<p>Inga produkter</p>
                     	</#if>
                     </div>
                     

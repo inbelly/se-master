@@ -10,7 +10,7 @@
 				<#assign productDescription>
 					<@spring.message code='searchResults.productsContaining' />:
 				</#assign>
-				<#--assign feedLinks='<span id="rss"><a href="products.rss?e=${q}" alt="RSS" title="Paieškos rezultatai RSS formatu"><img src="../img/rss.png" alt="RSS" title="Paieškos rezultatai RSS formatu" /></a> <a href="products.atom?e=${q}" alt="ATOM" title="Paieškos rezultatai ATOM formatu"><img src="../img/rss.png" alt="ATOM" title="Paieškos rezultatai ATOM formatu" /></a> <a href="products.JSON?e=${q}" alt="JSON" title="Paieškos rezultatai JSON formatu"><img src="../img/rss.png" alt="JSON" title="Paieškos rezultatai JSON formatu" /></a></span>' /-->
+				<#--assign feedLinks='<span id="rss"><a href="products.rss?e=${q}" alt="RSS" title="Sökresultat RSS"><img src="../img/rss.png" alt="RSS" title="Sökresultat RSS" /></a> <a href="products.atom?e=${q}" alt="ATOM" title="Sökresultat ATOM"><img src="../img/rss.png" alt="ATOM" title="Sökresultat ATOM" /></a> <a href="products.JSON?e=${q}" alt="JSON" title="Sökresultat JSON"><img src="../img/rss.png" alt="JSON" title="Sökresultat JSON" /></a></span>' /-->
 				<#assign feedLinks="" />
 			<#else/>	
 				<#if searchResults.isProduct()>

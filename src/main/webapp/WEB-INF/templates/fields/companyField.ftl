@@ -16,10 +16,10 @@
     lib.ready(function() {
 		jQuery("#company").editable("${cp}spring/product/updateValue",
 		 	{
-		 		tooltip	: 'Click to edit',
-		 		cancel	: 'Cancel',
+		 		tooltip	: 'Klicka för att redigera',
+		 		cancel	: 'Avbryt',
 		 		submit	: 'OK',
-		 		placeholder : 'Click here',
+		 		placeholder : 'Klicka här',
 		 		onblur : 'ignore',
 		 		id : 'field',
 		 		ajaxoptions :	{ cache : false, type : 'GET' },

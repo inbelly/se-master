@@ -22,16 +22,16 @@
                         <#assign smallHelp = true />
 	   	        <#include "_helpus.ftl" />   
                     	<div class="post clearfix">
-			<p>The <strong>idea</strong> of Inbelly is to gather all the info about food additive (colors, preservatives, flavor enhancers and other E numbers) as well as possible consequences of their consumption and show the products containing them.</p> 
+			<p><strong>Idén</strong> om Inbelly är att samla all info om livsmedelstillsats (färger, konserveringsmedel, smakförstärkare och andra numren E) samt möjliga konsekvenser av deras konsumtion och visa de produkter som innehåller dessa.</p> 
 
-			<p>The data <strong>sources</strong> include both food safety agencies from other countries and databases such as PUBmed.</p>
+			<p>De <strong>datakällor</strong> inkluderar både myndigheter för livsmedelssäkerhet från andra länder och databaser som PubMed.</p>
 
-			<p>The <strong>goal</strong> is to encourage food manufacturers to be socially responsible and reduce the usage of hazardous food additives in the food industry.</p> 
+			<p><strong>Målet</strong> är att uppmuntra livsmedelstillverkare att vara socialt ansvarsfulla och minska användningen av farliga livsmedelstillsatser inom livsmedelsindustrin.</p> 
 
-			<p>The ultimate <strong>challenge</strong> is to promote a ban on additives that have been proven hazardous and banned in other countries in the list of additives that are officially allowed in the EU.</p>
+			<p>Den ultimata <strong>utmaningen</strong> är att främja ett förbud mot tillsatser som har visat farligt och förbjudet i andra länder i förteckningen över tillsatser som är officiellt är tillåtna inom EU.</p>
 
-			<p><strong>Join</strong> our campaign and <strong>add</strong> a product to see what you are eating. By doing this you will help others see what they are eating as well.</p>
- 			<p><a href="http://blog.inbelly.co.uk/?p=18#respond">Tell us what you think!</a></p>                   	
+			<p><strong>Gå med i</strong> vår kampanj och <strong>lägga</strong> till en produkt för att se vad du äter. Genom att göra detta kommer du att hjälpa andra se vad de äter också.</p>
+ 			<p><a href="http://blog.inbelly.co.uk/?p=18#respond">Berätta vad du tycker!</a></p>                   	
 
 			</div>
 <#--                    

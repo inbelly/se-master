@@ -4,7 +4,7 @@
 <#assign spring=JspTaglibs["http://www.springframework.org/tags"]>
 
 <div class="field">
-    <label for="name">Name:</label>
+    <label for="name">Namn:</label>
     <div class="text">
         <h3 id="name" class="editable">${product.name?xhtml}</h3>
         <a id="titleEdit" href="javascript:void(0);" class="action edit">edit</a>
@@ -16,10 +16,10 @@
     lib.ready(function() {
 		jQuery("#name").editable("${cp}spring/product/updateValue",
 		 	{
-		 		tooltip	: 'Click to edit',
-		 		cancel	: 'Cancel',
+		 		tooltip	: 'Klicka för att redigera',
+		 		cancel	: 'Avbryt',
 		 		submit	: 'OK',
-		 		placeholder : 'Click here',
+		 		placeholder : 'Klicka här',
 		 		onblur : 'ignore',
 		 		id : 'field',
 		 		ajaxoptions :	{ cache : false, type : 'GET' },

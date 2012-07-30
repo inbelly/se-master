@@ -4,7 +4,7 @@
 <#assign spring=JspTaglibs["http://www.springframework.org/tags"]>
 
 <div class="field" >
-    <label for="conservantsText">Additives:</label>
+    <label for="conservantsText">Tillsatser:</label>
     <div class="text">
         <h4 id="conservantsText" class="editable">${product.conservantsText}</h4> 
     </div>
@@ -38,10 +38,10 @@
 		});    
 		jQuery("#conservantsText").editable("${cp}spring/product/updateConservants",
 		 	{
-		 		tooltip	: 'Click to edit',
-		 		cancel	: 'Cancel',
+		 		tooltip	: 'Klicka för att redigera',
+		 		cancel	: 'Avbryt',
 		 		submit	: 'OK',
-		 		placeholder : 'Click here',
+		 		placeholder : 'Klicka här',
 		 		onblur : 'ignore',
 		 		id : 'field',
 		 		type : 'autocomplete',

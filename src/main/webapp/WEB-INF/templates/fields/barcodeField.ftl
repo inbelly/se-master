@@ -17,10 +17,10 @@
     lib.ready(function() {
 		jQuery("#barcode").editable("${cp}spring/product/updateBarcode",
 			 	{
-		 		tooltip	: 'Click to edit',
-		 		cancel	: 'Cancel',
+		 		tooltip	: 'Klicka för att redigera',
+		 		cancel	: 'Avbryt',
 		 		submit	: 'OK',
-		 		placeholder : 'Click here',
+		 		placeholder : 'Klicka här',
 		 		onblur : 'ignore',
 		 		id : 'field',
 		 		ajaxoptions :	{ cache : false, type : 'GET' },

@@ -5,7 +5,7 @@
                         <a href="${cp}spring/createProduct" class="ac active-fix-widget">
                             <span class="c left"></span>
                             <span class="c right"></span>
-                            <span class="content">Add a product</span>
+                            <span class="content">Lägg till en produkt</span>
                         </a>
                     </div>
                     <span class="c bottom"></span>

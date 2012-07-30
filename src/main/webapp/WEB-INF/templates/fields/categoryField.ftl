@@ -17,10 +17,10 @@
     lib.ready(function() {
 		jQuery("#category").editable("${cp}spring/product/updateCategory",
 			{
-		 		tooltip	: 'Click to edit',
-		 		cancel	: 'Cancel',
+		 		tooltip	: 'Klicka för att redigera',
+		 		cancel	: 'Avbryt',
 		 		submit	: 'OK',
-		 		placeholder : 'Click here',
+		 		placeholder : 'Klicka här',
 		 		onblur : 'ignore',
 		 		type	: 'select',
 		 		id : 'field',		

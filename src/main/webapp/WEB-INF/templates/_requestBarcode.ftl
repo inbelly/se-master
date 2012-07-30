@@ -3,9 +3,9 @@
 <#assign spring=JspTaglibs["http://www.springframework.org/tags"]>
 
                     <div id="barcode-editing" class="editing">
-                        <h3 class="ac"><@spring.message code="thankyoumessage" /> First, let's check that we really don't have this product yet!</h3>
+                        <h3 class="ac"><@spring.message code="thankyoumessage" /> Låt oss först kontrollera att vi verkligen inte den här produkten ännu!</h3>
                         <p class="ac mb">
-                            Please enter the product barcode right here 
+                            Ange den streckkoden här 
                         </p>
                         <@form.form modelAttribute="product" method="post" cssClass="clearfix" id="enterBarcode" onsubmit="return validateBarcode(jQuery('.barcode'), '#newBarcodeImg', '#newBarcodeErr');">
                             <#--p id="newBarcodeImg" class="bgColor-edfeef">
@@ -18,7 +18,7 @@
                                 <button id="newBarcodeSubmit" type="submit" name="_eventId_submit" onclick="return validateBarcode(jQuery('.barcode'), '#newBarcodeImg', '#newBarcodeErr');"><@spring.message code="product.next" /></button>
                             	<@form.errors path="barcode" element="p" cssClass="errorMsg" />
                             </p>
-                            <p id="newBarcodeErr" class="green hidden"><small>It seems that you have entered an incorrect barcode. Please check it!</small></p>
+                            <p id="newBarcodeErr" class="green hidden"><small>Det verkar som du har angivit en felaktig streckkod. Vänligen kontrollera det!</small></p>
                         </@form.form>
 <#-->                        
                         <script type="text/javascript">

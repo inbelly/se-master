@@ -12,7 +12,7 @@
                             </div>
                             <div id="product-info-details">
                                 <div id="product-info-details-photo" class="picture-big overflow-drag-widget">
-                                    <img src="<@getPhotoLink product.ingredients />" width="1024" height="768" alt="${product.name?xhtml} ingredients" title="${product.name?xhtml} ingredients" onClick="window.open('<@getPhotoLink product.ingredients />', 'WindowC', 'width=${product.ingredients.width}, height=${product.ingredients.height}, scrollbars=yes');"/>
+                                    <img src="<@getPhotoLink product.ingredients />" width="1024" height="768" alt="${product.name?xhtml} ingredienser" title="${product.name?xhtml} ingredients" onClick="window.open('<@getPhotoLink product.ingredients />', 'WindowC', 'width=${product.ingredients.width}, height=${product.ingredients.height}, scrollbars=yes');"/>
                                 </div>
                                 <script type="text/javascript">
                                 // <![CDATA[
@@ -28,8 +28,8 @@
                       	<#if (currentUser?? && currentUser.admin) || !product.confirmed && (product.canBeConfirmedBy(currentUser) || product.canBeEditedBy(currentUser) || product.canBeReportedBy(currentUser))>
 	                        <div id="waiting-approval" class="mb clearfix">
 	                        	<div class="message">
-		                            <p><#if product.canBeConfirmedBy(currentUser)>This data is waiting for your approval.</#if> Please check the data below. <#if product.canBeEditedBy(currentUser)>You can <a href="product/edit?id=${product.id}">edit</a> <#if product.canBeReportedBy(currentUser)>or <a href="product/report?id=${product.id}">report</a> </#if>it if it is not correct.</#if></p>
-		                            <p>By entering data you submit that you have read and agree with our <a href="javascript:void(0);" class="toggle-handle js">Terms and Conditions</a>.</p>
+		                            <p><#if product.canBeConfirmedBy(currentUser)>Dessa data väntar på ditt godkännande.</#if> Kontrollera uppgifterna nedan. <#if product.canBeEditedBy(currentUser)>Du kan <a href="product/edit?id=${product.id}">redigera</a> <#if product.canBeReportedBy(currentUser)>eller <a href="product/report?id=${product.id}">rapportera</a> </#if>det om det inte är korrekt.</#if></p>
+		                            <p>Genom att skriva in data som du har gjort gällande att du har läst och accepterat våra <a href="javascript:void(0);" class="toggle-handle js">villkor</a>.</p>
 		                            
 		                            <ul class="termsandconditions mt hidden"><@spring.message code="createproduct.form.terms" /></ul>
 		                        </div>
@@ -37,7 +37,7 @@
     		                        <div class="confirm" onsubmit="return confirm('<@spring.message code="confirm.really" />');">
     		                            <form method="get" action="${cp}spring/product/confirm">
     		                                <input type="hidden" name="id" value="${product.id}"/>
-    		                                <button type="submit">Confirm</button>
+    		                                <button type="submit">Bekräfta</button>
     		                            </form>
     		                        </div>
 		                        </#if>
@@ -56,25 +56,25 @@
                         <div id="product-info-edit" class="mb clearfix">
                         	<div class="left" class="clearfix">
                         		<div class="field">
-								    <label for="company">Producer:</label>
+								    <label for="company">Producent:</label>
 								    <div class="text">
 								        <h4 id="company"><a href="${cp}spring/productList/filterByCompany?company=${product.company?url('utf-8')}"><#if product.company??>${product.company?html}</#if></a></h4>
 								    </div>
 								</div>
                         		<div class="field">
-								    <label for="name">Name:</label>
+								    <label for="name">Namn:</label>
 								    <div class="text">
 								        <h3 id="name">${product.name?xhtml}</h3>
 								    </div>
 								</div>
 								<div class="field">
-								    <label for="category">Category:</label>
+								    <label for="category">Kategori:</label>
 								    <div class="text">
 								        <h4 id="category"><a href="${cp}spring/productList/filterByCategory?category=${product.category.id?url('utf-8')}"><#if product.category??>${product.category.name?html}</#if></a></h4>
 								    </div>
 								</div>		
 								<div class="field">
-									<label for="barcode">Barcode:</label>
+									<label for="barcode">Streckkod:</label>
 								    <div class="text">
 								        <h4 id="barcode"><#if product.barcode??>${product.barcode}</#if></a></h4>
 								    </div>

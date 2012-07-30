@@ -6,10 +6,10 @@
 <div id="body">
 	<@compress>
 	<div id="catalog">
-		<#if (createProductInProgress?exists && product.id?string == createProductInProgress)><div id="greenAciu"><h2><img src="../img/check_green.png" />Ačiū už dalyvavimą ir pagalbą Sveiko Vaiko projektui. Peržiūrėję produktą, patalpinsime į katalogą.</h2></div></#if>
+		<#if (createProductInProgress?exists && product.id?string == createProductInProgress)><div id="greenAciu"><h2><img src="../img/check_green.png" />Tack för din medverkan och stöd InBelly projekt. Efter att ha granskat den produkt som placeras i en mapp.</h2></div></#if>
 		<@form.form modelAttribute="list">
 		<div id="productInfo">
-			<h1><#if product.gmo?? && product.gmo><img src="../img/gmo.png" title="Pagamintas iš genetiškai modifikuotų organizmų arba turi tokių sudėtyje" alt="Pagamintas iš genetiškai modifikuotų organizmų arba turi tokių sudėtyje"/> </#if>${product.name?xhtml}</h1>
+			<h1><#if product.gmo?? && product.gmo><img src="../img/gmo.png" title="Pagamintas iš genetiškai modifikuotų organizmų arba turi tokių sudėtyje" alt="Tillverkad av genetiskt modifierade organismer, eller sammansättning"/> </#if>${product.name?xhtml}</h1>
 			<hr />
 			<div class="section">
 				<h2><@spring.message code="product.producer"/>:</h2>

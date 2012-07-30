@@ -1,1 +1,1 @@
-Please take a second to sign in and contribute to Inbelly.
+Vänligen ta en sekund att logga in och bidra till Inbelly.

@@ -1,1 +1,1 @@
-The product is not added yet. Please sign in below to start adding products.
+Produkten är inte till ännu. Logga in nedan för att börja lägga produkter.

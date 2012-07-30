@@ -37,7 +37,7 @@
 									</#if>
 								</div>
 	                            <div class="limit">
-									<span>Per page:</span>
+									<span>Per sida:</span>
 									<#list [6, 24, 60] as pageSize>
 										<#if pageSize==criteria.itemsPerPage>
 											<strong>${pageSize}</strong>

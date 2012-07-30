@@ -24,7 +24,7 @@
 	        			</p>
                         
                         <p class="fr">
-                            <a href="mailto:info@inbelly.co.uk">Contact us</a>
+                            <a href="mailto:info@inbelly.co.uk">Kontakta oss</a>
                         </p>
 
 			<p><small>__build.tag__</small></p>

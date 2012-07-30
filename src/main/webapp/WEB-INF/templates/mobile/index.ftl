@@ -3,7 +3,7 @@
 		<form action="search" method="get">
 			<label><@spring.message code="mobile.search"/>:</label>
 			<input type="text" name="q"/>
-			<input type="submit" value="Ieškoti" name="_eventId_search"/>
+			<input type="submit" value="Sök" name="_eventId_search"/>
 		</form>
 
 		<p><@spring.message code="mobile.searchText"/></p>

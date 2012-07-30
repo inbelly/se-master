@@ -36,7 +36,7 @@
                             <div class="field clearfix">
                                 <div id="tAc" class="input">
                                     <@form.checkbox id="f-register" path="aggree" />
-                                    <@form.label cssErrorClass="errorMsg" path="aggree">I agree with the <a href="javascript:void(0);" class="toggle-handle js">terms and conditions</a></@form.label>
+                                    <@form.label cssErrorClass="errorMsg" path="aggree">Jag håller med <a href="javascript:void(0);" class="toggle-handle js">villkoren</a></@form.label>
                                     <ul id="termsandconditions" class="hidden"><@spring.message code="createproduct.form.terms" /></ul>
 	                                <@form.errors path="aggree" element="span" cssClass="red"/>
                                 </div>
