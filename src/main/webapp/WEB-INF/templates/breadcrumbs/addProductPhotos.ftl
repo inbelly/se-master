@@ -1,5 +1,5 @@
 <#assign spring=JspTaglibs["http://www.springframework.org/tags"]>
 
                 <div id="breadcrumbs" class="clear">
-                    <span>Enter barcode &gt; <strong>Upload photos</strong> &gt; Resize photos &gt; Fill-in product data &gt; Fill-in ingredients</span>
+                    <span>Anger streckkod &gt; <strong>Ladda upp foton</strong> &gt; Ändra storlek på bilder &gt; Fyll i Product Data &gt; Fyll i ingredienser</span>
                 </div>
