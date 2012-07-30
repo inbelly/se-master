@@ -44,7 +44,7 @@
                         lib.ready(function() {
                             var hazards = lib.dom.byId("hazards");
                             
-                            lib.widget.hazards.run(hazards, {show: "Explanation", hide: "Hide"});
+                            lib.widget.hazards.run(hazards, {show: "Förklaring", hide: "Göm"});
                         });
                     })();
                     //]]>
