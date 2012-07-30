@@ -40,7 +40,7 @@
                             ol = lib.dom.byTag("ol", hazards)[0],
                             toggle = lib.dom.byId("hazards-toggle-handle");
                         if (ol) lib.dom.addClass(ol, "compact");
-                        if (toggle) toggle.innerHTML = "Förklaring";
+                        if (toggle) toggle.innerHTML = "Explanation";
                         lib.ready(function() {
                             var hazards = lib.dom.byId("hazards");
                             
