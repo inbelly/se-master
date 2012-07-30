@@ -14,7 +14,7 @@
 							</#list>
 							<p><a href="${cp}spring/productList?clear=yes">See all</a></p>
 						<#else/>
-							<p>No products</p>
+							<p>Inga produkter</p>
 						</#if>
 					</div>
 					
