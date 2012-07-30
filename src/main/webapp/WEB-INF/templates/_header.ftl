@@ -9,7 +9,7 @@
 
                     <div id="userbar" class="clearfix">
                 	<#if currentUser??>
-                    	<p class="fr"><strong>${currentUser.nick}</strong> <#--| <a href="settings">Settings</a>--> | <a href="${cp}spring/logout">Logga ut</a></p>
+                    	<p class="fr"><strong>${currentUser.nick}</strong> <#--| <a href="settings">Inställningarna</a>--> | <a href="${cp}spring/logout">Logga ut</a></p>
                 	<#else/>
                 		<p class="fr"><a href="${cp}spring/login">Logga in</a></p>
                     </#if>
