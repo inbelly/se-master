@@ -52,7 +52,7 @@ lib.ready(function() {
     elems.push(lib.dom.byId("footer-menu"));
     lib.widget.menu.run(elems);
     //lib.widget.rating.run(lib.dom.byClass("rating-widget"));
-    lib.widget.search.run(lib.dom.byId("search-form"), { placeholder: "CHECK YOUR FOOD!" });
+    lib.widget.search.run(lib.dom.byId("search-form"), { placeholder: "KONTROLLERA DIN MAT!" });
 })
 
 lib.widget({
