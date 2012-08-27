@@ -20,7 +20,7 @@
                                 	<a href="${cp}spring/eList"><@spring.message code="header.menu.conservants"/></a>
                                 </#if>
                             </li>
-                            <li class="head lasts">
+                            <li class="head last s">
                                 <a href="<@spring.message code="bottomLinks.dataSourcesUrl"/>"><@spring.message code="header.menu.sources"/></a>
                             </li>
 <#--                        
