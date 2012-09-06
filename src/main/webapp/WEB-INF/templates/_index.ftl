@@ -57,5 +57,5 @@
 -->                                              
                         <#assign smallHelp = true />
 						<#include "_facebook.ftl" />               
-                    </div> <!-- test -->
+                    </div>
                     
