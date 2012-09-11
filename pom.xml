@@ -227,9 +227,9 @@
         <tilesVersion>2.1.0</tilesVersion>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <site.mail.smtpHost>stoned</site.mail.smtpHost>
-        <messages.locale>se_SE</messages.locale>
-        <e.dictionary.name>swedish_e</e.dictionary.name>
-        <dictionary.name>swedish</dictionary.name>
+        <messages.locale>en_GB</messages.locale>
+        <e.dictionary.name>english_e</e.dictionary.name>
+        <dictionary.name>english</dictionary.name>
         <blog.url>http://blog.sveikasvaikas.lt/?feed=rss2</blog.url>
         <build.tag>${env.BUILD_TAG}</build.tag>
         <site.files.directory>/tmp</site.files.directory>
