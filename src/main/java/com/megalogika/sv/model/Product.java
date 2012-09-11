@@ -168,6 +168,8 @@ public class Product implements Serializable, JsonFilterable {
 	 * čia yra paslaptis, nes po to kai getHazard() paskaičiuoja mums hazard
 	 * reikšmę ji yra įrašoma į DB ir paskui veikia įvairūs visokie selektai ir
 	 * filtrai pagal hazard woo fucking doo --ve
+         * 
+         * atrodo kad tai paskaiciuoja pries issaugant metode Product.calculateHazard() --jg
 	 * 
 	 * @return
 	 */
@@ -186,6 +188,7 @@ public class Product implements Serializable, JsonFilterable {
 		} else {
 			setHazard(E.MIN_HAZARD);
 			for (E e : getConservants()) {
+                            logger.debug("calculateHazard(): turime conservanta:" + e.toString() + ", pavadinimas="+ e.getName() +", konservanto kategorija=" + e.getCategory());
 				if (Integer.parseInt(e.getCategory()) > Integer.parseInt(hazard)) {
 					setHazard(e.getCategory());
 				}

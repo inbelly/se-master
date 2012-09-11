@@ -27,7 +27,7 @@ import com.megalogika.sv.model.conversion.JsonFilterable;
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class E implements Serializable, JsonFilterable {
 	private static final long serialVersionUID = -3924282354391493302L;
-	public static final String MIN_HAZARD = "1"; //$NON-NLS-1$
+	public static final String MIN_HAZARD = "-1"; //$NON-NLS-1$
 	public static final String NO_HAZARD = "0"; //$NON-NLS-1$
 	public static final String UNKNOWN_HAZARD = "-1";
 
