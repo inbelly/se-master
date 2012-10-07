@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import ml.generator.PronounceableGenerator;
+//import ml.generator.PronounceableGenerator;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,7 +87,8 @@ public class UserService  {
 			return false;
 		}
 		
-		String newPassword = new PronounceableGenerator().generate(8); 
+//		String newPassword = new PronounceableGenerator().generate(8);
+		String newPassword = "lulz";
 		u.setPassword(newPassword);
 		save(u);
 		

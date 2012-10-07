@@ -2,7 +2,7 @@ package com.megalogika.sv.service;
 
 import java.util.StringTokenizer;
 
-import ml.walrus.service.MailService;
+//import ml.walrus.service.MailService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -15,8 +15,8 @@ import com.megalogika.sv.model.User;
 
 @Service("emailActions")
 public class EmailActions {
-	@Autowired(required = true)
-	MailService mailService;
+//	@Autowired(required = true)
+//	MailService mailService;
 
 	@Autowired
 	MessageSource messages;
@@ -39,7 +39,7 @@ public class EmailActions {
 	public void sendProductProblemEmail(Product product, String from, String text) {
 		text += messages.getMessage(productProblemEmail, new Object[] { emailConfig.getProductLink(this, product) }, null);
 		try {
-			mailService.sendEmail(emailConfig.getProblemsEmail(), messages.getMessage(productProblemSubject, null, null), text, from, from);
+//			mailService.sendEmail(emailConfig.getProblemsEmail(), messages.getMessage(productProblemSubject, null, null), text, from, from);
 		} catch (Exception e) {
 			// NOTHING
 		}
@@ -51,11 +51,11 @@ public class EmailActions {
 		StringTokenizer t = new StringTokenizer(to, " ,;");
 		while (t.hasMoreTokens()) {
 			try {
-				mailService.sendEmail(t.nextToken(), 
-							messages.getMessage(sendProductSubject, 
-								new Object[] { messages.getMessage("site.domain", null, null), 
-											   product.getName() }, null), 
-								text, emailConfig.getFromEmail(), emailConfig.getFromName());
+//				mailService.sendEmail(t.nextToken(), 
+//							messages.getMessage(sendProductSubject, 
+//								new Object[] { messages.getMessage("site.domain", null, null), 
+//											   product.getName() }, null), 
+//								text, emailConfig.getFromEmail(), emailConfig.getFromName());
 			} catch (Exception e) {
 				// NOTHING
 			}
@@ -67,15 +67,15 @@ public class EmailActions {
 		if (null == product.getUser() || null == product.getUser().getEmail() || !StringUtils.hasText(product.getUser().getEmail())) {
 			return;
 		}
-		String text = messages.getMessage(sendProductApproveEmail, 
-				new Object[] { messages.getMessage("site.name", null, null),
-							   messages.getMessage("site.domain", null, null),
-							   product.getName().trim(), 
-							   emailConfig.getProductUrl(product) }, null);
+//		String text = messages.getMessage(sendProductApproveEmail, 
+//				new Object[] { messages.getMessage("site.name", null, null),
+//							   messages.getMessage("site.domain", null, null),
+//							   product.getName().trim(), 
+//							   emailConfig.getProductUrl(product) }, null);
 		try {
-			mailService.sendEmail(product.getUser().getEmail(), 
-					messages.getMessage(sendProductApproveSubject, null, null), 
-					text, emailConfig.getFromEmail(), emailConfig.getFromName());
+//			mailService.sendEmail(product.getUser().getEmail(), 
+//					messages.getMessage(sendProductApproveSubject, null, null), 
+//					text, emailConfig.getFromEmail(), emailConfig.getFromName());
 		} catch (Exception e) {
 			// NOTHING
 		}
@@ -92,8 +92,8 @@ public class EmailActions {
 											   emailConfig.getLoginUrl() }, null);
 
 		try {
-			mailService.sendEmail(u.getEmail(), messages.getMessage(sendNewPasswordSubject, new Object[] { messages.getMessage("site.domain", null, null) }, null), text, emailConfig.getFromEmail(), emailConfig
-					.getFromName());
+//			mailService.sendEmail(u.getEmail(), messages.getMessage(sendNewPasswordSubject, new Object[] { messages.getMessage("site.domain", null, null) }, null), text, emailConfig.getFromEmail(), emailConfig
+//					.getFromName());
 		} catch (Exception e) {
 			// NOTHING
 		}
