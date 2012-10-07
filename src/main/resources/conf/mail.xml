@@ -6,7 +6,7 @@
 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
 http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
 
-			<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+			<!-- <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 				<property name="host" value="${site.mail.smtpHost}"/>
 			</bean>
 			<bean id="mailService" class="ml.walrus.service.MailService" autowire="byType"/>
@@ -15,5 +15,5 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
 				<property name="fromName" value="InBelly (http://inbelly.co.uk)" />
 				<property name="problemsEmail" value="info@inbelly.co.uk" />
 				<property name="siteUrlBase" value="http://inbelly.co.uk/spring" />
-			</bean>
+			</bean>-->
 </beans>
