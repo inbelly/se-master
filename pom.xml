@@ -291,13 +291,30 @@
 			<version>1.0</version>
 		</dependency>
 
-		<!--<dependency> <groupId>com.megalogika</groupId> <artifactId>walrus-jar</artifactId> 
-			<version>TRUNK-SNAPSHOT</version> <exclusions> <exclusion> <groupId>org.springmodules</groupId> 
-			<artifactId>spring-modules-xt</artifactId> </exclusion> <exclusion> <artifactId>mysql-connector-java</artifactId> 
-			<groupId>mysql</groupId> </exclusion> <exclusion> <artifactId>core</artifactId> 
-			<groupId>net.sf.valuelist</groupId> </exclusion> </exclusions> </dependency> 
-			<dependency> <groupId>com.megalogika.utils</groupId> <artifactId>utils</artifactId> 
-			<version>1.2-SNAPSHOT</version> </dependency> -->
+		<dependency>
+			<groupId>com.megalogika</groupId>
+			<artifactId>walrus-jar</artifactId>
+			<version>TRUNK-SNAPSHOT</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springmodules</groupId>
+					<artifactId>spring-modules-xt</artifactId>
+				</exclusion>
+				<exclusion>
+					<artifactId>mysql-connector-java</artifactId>
+					<groupId>mysql</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>core</artifactId>
+					<groupId>net.sf.valuelist</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.megalogika.utils</groupId>
+			<artifactId>utils</artifactId>
+			<version>1.2-SNAPSHOT</version>
+		</dependency>
 
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -533,7 +550,7 @@
 			<id>JBoss Repo</id>
 			<url>https://repository.jboss.org/nexus/content/repositories/releases</url>
 			<name>JBoss Repo</name>
-		</repository>		
+		</repository>
 		<repository>
 			<id>com.springsource.repository.bundles.release</id>
 			<name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Releases</name>
@@ -543,7 +560,7 @@
 			<id>com.springsource.repository.bundles.external</id>
 			<name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
 			<url>http://repository.springsource.com/maven/bundles/external</url>
-		</repository>		
+		</repository>
 
 	</repositories>
 
