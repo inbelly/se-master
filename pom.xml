@@ -18,16 +18,35 @@
 				<site.files.directory>/home/tomas/src/shit/se-master</site.files.directory>
 				<flowDevelopment>false</flowDevelopment>
 				<tomcatMgr>http://localhost:8080/manager</tomcatMgr>
-				<messages.locale>en_GB</messages.locale>
-				<e.dictionary.name>english_e</e.dictionary.name>
-				<dictionary.name>english</dictionary.name>
+				<messages.locale>se_SE</messages.locale>
+				<e.dictionary.name>swedish_e</e.dictionary.name>
+				<dictionary.name>swedish</dictionary.name>
 				<!-- <site.mail.smtpHost>stoned</site.mail.smtpHost> <blog.url>http://blog.inbelly.co.uk/?feed=rss2</blog.url> -->
 				<webappPath>/se-master</webappPath>
 				<!-- <blog.url>http://blog.inbelly.co.uk/?feed=rss2</blog.url> -->
 			</properties>
 		</profile>
 		<profile>
-			<id>Jurgis</id>
+			<id>kibiras</id>
+			<properties>
+				<serverId>kibiras</serverId>
+				<site.db.host>localhost</site.db.host>
+				<site.db.database>tomas</site.db.database>
+				<site.db.username>tomas</site.db.username>
+				<site.db.password>tomas</site.db.password>
+				<site.files.directory>/home/tomas/src/se-master</site.files.directory>
+				<flowDevelopment>false</flowDevelopment>
+				<tomcatMgr>http://localhost:8080/manager</tomcatMgr>
+				<messages.locale>se_SE</messages.locale>
+				<e.dictionary.name>swedish_e</e.dictionary.name>
+				<dictionary.name>swedish</dictionary.name>
+				<!-- <site.mail.smtpHost>stoned</site.mail.smtpHost> <blog.url>http://blog.inbelly.co.uk/?feed=rss2</blog.url> -->
+				<webappPath>/se-master</webappPath>
+				<!-- <blog.url>http://blog.inbelly.co.uk/?feed=rss2</blog.url> -->
+			</properties>
+		</profile>		
+		<profile>
+			<id>jurgis</id>
 			<properties>
 				<serverId>jurgis</serverId>
 				<site.db.host>localhost</site.db.host>

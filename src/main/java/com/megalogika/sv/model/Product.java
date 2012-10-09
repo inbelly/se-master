@@ -188,7 +188,11 @@ public class Product implements Serializable, JsonFilterable {
 		} else {
 			setHazard(E.MIN_HAZARD);
 			for (E e : getConservants()) {
-                            logger.debug("calculateHazard(): turime conservanta:" + e.toString() + ", pavadinimas="+ e.getName() +", konservanto kategorija=" + e.getCategory());
+				logger.debug("Test logger first");
+				logger.debug("turime conservanta:" + e.toString());
+				logger.debug("pavadinimas="+ e.getName());
+				logger.debug("konservanto kategorija=" + e.getCategory());
+                logger.debug("calculateHazard(): turime conservanta:" + e.toString() + ", pavadinimas="+ e.getName() +", konservanto kategorija=" + e.getCategory());
 				if (Integer.parseInt(e.getCategory()) > Integer.parseInt(hazard)) {
 					setHazard(e.getCategory());
 				}
