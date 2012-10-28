@@ -55,6 +55,7 @@
                       		<div class="message">
                       			<p>Du kan <a href="product/report?id=${product.id}">rapportera</a> det om det inte är korrekt.</p>
                       		</div>
+                      		<br/>
                       	</#if>
                       	</@sec.authorize>
                    

@@ -310,7 +310,7 @@ public class ProductService {
 		
 		p.addReport(r);
 
-		removeConfirmations(p);
+		if (p.getReports().size() > 1) removeConfirmations(p);
 	}
 
 	@Transactional
