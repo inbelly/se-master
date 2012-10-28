@@ -95,7 +95,6 @@ public class ProductService {
 	
 	@Transactional
 	public Product saveNew(Product p) {
-		p.setConfirmationCount(1);
 		Product ret = em.merge(p);
 		return ret;
 	}
