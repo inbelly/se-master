@@ -15,7 +15,7 @@
 				<site.db.database>nesveiksvaiks</site.db.database>
 				<site.db.username>tomas</site.db.username>
 				<site.db.password>tomas</site.db.password>
-				<site.files.directory>/home/tomas/src/shit/se-master</site.files.directory>
+				<site.files.directory>/tmp</site.files.directory>
 				<flowDevelopment>false</flowDevelopment>
 				<tomcatMgr>http://localhost:8080/manager</tomcatMgr>
 				<messages.locale>se_SE</messages.locale>
@@ -34,7 +34,7 @@
 				<site.db.database>tomas</site.db.database>
 				<site.db.username>tomas</site.db.username>
 				<site.db.password>tomas</site.db.password>
-				<site.files.directory>/home/tomas/src/se-master</site.files.directory>
+				<site.files.directory>/tmp</site.files.directory>
 				<flowDevelopment>false</flowDevelopment>
 				<tomcatMgr>http://localhost:8080/manager</tomcatMgr>
 				<messages.locale>se_SE</messages.locale>
