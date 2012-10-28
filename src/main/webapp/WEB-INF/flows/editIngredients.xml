@@ -33,7 +33,7 @@
 		<transition on="add" bind="true" validate="true" >
 			<evaluate expression="productService.updateConservants(product)" />
 			<set name="flashScope.reverse" value="true" />
-			<render fragments="eTable"  />
+			<render fragments="eTable" />
 		</transition>
 		<transition on="submit" to="success" bind="true" validate="true">
 			<evaluate expression="productService.save(product)" result="product" />

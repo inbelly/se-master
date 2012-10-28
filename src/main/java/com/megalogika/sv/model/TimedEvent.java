@@ -51,7 +51,7 @@ public abstract class TimedEvent {
 		this.actor = user;
 	}
 
-	@OneToOne(fetch = FetchType.LAZY, cascade={CascadeType.MERGE})
+	@OneToOne(fetch = FetchType.LAZY, cascade={CascadeType.REFRESH})
 	public User getActor() {
 		return actor;
 	}

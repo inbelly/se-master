@@ -31,7 +31,7 @@
 									<div class="input clearfix">
 										<@form.textarea path="conservantsText" rows="5" cols="75" onkeyup="addIngredient(this, false);" onchange="addIngredient(this, false);">${product.conservantsText!""?xhtml}<#if (!product.conservantsText?? || product.conservantsText?trim?length == 0) && product.conservants??><#list product.conservants as e>${e.number}</#list></#if></@form.textarea>
 									</div>
-									<div class="input clearfix"
+									<div class="input clearfix">
 										<@form.checkbox path="conservantFree" onchange="disableField('#conservantsText');"/>
 										<@form.errors path="conservantFree" element="p" cssClass="errorMsg"/>
 										<@spring.message code="createproduct.form.additives.no" />

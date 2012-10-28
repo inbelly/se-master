@@ -274,9 +274,14 @@ public class ProductService {
 	@Transactional
 	public Product updateConservants(Product p) {
 		//p.setConservants(eService.detectConservants(p.getConservantsParsed()));
+		logger.debug("----- darysim p.setConservantsText");
 		p.setConservantsText(eService.clearDuplicates(p.getConservantsText()));
+		logger.debug("----- darysim p.setConservants");
 		p.setConservants(eService.detectConservants(p.getConservantsText()));
+		logger.debug("----- darysim p.calculateHazard");
 		p.calculateHazard();
+		logger.debug("--- grazinsim produkta");
+		logger.debug("--- grazinsim produkta, su tokiais navarotais: " + p.getHazard());
 		return p;
 	}
 
