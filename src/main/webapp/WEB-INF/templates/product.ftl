@@ -52,7 +52,9 @@
                       	</#if>
                       	
                       	<#if product.canBeReportedBy(currentUser)>
-                      		Du kan <a href="product/report?id=${product.id}">rapportera</a> det om det inte är korrekt.
+                      		<div class="message">
+                      			<p>Du kan <a href="product/report?id=${product.id}">rapportera</a> det om det inte är korrekt.</p>
+                      		</div>
                       	</#if>
                       	</@sec.authorize>
                    
