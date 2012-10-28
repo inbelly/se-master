@@ -37,7 +37,7 @@ public class Product implements Serializable, JsonFilterable {
 	
 	protected transient Logger logger = Logger.getLogger(Product.class);
 
-	private Integer confirmationsRequired = 1;
+	private Integer confirmationsRequired = 2;
 	private Integer reportsRequired = 2;
 	
 	long id;
@@ -129,7 +129,7 @@ public class Product implements Serializable, JsonFilterable {
 
 	@Basic
 	public boolean isApproved() {
-		return confirmationCount > 0;
+		return confirmationCount > 1;
 	}
 
 	public void setApproved(boolean approved) {
@@ -510,6 +510,15 @@ public class Product implements Serializable, JsonFilterable {
 		return confirmationsRequired;
 	}
 	
+	@Transient
+	public Integer getReportsRequired() {
+		return reportsRequired;
+	}
+
+	public void setReportsRequired(Integer reportsRequired) {
+		this.reportsRequired = reportsRequired;
+	}
+
 	public void confirm(Confirmation c) {
 		if (! getConfirmations().contains(c)) {
 			c.setProduct(this);

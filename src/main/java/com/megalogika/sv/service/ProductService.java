@@ -88,7 +88,6 @@ public class ProductService {
 			logger.error("NEGALIMA redaguoti svetimų produktų! Produktas: " + p.getName() + " vartotojas: " + userService.getCurrentUser().getEmail());
 			throw new IllegalArgumentException("NEGALIMA redaguoti svetimų produktų!");
 		}
-
 		updateConservants(p);
 		Product ret = em.merge(p);
 		return ret;
@@ -96,6 +95,7 @@ public class ProductService {
 	
 	@Transactional
 	public Product saveNew(Product p) {
+		p.setConfirmationCount(1);
 		Product ret = em.merge(p);
 		return ret;
 	}
@@ -310,7 +310,7 @@ public class ProductService {
 		
 		p.addReport(r);
 
-		if (p.getReports().size() > 1) removeConfirmations(p);
+		if (p.getReports().size() >= p.getReportsRequired()) removeConfirmations(p);
 	}
 
 	@Transactional
