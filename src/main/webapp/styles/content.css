@@ -47,6 +47,10 @@
     margin-bottom: 4px;
 }
 
+.products-list .product img.not-approved {
+    position: absolute;
+}
+
 #product #product-info-quick h3,
 #product #product-info-edit h3,
 #product #product-info h3,
