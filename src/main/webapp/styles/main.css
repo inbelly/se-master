@@ -166,8 +166,16 @@ a:hover {
     color: #000;
 }
 
+
+
 a.ico {
     padding-left: 20px;
+}
+
+#categories .selected {
+    color: #0072bc;
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 hr {
