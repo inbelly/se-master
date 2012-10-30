@@ -539,7 +539,7 @@ public class Product implements Serializable, JsonFilterable {
 				! this.isConfirmed() &&
 				(
 						! (
-								this.isCreatedBy(u) || 
+//								this.isCreatedBy(u) || 
 								this.isConfirmedBy(u)
 						  )
 				)

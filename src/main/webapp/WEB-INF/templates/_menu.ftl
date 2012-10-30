@@ -21,7 +21,7 @@
                                 </#if>
                             </li>
                             <li class="head last s">
-                                <a href="<@spring.message code="bottomLinks.dataSourcesUrl"/>"><@spring.message code="header.menu.sources"/></a>
+                                <a href="${cp}spring/dataSources"><@spring.message code="header.menu.sources"/></a>
                             </li>
 <#--                        
                             <li class="head last">

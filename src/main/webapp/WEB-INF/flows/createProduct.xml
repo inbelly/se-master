@@ -123,7 +123,7 @@
 		<transition on="cancelled" to="editProductData" />
 	</subflow-state>
 	
-	<end-state id="success" view="flowRedirect:product?id=${product.id}" />
+	<end-state id="success" view="flowRedirect:product/confirm?id=${product.id}" />
 	
 	<end-state id="cancelled" view="flowRedirect:productList?clear=yes"/>
 

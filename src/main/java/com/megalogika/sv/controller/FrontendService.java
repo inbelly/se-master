@@ -44,6 +44,7 @@ public class FrontendService {
 	private CategoryService categoryService;
 
 	public final static String KEY_PRODUCTS = "products";
+
 	
 	@RequestMapping("/zymejimoPaaiskinimai")
 	public String zymejimoPaaiskinimai() {
