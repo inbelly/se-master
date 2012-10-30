@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,7 @@ import com.megalogika.sv.service.EService;
 import com.megalogika.sv.service.SearchCriteria;
 import com.megalogika.sv.service.UserService;
 import com.sun.syndication.feed.synd.SyndFeed;
+
 
 @Component("frontendService")
 public class FrontendService {

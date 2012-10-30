@@ -101,7 +101,7 @@
 
 						<#if (product.conservants?? && product.conservants?size > 0) || (product.conservantFree?? && product.conservantFree)>
 								<h2 class="mb"><@spring.message code="product.detectedAdditives"/></h2>
-								<@tiles.insertAttribute name="eTable" />
+								<div id="eTable><@tiles.insertAttribute name="eTable" /></div>
 						<#else/>
 							<h2 class="mb"><@spring.message code="product.noE"/></h2>
 						</#if>                    
