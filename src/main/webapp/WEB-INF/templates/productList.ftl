@@ -95,7 +95,7 @@
         <div class="columns-2">
             <#list products as p>
             	<#if p.approved>
-            		<div class="product <#if 0 == (p_index + 1) % 2>last</#if>">
+            		<div class="product">
 						<#include "productItem.ftl"/>
                     </div>
 				</#if>
