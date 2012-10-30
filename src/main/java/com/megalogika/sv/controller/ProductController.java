@@ -808,10 +808,6 @@ public class ProductController {
 		
 		logger.debug("UPDATED CONSERVANTS: " + p);
 		
-		p.confirm(new Confirmation(p, getCurrentUser()));
-		
-		logger.debug("CONFIRMED PRODUCT: " + p);
-		
 		p = productService.saveNew(p);
 		
 		logger.debug("SAVED PRODUCT: " + p);

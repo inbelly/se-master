@@ -551,7 +551,7 @@ public class Product implements Serializable, JsonFilterable {
 	}
 	
 	public boolean canBeReportedBy(User u) {
-		return ((null != u && u.isAdmin()) || !this.isReportedBy(u)) && this.isConfirmed();
+		return (null != u && u.isAdmin()) || !this.isReportedBy(u);
 	}	
 
 	public void setConfirmationCount(int confirmationCount) {

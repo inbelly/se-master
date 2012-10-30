@@ -71,6 +71,10 @@ public class ProductService {
 		
 		product.setUser(user);
 		product.setEnteredByIp(request.getRemoteAddr() + " (" + request.getRemoteHost() + ")");
+		
+		product.confirm(new Confirmation(product, userService.getCurrentUser()));
+		logger.debug("CONFIRMED PRODUCT: " + product + ". USER: " + product.getUser().getId());
+		
 		return product;
 	}
 

@@ -98,15 +98,15 @@
                         </div>      
                                               
                         <hr />    
-                        
+
+                        <div id="eTable">
 						<#if (product.conservants?? && product.conservants?size > 0) || (product.conservantFree?? && product.conservantFree)>
 	                    	<h2 class="mb"><@spring.message code="product.detectedAdditives"/></h2>   	
 							<@tiles.insertAttribute name="eTable" />
 						<#else/>
-							<div id="eTable">
-								<h2 class="mb"><@spring.message code="product.noE"/></h2>
-							</div>
-						</#if>                         
+							<h2 class="mb"><@spring.message code="product.noE"/></h2>
+						</#if>
+						</div>                         
                         
 						<@tiles.insertAttribute name="commentForm" />
 						<#include "_comments.ftl" />                        
