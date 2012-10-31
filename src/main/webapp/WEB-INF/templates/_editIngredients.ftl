@@ -97,6 +97,7 @@
 										}			
 									});
 									$("#conservantsText").result(function(event, data, formatted) {
+										$(this)[0].selectionStart = $(this)[0].selectionEnd = $(this).val().length;
 										event.preventDefault();
 										event.stopPropagation();
 										Spring.remoting.submitForm(jQuery("#conservantsText"), 'product-data-form', 

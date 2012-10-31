@@ -223,7 +223,3 @@ function addIngredient(element, blur) {
 		parseIngredients(element);
 	}
 }
-
-$("#conservantsText").bind('change', function(e) {
-	  this.text = this.text;
-});
