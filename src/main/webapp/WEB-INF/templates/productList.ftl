@@ -41,39 +41,6 @@
 						</div>
 					</#if>
 -->
-<#--
-                    <div id="products" class="products-list columns-3">
-                        <div id="sort" class="mbh clearfix">
-                            <p class="fl">
-                                <#if criteria.hasFilter()>
-	                                <strong><@spring.message code="productList.filter.filter"/>:</strong>
-                					<#list criteria.filters as filter>
-                						<a href="${cp}spring/productList/remove?filterIndex=${filter_index}" title="<@spring.message code="productList.filter.remove" />" class="ico remove"><span><@spring.message code="${filter.description}" arguments="${filter.descriptionArgument!''}"/></span></a>
-                					</#list> 
-                					
-                				<#else>
-                				</#if>
-                			</p>
-                			<#if criteria.hasFilter()>
-                			<p class="fr">
-                			    <a href="${cp}spring/productList?clear=yes"><@spring.message code="productList.filter.reset"/></a>
-                			</p>
-                			</#if>
-            			</div>
-                        
-                    	<#if (products?? && products?size > 0)>
-							<#list products as p>
-								<div class="product <#if 0 == (p_index + 1) % 2>last</#if>">
-                                                                        <#if !p.approved> <img src="${cp}img/aproval_1.png" alt="not approved" class="not-approved"/></#if>
-									<#include "productItem.ftl"/>
-								</div>
-							</#list>
-							<@tiles.insertAttribute name="paginator" />	
-						<#else/>
-							<p>Inga produkter</p>
-                    	</#if>
-                    </div>
--->
 <div id="products" class="products-list columns-3">
     <div id="sort" class="mbh clearfix">
         <p class="fl">
@@ -91,6 +58,7 @@
         </p>
         </#if>
     </div>
+<#--
     <#if (products?? && products?size > 0)>
         <div class="columns-2">
             <#list products as p>
@@ -112,6 +80,18 @@
         	</#list>
         </div>
         <@tiles.insertAttribute name="paginator" /> 
+    <#else/>
+        <p>Inga produkter</p>
+    </#if>
+-->
+	<#if (products?? && products?size > 0)>
+        <#list products as p>
+            <div class="product <#if 0 == (p_index + 1) % 3>last</#if>">
+                <#if !p.approved> <img src="${cp}img/aproval_1.png" alt="not approved" class="not-approved"/></#if>
+                <#include "productItem.ftl"/>
+            </div>
+        </#list>
+        <@tiles.insertAttribute name="paginator" />	
     <#else/>
         <p>Inga produkter</p>
     </#if>
