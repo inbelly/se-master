@@ -1,6 +1,9 @@
 <#assign spring=JspTaglibs["http://www.springframework.org/tags"]>
  <div id="categories">
      <ul>
+     	 <li>
+             <a href="${cp}spring/productList/filterByUnapprovedProducts">Unapproved products</a>
+     	 </li>
          <#list categoryList as category>
              <#if category?? && category.name??>
                  <li>

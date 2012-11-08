@@ -128,6 +128,16 @@ public class ProductListController {
 		return "redirect:/spring/productList";
 	}
 	
+	@RequestMapping("/productList/filterByUnapprovedProducts")
+	public String filterByUnapprovedProducts(HttpSession session) throws InstantiationException, IllegalAccessException {
+		ProductSearchCriteria criteria = (ProductSearchCriteria) frontendService.getCriteria(session, ProductSearchCriteria.class);
+		criteria.clear();
+		criteria.addUnapprovedProductFilter();
+		
+		
+		return "redirect:/spring/productList";
+	}	
+	
 	@RequestMapping("/productList/resetToFilter")
 	public String resetToFilter(HttpSession session, @RequestParam(required=true, value="filterIndex") String filterIndex) throws InstantiationException, IllegalAccessException {
 		SearchCriteria criteria = frontendService.getCriteria(session, ProductSearchCriteria.class);
@@ -171,6 +181,7 @@ public class ProductListController {
 	@RequestMapping("/productList/filterByCategory")
 	public String filterByCategory(HttpSession session, @RequestParam(required=true, value="category") long category) throws InstantiationException, IllegalAccessException {
 		ProductSearchCriteria criteria = (ProductSearchCriteria) frontendService.getCriteria(session, ProductSearchCriteria.class);
+		criteria.clear();
 		criteria.addCategoryFilter(getCategoryService().getProductCategory(category));
 		
 		return "redirect:/spring/productList";

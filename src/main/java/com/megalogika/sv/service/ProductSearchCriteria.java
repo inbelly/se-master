@@ -20,6 +20,7 @@ import com.megalogika.sv.service.filter.RankingFilter;
 import com.megalogika.sv.service.filter.RankingFilterException;
 import com.megalogika.sv.service.filter.TextKeywordFilter;
 import com.megalogika.sv.service.filter.TextNameKeywordFilter;
+import com.megalogika.sv.service.filter.UnapprovedProductFilter;
 
 @Component("productSearchCriteria")
 @Scope("session")
@@ -40,22 +41,22 @@ public class ProductSearchCriteria extends SearchCriteria implements Serializabl
 
 	@Override
 	public String getOrderByClause() {
-		String ret = "";
+		String ret = "p.approved asc";
 
 //		if (hasAuthority(User.ROLE_ADMIN)) {
 //			ret += "p.approved asc, ";
 //		}
 
 		if (ORDER_BY_DATE.equals(orderBy)) {
-			ret += "p.entryDate desc";
+			ret += ", p.entryDate desc";
 		} else if (ORDER_BY_HAZARD.equals(orderBy)) {
-			ret += "p.hazard desc";
+			ret += ", p.hazard desc";
 		} else if (ORDER_BY_HAZARD_ASC.equals(orderBy)) {
-			ret += "p.hazard asc";			
+			ret += ", p.hazard asc";			
 		} else if (ORDER_BY_PRODUCER.equals(orderBy)) {
-			ret += "lower(trim(BOTH ' \"' FROM p.company)) asc"; //TODO dar kazkaip apostrofa paescapinti
+			ret += ", lower(trim(BOTH ' \"' FROM p.company)) asc"; //TODO dar kazkaip apostrofa paescapinti
 		} else {
-			ret += "p.entryDate desc";
+			ret += ", p.entryDate desc";
 		}
 
 		return ret;
@@ -128,6 +129,11 @@ public class ProductSearchCriteria extends SearchCriteria implements Serializabl
 		setPage(0);
 		addFilter(new ApprovedContentFilter(true));
 	}
+	
+	public void addUnapprovedProductFilter() {
+		setPage(0);
+		addFilter(new UnapprovedProductFilter(true));
+	}	
 
 	@Override
 	public String getWhereClause() {
