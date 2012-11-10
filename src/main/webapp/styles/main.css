@@ -166,8 +166,6 @@ a:hover {
     color: #000;
 }
 
-
-
 a.ico {
     padding-left: 20px;
 }
@@ -176,6 +174,14 @@ a.ico {
     color: #0072bc;
     font-weight: bold;
     text-decoration: underline;
+}
+
+#categories .UnapprovedContentFilter {
+	color: #990000;
+}
+
+#categories .UnapprovedContentFilte.selected {
+	color: #990000;
 }
 
 hr {
