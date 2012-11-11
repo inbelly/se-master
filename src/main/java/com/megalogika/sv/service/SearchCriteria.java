@@ -200,5 +200,16 @@ public abstract class SearchCriteria {
 		
 		return query;
 	}
+	
+	public boolean conteinsFilter(String filterName) {
+		boolean ret = false;
+		for (Filter f : this.getFilters()) {
+			if (f.getDescriptionArgument().equalsIgnoreCase(filterName)) {
+				ret = true;
+				break;
+			}
+		}
+		return ret;
+	}
 
 }
