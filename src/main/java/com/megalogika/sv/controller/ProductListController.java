@@ -181,7 +181,6 @@ public class ProductListController {
 	@RequestMapping("/productList/filterByCategory")
 	public String filterByCategory(HttpSession session, @RequestParam(required=true, value="category") long category) throws InstantiationException, IllegalAccessException {
 		ProductSearchCriteria criteria = (ProductSearchCriteria) frontendService.getCriteria(session, ProductSearchCriteria.class);
-		criteria.clear();
 		criteria.addCategoryFilter(getCategoryService().getProductCategory(category));
 		
 		return "redirect:/spring/productList";
