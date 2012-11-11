@@ -19,10 +19,10 @@
                         <#if criteria.containsFilter(category.name)>
                             <span class="selected">${category.name?html} (${category.productCount})</span>
                         <#else>
-                            <a href="${cp}spring/productList/filterByCategory?category=${category.id?url('utf-8')}" title="<#if currentUser??>${category.products?size}<#else/>${category.approvedProductsInCategory}</#if>">${category.name?html} (${category.productCount})</a>
+                            <a href="${cp}spring/productList/filterByCategory?category=${category.id?url('utf-8')}">${category.name?html} (${category.approvedProductsInCategory})</a>
                         </#if>
                     <#else>
-                        <a href="${cp}spring/productList/filterByCategory?category=${category.id?url('utf-8')}" title="<#if currentUser??>${category.products?size}<#else/>${category.approvedProductsInCategory}</#if>">${category.name?html} (${category.productCount})</a>
+                        <a href="${cp}spring/productList/filterByCategory?category=${category.id?url('utf-8')}" >${category.name?html} (${category.approvedProductsInCategory})</a>
                     </#if>
                 </li>
             </#if>
