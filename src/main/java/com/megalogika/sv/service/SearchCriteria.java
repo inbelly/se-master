@@ -201,7 +201,7 @@ public abstract class SearchCriteria {
 		return query;
 	}
 	
-	public boolean conteinsFilter(String filterName) {
+	public boolean containsFilter(String filterName) {
 		boolean ret = false;
 		for (Filter f : this.getFilters()) {
 			if (f.getDescriptionArgument().equalsIgnoreCase(filterName)) {
@@ -211,5 +211,4 @@ public abstract class SearchCriteria {
 		}
 		return ret;
 	}
-
 }
