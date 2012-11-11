@@ -17,7 +17,7 @@
                 <li>
                     <#if criteria.hasFilter()>
                         <#if criteria.containsFilter(category.name)>
-                            <span class="selected">${category.name?html} (${category.productCount})</span>
+                            <span class="selected">${category.name?html} (${category.approvedProductsInCategory})</span>
                         <#else>
                             <a href="${cp}spring/productList/filterByCategory?category=${category.id?url('utf-8')}">${category.name?html} (${category.approvedProductsInCategory})</a>
                         </#if>
