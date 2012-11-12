@@ -1,5 +1,6 @@
 package com.megalogika.sv.service;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -17,13 +18,14 @@ public class SearchService {
 	ProductService productService;
 	@Autowired
 	EService eService;
-	static final transient Logger logger = Logger.getLogger(SearchService.class);
-	
+	static final transient Logger logger = Logger
+			.getLogger(SearchService.class);
+
 	public SearchResults search(ProductSearchCriteria criteria) {
 		Assert.notNull(criteria);
-		
+
 		logger.debug("HELLLLOOOOO!!!!! " + criteria);
-		
+
 		SearchResults results = new SearchResults();
 		results.setQuery(criteria.getQ());
 
@@ -33,26 +35,30 @@ public class SearchService {
 				if (productService.isValidBarcode(criteria.getQ().trim())) {
 					logger.debug("TAI JUK TEISINGAS BARKODAS!!!");
 					results.setSearchedByBarcode(true);
-					results.setProducts(productService.getByBarcode(Long.parseLong(criteria.getQ().trim())));
+					results.setProducts(productService.getByBarcode(Long
+							.parseLong(criteria.getQ().trim())));
 					results.setProduct(results.getProducts().size() > 0);
 				}
 			} else {
 				logger.debug("ieskom konservanto");
-				results.setConservants(eService.getByNameOrAlias(criteria.getQ()));
-				if (null != results.getConservants() && results.getConservants().size() > 0) {
-					// jei radom tiksliai tokiu konservantu, grazinam tuos konservantus
+				results.setConservants(eService.getByNameOrAlias(criteria
+						.getQ()));
+				if (null != results.getConservants()
+						&& results.getConservants().size() > 0) {
+					// jei radom tiksliai tokiu konservantu, grazinam tuos
+					// konservantus
 					// ir produktus, juos turincius
 					logger.debug("radom konservanta ");
 					results.setConservant(true);
-					
+
 					criteria.getFilters().clear();
-					
-					if (! criteria.hasEFilter()) {
+
+					if (!criteria.hasEFilter()) {
 						for (E e : results.getConservants()) {
 							criteria.addEFilter(e.getId(), e.getName());
 						}
 					}
-					results.setProducts(productService.getList(criteria));
+					results.setProducts(productService.getList(criteria, false));
 					results.setProduct(results.getProducts().size() > 0);
 				} else {
 					logger.debug("neradom konservanto, ieskom produktu...");
@@ -62,15 +68,17 @@ public class SearchService {
 						// nothing
 					}
 					results.setProducts(productService.getProductList(criteria));
-					
-					logger.debug("RADOM VA KIEK: " + results.getProducts().size());
-					
+
+					logger.debug("RADOM VA KIEK: "
+							+ results.getProducts().size());
+
 					results.setProduct(results.getProducts().size() > 0);
-					
-	//				if (criteria.getQ().contains(" ")) {
-	//					StringTokenizer t = new StringTokenizer(criteria.getQ(), " \t\n\r\f,.-:;");
-	//					// TODO pabaigti skaidant i gabalus
-	//				}
+
+					// if (criteria.getQ().contains(" ")) {
+					// StringTokenizer t = new StringTokenizer(criteria.getQ(),
+					// " \t\n\r\f,.-:;");
+					// // TODO pabaigti skaidant i gabalus
+					// }
 				}
 			}
 		}
@@ -94,16 +102,20 @@ public class SearchService {
 		eService = service;
 	}
 
-	public List<Product> getList(ProductSearchCriteria criteria) {
-		return productService.getList(criteria);
+	public List<Product> getList(ProductSearchCriteria criteria, boolean addRandomUnapprovedProduct) {
+		return productService.getList(criteria, addRandomUnapprovedProduct);
 	}
-	
+
 	public List<Product> getProductList(ProductSearchCriteria criteria) {
 		return productService.getProductList(criteria);
 	}
 
 	public List<Product> getSuggestList(ProductSearchCriteria criteria) {
-		return productService.getList(criteria);
+		return productService.getList(criteria, false);
 	}
 	
+	public Product getRandomUnapprovedProduct() {
+		return productService.getRandomUnapprovedProduct();
+	}
+
 }

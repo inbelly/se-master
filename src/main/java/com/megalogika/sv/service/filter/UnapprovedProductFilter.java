@@ -29,7 +29,7 @@ public class UnapprovedProductFilter extends FirstFilterAware implements Filter 
 
 	@Override
 	public String getDescriptionArgument() {
-		return "UnapprovedContentFilter";
+		return "UnapprovedProductFilter";
 	}
 
 }

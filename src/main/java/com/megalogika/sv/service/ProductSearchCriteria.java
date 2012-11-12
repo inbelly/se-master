@@ -1,7 +1,9 @@
 package com.megalogika.sv.service;
 
 import java.io.Serializable;
+import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -9,6 +11,7 @@ import org.springframework.util.StringUtils;
 import com.megalogika.sv.model.E;
 import com.megalogika.sv.model.ProductCategory;
 import com.megalogika.sv.service.filter.ApprovedContentFilter;
+import com.megalogika.sv.service.filter.ApprovedProductFilter;
 import com.megalogika.sv.service.filter.CategoryFilter;
 import com.megalogika.sv.service.filter.CompanyFilter;
 import com.megalogika.sv.service.filter.EFilter;
@@ -41,22 +44,22 @@ public class ProductSearchCriteria extends SearchCriteria implements Serializabl
 
 	@Override
 	public String getOrderByClause() {
-		String ret = "p.approved asc";
+		String ret = "";
 
 //		if (hasAuthority(User.ROLE_ADMIN)) {
 //			ret += "p.approved asc, ";
 //		}
 
 		if (ORDER_BY_DATE.equals(orderBy)) {
-			ret += ", p.entryDate desc";
+			ret += "p.entryDate desc";
 		} else if (ORDER_BY_HAZARD.equals(orderBy)) {
-			ret += ", p.hazard desc";
+			ret += "p.hazard desc";
 		} else if (ORDER_BY_HAZARD_ASC.equals(orderBy)) {
-			ret += ", p.hazard asc";			
+			ret += "p.hazard asc";			
 		} else if (ORDER_BY_PRODUCER.equals(orderBy)) {
-			ret += ", lower(trim(BOTH ' \"' FROM p.company)) asc"; //TODO dar kazkaip apostrofa paescapinti
+			ret += "lower(trim(BOTH ' \"' FROM p.company)) asc"; //TODO dar kazkaip apostrofa paescapinti
 		} else {
-			ret += ", p.entryDate desc";
+			ret += "p.entryDate desc";
 		}
 
 		return ret;
@@ -129,11 +132,28 @@ public class ProductSearchCriteria extends SearchCriteria implements Serializabl
 		setPage(0);
 		addFilter(new ApprovedContentFilter(true));
 	}
-	
+
 	public void addUnapprovedProductFilter() {
 		setPage(0);
+		List<Filter> fList = this.getFilters();
+		// TODO: move this to new method removeFilter(String name)
+		logger.debug("GOING THROUGH FILTERS... [" + this.getFilters().size() + "]");
+		for (int i = 0; i < this.getFilters().size(); i++) {
+			logger.debug("FILTERS[" + this.getFilters().get(i).getDescriptionArgument() + "]");
+			if (fList.get(i).getDescriptionArgument().equalsIgnoreCase("ApprovedProductFilter")) {
+				logger.debug("REMOVING FILTER: " + fList.get(i).getDescriptionArgument());
+				logger.debug("FILTER INDEX: " + i);
+				this.removeFilter("" + i);
+				break;
+			}
+		}
 		addFilter(new UnapprovedProductFilter(true));
-	}	
+	}
+	
+	public void addApprovedProductFilter() {
+		setPage(0);
+		addFilter(new ApprovedProductFilter(true));
+	}
 
 	@Override
 	public String getWhereClause() {

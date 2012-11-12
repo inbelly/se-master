@@ -32,7 +32,7 @@ import com.megalogika.sv.model.conversion.JsonFilterable;
 
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-public class Product implements Serializable, JsonFilterable {
+public class Product implements Serializable, JsonFilterable, Comparable {
 	private static final long serialVersionUID = 6032201133972384748L;
 	
 	protected transient Logger logger = Logger.getLogger(Product.class);
@@ -599,5 +599,16 @@ public class Product implements Serializable, JsonFilterable {
 				|| fieldName.equals("tags") || fieldName.equals("conservantFree") || fieldName.equals("calories") || fieldName.equals("gmo")
 				|| fieldName.equals("entryDate") || fieldName.equals("conservants") || fieldName.equals("barcode") || fieldName.equals("approved")
 				|| fieldName.equals("hazard") || fieldName.equals("label") || fieldName.equals("ingredients"));
+	}
+
+	@Override
+	public int compareTo(Object arg0) {
+		Product other = (Product) arg0;
+		
+		if (this == other) return 0;
+		if (this.isApproved() && !other.isApproved()) return 1;
+		if (!this.isApproved() && other.isApproved()) return -1;
+		
+		return 0;
 	}
 }
