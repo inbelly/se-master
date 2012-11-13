@@ -140,14 +140,19 @@ public class ProductService {
 						+ criteria.getWhereClause())).getSingleResult())
 				.longValue());
 
-		int itemsPerPage = (addRandomUnapprovedProduct) ? -1 : 0;
+		Product randomUnapprovedProduct = null;
+		if (addRandomUnapprovedProduct) {
+			randomUnapprovedProduct = this.getRandomUnapprovedProduct();
+		}
+		
+		int itemsPerPage = (addRandomUnapprovedProduct && randomUnapprovedProduct != null) ? -1 : 0;
 		
 		List<Product> pList = criteria
 				.setParameters(em.createQuery(qString))
 				.setFirstResult(criteria.getPage() * criteria.getItemsPerPage())
 				.setMaxResults(criteria.getItemsPerPage() + itemsPerPage).getResultList();
 		
-		if (addRandomUnapprovedProduct) {
+		if (addRandomUnapprovedProduct && randomUnapprovedProduct != null) {
 			pList.add(this.getRandomUnapprovedProduct());
 			Collections.sort(pList);
 		}
@@ -160,7 +165,7 @@ public class ProductService {
 		String qString = "select p from Product p where p.approved = false order by p.entryDate "
 				+ ((Math.random() * 1) > 0.5 ? "asc" : "desc");
 		List<Product> pList = em.createQuery(qString).getResultList();
-		return pList.get((int) (Math.random() * pList.size()));
+		return (pList.size() > 0) ? pList.get((int) (Math.random() * pList.size())) : null;
 	}
 
 	public List<Product> getListContainingE(ProductSearchCriteria c, List<E> l) {
