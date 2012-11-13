@@ -38,7 +38,9 @@
 			<#if criteria.hasFilter()>
 				<strong><@spring.message code="productList.filter.filter"/>:</strong>
 				<#list criteria.filters as filter>
-					<a href="${cp}spring/productList/remove?filterIndex=${filter_index}" title="<@spring.message code="productList.filter.remove" />" class="ico remove"><span><@spring.message code="${filter.description}" arguments="${filter.descriptionArgument!''}"/></span></a>
+					<#if filter.descriptionArgument != "ApprovedProductFilter">
+						<a href="${cp}spring/productList/remove?filterIndex=${filter_index}" title="<@spring.message code="productList.filter.remove" />" class="ico remove"><span><@spring.message code="${filter.description}" arguments="${filter.descriptionArgument!''}"/></span></a>
+					</#if>
 				</#list>
 			</#if>
 		</p>

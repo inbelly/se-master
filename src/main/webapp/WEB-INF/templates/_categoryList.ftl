@@ -3,7 +3,7 @@
     <ul>
         <li>
             <#if criteria.hasFilter()>
-                <#if criteria.containsFilter("UnapprovedContentFilter")>
+                <#if criteria.containsFilter("UnapprovedProductFilter")>
                    <span class="UnapprovedContentFilter selected">Unapproved products</span>
                 <#else>
                     <a class="UnapprovedContentFilter" href="${cp}spring/productList/filterByUnapprovedProducts">Unapproved products</a>
