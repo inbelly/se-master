@@ -14,6 +14,16 @@
     margin-right: 10px;
 }
 
+/*.products-list.columns-3 .columns-1 {
+	float: right;
+    width: 231px;
+}
+
+.products-list.columns-3 .columns-2{
+	float: left;
+    width: 494px;
+}*/
+
 .products-list .product {
     float: left;
     position: relative;
@@ -45,6 +55,10 @@
     float: right;
     margin-left: 4px;
     margin-bottom: 4px;
+}
+
+.products-list .product img.not-approved {
+    position: absolute;
 }
 
 #product #product-info-quick h3,

@@ -31,8 +31,8 @@
 									<div class="input clearfix">
 										<@form.textarea path="conservantsText" rows="5" cols="75" onkeyup="addIngredient(this, false);" onchange="addIngredient(this, false);">${product.conservantsText!""?xhtml}<#if (!product.conservantsText?? || product.conservantsText?trim?length == 0) && product.conservants??><#list product.conservants as e>${e.number}</#list></#if></@form.textarea>
 									</div>
-									<div class="input clearfix"
-										<@form.checkbox path="conservantFree" onchange="disableField('#conservantsText');"/>
+									<div class="input clearfix">
+										<@form.checkbox path="conservantFree" onchange="if(this.checked){$('#conservantsText').attr('disabled',true);}else{$('#conservantsText').attr('disabled',false);}"/>
 										<@form.errors path="conservantFree" element="p" cssClass="errorMsg"/>
 										<@spring.message code="createproduct.form.additives.no" />
 										<@form.errors path="conservantsText" element="p" cssClass="errorMsg"/>
@@ -97,6 +97,7 @@
 										}			
 									});
 									$("#conservantsText").result(function(event, data, formatted) {
+										$(this)[0].selectionStart = $(this)[0].selectionEnd = $(this).val().length;
 										event.preventDefault();
 										event.stopPropagation();
 										Spring.remoting.submitForm(jQuery("#conservantsText"), 'product-data-form', 
@@ -114,14 +115,7 @@
                         
                         <hr />
                         
-						<#if (product.conservants?? && product.conservants?size > 0) || (product.conservantFree?? && product.conservantFree)>
-	                    	<h2 class="mb"><@spring.message code="product.detectedAdditives"/></h2>   	
-							<@tiles.insertAttribute name="eTable" />
-						<#else/>
-							<div id="additives">
-								<h2 class="mb"><@spring.message code="product.noE"/></h2>
-							</div>
-						</#if>                        
+                        <@tiles.insertAttribute name="eTable" />
                         
 <#-- šitas aktualus -->                        
 <#--                        

@@ -87,7 +87,7 @@ public class UserService  {
 			return false;
 		}
 		
-		String newPassword = new PronounceableGenerator().generate(8); 
+		String newPassword = new PronounceableGenerator().generate(8);
 		u.setPassword(newPassword);
 		save(u);
 		

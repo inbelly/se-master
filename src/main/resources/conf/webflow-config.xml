@@ -33,7 +33,8 @@
 	<!-- Plugs in a custom creator for Web Flow views -->
 	<webflow:flow-builder-services id="flowBuilderServices"
 		view-factory-creator="mvcViewFactoryCreator" conversion-service="sveikasVaikasConversionService"
-		development="${flowDevelopment}" />
+		development="false" />
+	<!-- ${flowDevelopment} parameter in pom.xml isn't working in eclipse  -->
 
 	<!--
 		Configures Web Flow to use Tiles to create views for rendering; Tiles

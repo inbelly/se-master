@@ -1,7 +1,9 @@
 package com.megalogika.sv.service;
 
 import java.io.Serializable;
+import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -9,6 +11,7 @@ import org.springframework.util.StringUtils;
 import com.megalogika.sv.model.E;
 import com.megalogika.sv.model.ProductCategory;
 import com.megalogika.sv.service.filter.ApprovedContentFilter;
+import com.megalogika.sv.service.filter.ApprovedProductFilter;
 import com.megalogika.sv.service.filter.CategoryFilter;
 import com.megalogika.sv.service.filter.CompanyFilter;
 import com.megalogika.sv.service.filter.EFilter;
@@ -20,6 +23,7 @@ import com.megalogika.sv.service.filter.RankingFilter;
 import com.megalogika.sv.service.filter.RankingFilterException;
 import com.megalogika.sv.service.filter.TextKeywordFilter;
 import com.megalogika.sv.service.filter.TextNameKeywordFilter;
+import com.megalogika.sv.service.filter.UnapprovedProductFilter;
 
 @Component("productSearchCriteria")
 @Scope("session")
@@ -127,6 +131,28 @@ public class ProductSearchCriteria extends SearchCriteria implements Serializabl
 	public void addApprovedContentFilter() {
 		setPage(0);
 		addFilter(new ApprovedContentFilter(true));
+	}
+
+	public void addUnapprovedProductFilter() {
+		setPage(0);
+		List<Filter> fList = this.getFilters();
+		// TODO: move this to new method removeFilter(String name)
+		logger.debug("GOING THROUGH FILTERS... [" + this.getFilters().size() + "]");
+		for (int i = 0; i < this.getFilters().size(); i++) {
+			logger.debug("FILTERS[" + this.getFilters().get(i).getDescriptionArgument() + "]");
+			if (fList.get(i).getDescriptionArgument().equalsIgnoreCase("ApprovedProductFilter")) {
+				logger.debug("REMOVING FILTER: " + fList.get(i).getDescriptionArgument());
+				logger.debug("FILTER INDEX: " + i);
+				this.removeFilter("" + i);
+				break;
+			}
+		}
+		addFilter(new UnapprovedProductFilter(true));
+	}
+	
+	public void addApprovedProductFilter() {
+		setPage(0);
+		addFilter(new ApprovedProductFilter(true));
 	}
 
 	@Override

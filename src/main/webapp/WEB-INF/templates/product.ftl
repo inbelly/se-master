@@ -25,11 +25,14 @@
                         </div>
                         
                         <@sec.authorize ifAnyGranted="ROLE_ADMIN, ROLE_USER">
-                      	<#if (currentUser?? && currentUser.admin) || !product.confirmed && (product.canBeConfirmedBy(currentUser) || product.canBeEditedBy(currentUser) || product.canBeReportedBy(currentUser))>
+                      	<#if (currentUser?? && currentUser.admin) || !product.confirmed && (product.canBeConfirmedBy(currentUser) || product.canBeEditedBy(currentUser))>
 	                        <div id="waiting-approval" class="mb clearfix">
 	                        	<div class="message">
-		                            <p><#if product.canBeConfirmedBy(currentUser)>Dessa data väntar på ditt godkännande.</#if> Kontrollera uppgifterna nedan. <#if product.canBeEditedBy(currentUser)>Du kan <a href="product/edit?id=${product.id}">redigera</a> <#if product.canBeReportedBy(currentUser)>eller <a href="product/report?id=${product.id}">rapportera</a> </#if>det om det inte är korrekt.</#if></p>
-		                            <p>Genom att skriva in data som du har gjort gällande att du har läst och accepterat våra <a href="javascript:void(0);" class="toggle-handle js">villkor</a>.</p>
+									<p>
+										<#if product.canBeConfirmedBy(currentUser)>Dessa data väntar på ditt godkännande.</#if> Kontrollera uppgifterna nedan.
+										<#if product.canBeEditedBy(currentUser)>Du kan <a href="product/edit?id=${product.id}">redigera</a> <#if product.canBeReportedBy(currentUser)>eller
+										<a href="product/report?id=${product.id}">rapportera</a> </#if>det om det inte är korrekt.</#if>
+									</p>
 		                            
 		                            <ul class="termsandconditions mt hidden"><@spring.message code="createproduct.form.terms" /></ul>
 		                        </div>
@@ -50,8 +53,14 @@
 	                        //]]>
 	                        </script>	                        
                       	</#if>
-                      	</@sec.authorize>                          
-                       
+                      	
+                      	<#if product.canBeReportedBy(currentUser) && product.confirmed>
+                      		<div class="message">
+                      			<p>Du kan <a href="product/report?id=${product.id}">rapportera</a> det om det inte är korrekt.</p>
+                      		</div>
+                      		<br/>
+                      	</#if>
+                      	</@sec.authorize>
                    
                         <div id="product-info-edit" class="mb clearfix">
                         	<div class="left" class="clearfix">

@@ -32,12 +32,13 @@ import com.megalogika.sv.model.conversion.JsonFilterable;
 
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-public class Product implements Serializable, JsonFilterable {
+public class Product implements Serializable, JsonFilterable, Comparable {
 	private static final long serialVersionUID = 6032201133972384748L;
 	
 	protected transient Logger logger = Logger.getLogger(Product.class);
 
 	private Integer confirmationsRequired = 2;
+	private Integer reportsRequired = 2;
 	
 	long id;
 	String name;
@@ -183,12 +184,19 @@ public class Product implements Serializable, JsonFilterable {
 	}
 
 	public void calculateHazard() {
+		System.out.println("--- 111 tikrinam conservantFree: " + conservantFree);
 		if (null == getConservants() || getConservants().size() == 0 || conservantFree) {
 			setHazard(E.NO_HAZARD);
+//			logger.debug("111");
 		} else {
 			setHazard(E.MIN_HAZARD);
+//			logger.debug("222");
 			for (E e : getConservants()) {
-                            logger.debug("calculateHazard(): turime conservanta:" + e.toString() + ", pavadinimas="+ e.getName() +", konservanto kategorija=" + e.getCategory());
+//				logger.debug("Test logger first");
+//				logger.debug("turime conservanta:" + e.toString());
+//				logger.debug("pavadinimas="+ e.getName());
+//				logger.debug("konservanto kategorija=" + e.getCategory());
+//              logger.debug("calculateHazard(): turime conservanta:" + e.toString() + ", pavadinimas="+ e.getName() +", konservanto kategorija=" + e.getCategory());
 				if (Integer.parseInt(e.getCategory()) > Integer.parseInt(hazard)) {
 					setHazard(e.getCategory());
 				}
@@ -502,6 +510,15 @@ public class Product implements Serializable, JsonFilterable {
 		return confirmationsRequired;
 	}
 	
+	@Transient
+	public Integer getReportsRequired() {
+		return reportsRequired;
+	}
+
+	public void setReportsRequired(Integer reportsRequired) {
+		this.reportsRequired = reportsRequired;
+	}
+
 	public void confirm(Confirmation c) {
 		if (! getConfirmations().contains(c)) {
 			c.setProduct(this);
@@ -522,7 +539,7 @@ public class Product implements Serializable, JsonFilterable {
 				! this.isConfirmed() &&
 				(
 						! (
-								this.isCreatedBy(u) || 
+//								this.isCreatedBy(u) || 
 								this.isConfirmedBy(u)
 						  )
 				)
@@ -534,8 +551,7 @@ public class Product implements Serializable, JsonFilterable {
 	}
 	
 	public boolean canBeReportedBy(User u) {
-		return (null != u && u.isAdmin()) ||
-				! this.isReportedBy(u);
+		return (null != u && u.isAdmin()) || !this.isReportedBy(u);
 	}	
 
 	public void setConfirmationCount(int confirmationCount) {
@@ -583,5 +599,16 @@ public class Product implements Serializable, JsonFilterable {
 				|| fieldName.equals("tags") || fieldName.equals("conservantFree") || fieldName.equals("calories") || fieldName.equals("gmo")
 				|| fieldName.equals("entryDate") || fieldName.equals("conservants") || fieldName.equals("barcode") || fieldName.equals("approved")
 				|| fieldName.equals("hazard") || fieldName.equals("label") || fieldName.equals("ingredients"));
+	}
+
+	@Override
+	public int compareTo(Object arg0) {
+		Product other = (Product) arg0;
+		
+		if (this == other) return 0;
+		if (this.isApproved() && !other.isApproved()) return 1;
+		if (!this.isApproved() && other.isApproved()) return -1;
+		
+		return 0;
 	}
 }

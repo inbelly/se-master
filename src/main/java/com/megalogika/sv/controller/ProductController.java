@@ -806,6 +806,8 @@ public class ProductController {
 		
 		productService.updateConservants(p);
 		
+		logger.debug("UPDATED CONSERVANTS: " + p);
+		
 		p = productService.saveNew(p);
 		
 		logger.debug("SAVED PRODUCT: " + p);

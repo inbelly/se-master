@@ -306,6 +306,11 @@
 	</definition>
 	
 	<definition name="409" template="/WEB-INF/templates/ajaxReply.ftl">
+	</definition>
+	
+	<definition name="dataSources" extends="template">
+		<put-attribute name="breadcrumbs" value="/WEB-INF/templates/breadcrumbs/dataSources.ftl" />
+		<put-attribute name="body" value="/WEB-INF/templates/dataSources.ftl"/>
 	</definition>	
 		
 	
