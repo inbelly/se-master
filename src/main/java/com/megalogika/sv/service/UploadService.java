@@ -208,7 +208,7 @@ public class UploadService {
 		Assert.notNull(file, "Missing file object (==null)!");
 		Assert.notNull(file, "Missing size (==null)!");
 		BufferedImage image = ImageIO.read(file.getInputStream());
-		return image.getWidth() > size || image.getHeight() > size;
+		return image.getWidth() > size && image.getHeight() > size;
 	}
 	
 	protected boolean validateImageFile(MessageContext messageContext, MultipartFile file, String sourceField) {
