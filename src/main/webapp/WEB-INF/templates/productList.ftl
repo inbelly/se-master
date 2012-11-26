@@ -54,7 +54,7 @@
 		<#list products as p>
 			<div class="product <#if 0 == (p_index + 1) % 3>last</#if>">
 				<#if !p.approved>
-					<img src="${cp}img/aproval_1.png" alt="not approved" class="not-approved"/>
+					<img src="${cp}img/aproval_1.png" alt="not approved" class="not-approved" title="<@spring.message code="productList.productNotApproved" />"/>
 				</#if>
 				<#include "productItem.ftl"/>
 			</div>

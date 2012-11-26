@@ -24,7 +24,6 @@
                             </div>
                         </div>
                         
-                        <@sec.authorize ifAnyGranted="ROLE_ADMIN, ROLE_USER">
                       	<#if (currentUser?? && currentUser.admin) || !product.confirmed && (product.canBeConfirmedBy(currentUser) || product.canBeEditedBy(currentUser))>
 	                        <div id="waiting-approval" class="mb clearfix">
 	                        	<div class="message">
@@ -60,8 +59,7 @@
                       		</div>
                       		<br/>
                       	</#if>
-                      	</@sec.authorize>
-                   
+                      	                   
                         <div id="product-info-edit" class="mb clearfix">
                         	<div class="left" class="clearfix">
                         		<div class="field">
