@@ -216,7 +216,7 @@ public class ProductController {
 	}
 
 	@RequestMapping("/product/edit")
-	@Secured({"ROLE_USER", "ROLE_ADMIN"})
+	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
 	public ModelAndView getProductEdit(HttpServletRequest request,
 			HttpServletResponse response, HttpSession session,
 			@RequestParam(required = true, value = "id") String id)
@@ -855,6 +855,39 @@ public class ProductController {
 
 		ModelMap m = new ModelMap();
 		m.addAttribute(KEY_PRODUCT_LIST, productService.getByBarcode(q.trim()));
+
+		return m;
+	}
+
+	@RequestMapping(value = "/products/byBarcodeAdd.*", method = RequestMethod.POST)
+	public ModelMap createProduct(MultipartHttpServletRequest request, HttpServletResponse response,
+			@RequestParam(required = true, value = "barcode") String barcode)
+			throws Exception {
+		Product p = productService.createProduct(request,
+				userService.getCurrentUser(), barcode);
+
+		logger.debug("CREATED PRODUCT: " + p);
+
+		if (null == p.getCategory()) {
+			p.setCategory(categoryService
+					.getProductCategory(CategoryService.CATEGORY_MISC));
+		}
+
+		p.setLabel(uploadService.getPhoto(request, "labelPhoto"));
+		p.setIngredients(uploadService.getPhoto(request, "ingredientsPhoto"));
+
+		logger.debug("ASSIGNED PHOTOS: " + p);
+
+		productService.updateConservants(p);
+
+		logger.debug("UPDATED CONSERVANTS: " + p);
+
+		p = productService.saveNew(p);
+
+		logger.debug("SAVED PRODUCT: " + p);
+
+		ModelMap m = new ModelMap();
+		m.addAttribute(KEY_PRODUCT_LIST, productService.getByBarcode(barcode.trim()));
 
 		return m;
 	}
