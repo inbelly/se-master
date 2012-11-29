@@ -42,6 +42,19 @@ public class User implements Serializable, UserDetails {
 	private boolean aggree;
 	private String role;
 	
+	@Transient
+	private String userAddress;
+	
+	@Transient
+	public String getUserAddres() {
+		return userAddress;
+	}
+
+	@Transient
+	public void setUserAddres(String userAddress) {
+		this.userAddress = userAddress;
+	}
+
 	private String facebookId;
 	//private ShoppingBasket shoppingBasket;
 

@@ -51,6 +51,8 @@ public class InBellyAuthenticationFilter extends AuthenticationProcessingFilter 
         		if (!"undefined".equals(fbEmail)) {
 	        		
 	        		User user = new User();
+	        		user.setUserAddres(request.getRemoteAddr() + " ("
+	    					+ request.getRemoteHost() + ")");
 	        		user.setEmail(fbEmail);
 	        		user.setNick(fbName);
 	        		userService.save(user);
