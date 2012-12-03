@@ -127,7 +127,8 @@ public class ProductListController {
 		frontendService.addCriteria(m, session, ProductSearchCriteria.class);
 
 		List<Product> pList = searchService.getList(criteria,
-				criteria.containsFilter("ApprovedProductFilter"));
+				criteria.containsFilter("ApprovedProductFilter") &&
+				criteria.getFilters().size() == 1);
 
 		m.addAttribute(KEY_PRODUCTS, pList);
 
