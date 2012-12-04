@@ -64,7 +64,7 @@
 										</#if>    
 	-->									                                
 	                                    <p>${e.name?xhtml} <#if (e.aliases?? && e.aliases?length > 0)>(${e.aliases?xhtml})</#if></p>
-	                                    <p class="nmb"><strong><a href="${cp}spring/productList/filterByE?eid=${e.id}&amp;name=${e.number?url('utf-8')}"><@spring.message code="eTable.detectedInProducts" arguments="${e.productCount}"/></a></strong>
+	                                    <p class="nmb"><strong><a href="${cp}spring/productList/filterByE?eid=${e.id}&amp;name=${e.number?url('utf-8')}"><@spring.message code="eTable.detectedInProducts" arguments="${e.approvedProductCount}"/></a></strong>
 	                                    </div>
 	                                </div>
 	                                

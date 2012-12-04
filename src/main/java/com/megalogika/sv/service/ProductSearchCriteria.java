@@ -76,7 +76,9 @@ public class ProductSearchCriteria extends SearchCriteria implements Serializabl
 		for (int i = 0; i < filters.size(); i++) {
 			if ((filters.get(i) instanceof HazardFilter) ||
 				(filters.get(i) instanceof EFilter ||
-				(filters.get(i) instanceof TextKeywordFilter)))  
+						filters.get(i) instanceof TextKeywordFilter) ||
+				(filters.get(i) instanceof UnapprovedProductFilter ||
+						filters.get(i) instanceof CategoryFilter))  
 			{
 				filters.remove(i);
 			}
@@ -91,7 +93,8 @@ public class ProductSearchCriteria extends SearchCriteria implements Serializabl
 			if (filters.get(i) instanceof CategoryFilter) {
 				((CategoryFilter) filters.get(i)).setCategory(filter.getCategory());
 			}
-			if (filters.get(i) instanceof TextKeywordFilter) {
+			if (filters.get(i) instanceof UnapprovedProductFilter ||
+					filters.get(i) instanceof TextKeywordFilter) {
 				filters.remove(i);
 			}
 		}
