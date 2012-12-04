@@ -1,1 +1,1 @@
-Datakällor content goes here.
+Vi har samlat information om livsmedelstillsatser från källor som anges nedan. Vi arbetar kontinuerligt med att förbättra vår tjänst och är mycket tacksamma för påpekanden om eventuella inkonsekvenser eller fel som du stöter på. Tack på förhand!

@@ -5,7 +5,7 @@
         <li>
             <#if criteria.hasFilter()>
                 <#if criteria.containsFilter("UnapprovedProductFilter")>
-                   <span class="UnapprovedContentFilter selected">Unapproved products</span>
+                   <span class="UnapprovedContentFilter selected">Icke godkända produkter</span>
                 <#else>
                     <a class="UnapprovedContentFilter" href="${cp}spring/productList/filterByUnapprovedProducts">Icke godkända produkter</a>
                 </#if>
