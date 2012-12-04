@@ -20,6 +20,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
+import org.hibernate.annotations.Where;
 
 import com.megalogika.sv.model.conversion.JsonFilterable;
 
@@ -167,6 +168,7 @@ public class E implements Serializable, JsonFilterable {
 	}
 
 	@ManyToMany(mappedBy = "conservants", fetch = FetchType.LAZY)//$NON-NLS-1$
+	@Where(clause="approved='true'")
 	@BatchSize(size = 64)
 	@LazyCollection(LazyCollectionOption.EXTRA)
 	public List<Product> getProducts() {
@@ -328,6 +330,15 @@ public class E implements Serializable, JsonFilterable {
 				|| fieldName.equals("vegan") || fieldName.equals("productCount")
 				|| fieldName.equals("gmo") || fieldName.equals("bannedInUsa") || fieldName.equals("bannedInCanada")
 				|| fieldName.equals("bannedInAustralia") || fieldName.equals("linksDiseases") || fieldName.equals("linksBanned"));
+	}
+	
+	@Transient
+	public int getApprovedProductCount() {
+		int ret = 0;
+		for (int i = 0; i < this.getProducts().size(); i++)
+			if (this.getProducts().get(i).isApproved())
+				ret++;
+		return ret;
 	}
 
 }
