@@ -177,11 +177,17 @@ a.ico {
 }
 
 #categories .UnapprovedContentFilter {
-	color: #990000;
+    color: #ff7b0f;
+    font-weight: bold;
+    text-decoration: underline;
+    border-bottom: none;
+    font-size: 13px;
 }
 
-#categories .UnapprovedContentFilte.selected {
-	color: #990000;
+#categories .UnapprovedContentFilter.selected {
+	color: #6e6e6e;
+	font-weight: normal;
+    text-decoration: none;
 }
 
 hr {

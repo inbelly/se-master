@@ -24,19 +24,18 @@
                             </div>
                         </div>
                         
-                        <@sec.authorize ifAnyGranted="ROLE_ADMIN, ROLE_USER">
-                      	<#if (currentUser?? && currentUser.admin) || !product.confirmed && (product.canBeConfirmedBy(currentUser) || product.canBeEditedBy(currentUser))>
+                      	<#if (currentUser?? && currentUser.admin) || !product.confirmed && (!currentUser?? ||  (currentUser?? && (product.canBeConfirmedBy(currentUser) || product.canBeEditedBy(currentUser))))>
 	                        <div id="waiting-approval" class="mb clearfix">
 	                        	<div class="message">
 									<p>
-										<#if product.canBeConfirmedBy(currentUser)>Dessa data väntar på ditt godkännande.</#if> Kontrollera uppgifterna nedan.
-										<#if product.canBeEditedBy(currentUser)>Du kan <a href="product/edit?id=${product.id}">redigera</a> <#if product.canBeReportedBy(currentUser)>eller
+										<#if !currentUser?? || product.canBeConfirmedBy(currentUser)>Dessa data väntar på ditt godkännande.</#if> Kontrollera uppgifterna nedan.
+										<#if !currentUser?? || product.canBeEditedBy(currentUser)>Du kan <a href="product/edit?id=${product.id}">redigera</a> <#if !currentUser?? || product.canBeReportedBy(currentUser)>eller
 										<a href="product/report?id=${product.id}">rapportera</a> </#if>det om det inte är korrekt.</#if>
 									</p>
 		                            
 		                            <ul class="termsandconditions mt hidden"><@spring.message code="createproduct.form.terms" /></ul>
 		                        </div>
-		                        <#if product.canBeConfirmedBy(currentUser)>
+		                        <#if !currentUser?? || product.canBeConfirmedBy(currentUser)>
     		                        <div class="confirm" onsubmit="return confirm('<@spring.message code="confirm.really" />');">
     		                            <form method="get" action="${cp}spring/product/confirm">
     		                                <input type="hidden" name="id" value="${product.id}"/>
@@ -54,14 +53,13 @@
 	                        </script>	                        
                       	</#if>
                       	
-                      	<#if product.canBeReportedBy(currentUser) && product.confirmed>
+                      	<#if product.confirmed && (!currentUser?? ||  product.canBeReportedBy(currentUser))>
                       		<div class="message">
                       			<p>Du kan <a href="product/report?id=${product.id}">rapportera</a> det om det inte är korrekt.</p>
                       		</div>
                       		<br/>
                       	</#if>
-                      	</@sec.authorize>
-                   
+                      	                   
                         <div id="product-info-edit" class="mb clearfix">
                         	<div class="left" class="clearfix">
                         		<div class="field">

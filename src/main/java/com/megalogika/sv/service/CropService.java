@@ -85,6 +85,7 @@ public class CropService {
 			rez = new PhotoDimension(newW, newH);
 		}
 		adjustCropping(rez, photo.getCropping());
+		photo.assignDimensions(rez);
 
 		return rez;
 	}
@@ -179,15 +180,6 @@ public class CropService {
 		logger.debug("CropService.cropIngredients(): photoResized is:" + photo.getResizedPhoto());
 		logger.debug("CropService.cropIngredients(): photoPhoto is:" + photo.getPhoto());
 		logger.debug("CropService.cropIngredients(): destDir:" + destDir);
-		
-		if (photo.getCropping().getHeight() == photo.getHeight() &&
-			photo.getCropping().getWidth() == photo.getWidth()) 
-		{
-			logger.debug("Ingredients: NO CROPPING NEEDED!");
-			
-			photo.setResizedPhoto(photo.getOriginalPhoto());
-			return;
-		}
 		
 		try {
 			String originalFilePath = photo.getOriginalPhoto();

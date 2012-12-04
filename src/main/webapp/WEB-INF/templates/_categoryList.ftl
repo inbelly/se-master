@@ -1,5 +1,6 @@
 <#assign spring=JspTaglibs["http://www.springframework.org/tags"]>
 <div id="categories">
+    <#include "_helpus.ftl" />
     <ul>
         <li>
             <#if criteria.hasFilter()>
@@ -28,5 +29,4 @@
             </#if>
         </#list>
     </ul> 
-    <#include "_helpus.ftl" />
 </div>

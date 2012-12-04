@@ -77,7 +77,7 @@ public class UploadService {
 		if (isFileSpecified(photoFile, ret)) {
 			if (null != photoFile && !photoFile.isEmpty() && photoFile.getSize() > 0) {
 				if (isImageFileValid(photoFile)) {
-					if ( isImageValid(photoFile)) {
+					if ( isImageValid(photoFile, 200)) {
 						try {
 							String fileName = fileService.putFileToPlace(photoFile);
 							
@@ -132,8 +132,10 @@ public class UploadService {
 			if (!validateImageFile(messageContext, photoFile, "labelPhoto")) {
 				return false;
 			}
-
 			try {
+				if (!validateImageSize(messageContext, photoFile, 217, "labelPhoto")) {
+					return false;
+				}
 				String fileName = fileService.putFileToPlace(photoFile);
 				product.getLabel().setOriginalPhoto(fileName);
 				product.getLabel().setResizedPhoto(fileName);
@@ -165,7 +167,7 @@ public class UploadService {
 				return false;
 			}
 			try {
-				if (!validateIngredientsPhoto(messageContext, photoFile, "ingredientsPhoto")) {
+				if (!validateImageSize(messageContext, photoFile, 456, "ingredientsPhoto")) {
 					return false;
 				}
 				String fileName = fileService.putFileToPlace(photoFile);
@@ -201,37 +203,31 @@ public class UploadService {
 	protected boolean isImageFileValid(MultipartFile file) {
 		return fileService.isImage(file);
 	}
+
+	protected boolean isImageValid(MultipartFile file, int size) throws IOException {
+		Assert.notNull(file, "Missing file object (==null)!");
+		Assert.notNull(file, "Missing size (==null)!");
+		BufferedImage image = ImageIO.read(file.getInputStream());
+		return image.getWidth() > size && image.getHeight() > size;
+	}
 	
 	protected boolean validateImageFile(MessageContext messageContext, MultipartFile file, String sourceField) {
 		Assert.notNull(messageContext, "Missing message context (==null)!");
 		Assert.notNull(file, "Missing file object (==null)!");
 		Assert.notNull(sourceField, "Missing source field (==null)!");
-		
 		if (! isImageFileValid(file)) {
-			messageContext.addMessage(new MessageBuilder().error().source(sourceField).defaultText("Nurodytas netinkamo formato failas. Nurodykite jpg failą.")
-					.code("uploadService.wrongFileType").build());
+			messageContext.addMessage(new MessageBuilder().error().source(sourceField).defaultText("Nurodytas netinkamo formato failas. Nurodykite jpg failą.").code("uploadService.wrongFileType").build());
 			return false;
 		}
 		return true;
 	}
 	
-	protected boolean isImageValid(MultipartFile file) throws IOException {
-		Assert.notNull(file, "Missing file object (==null)!");
-		
-		BufferedImage image = ImageIO.read(file.getInputStream());
-		
-		return image.getWidth() > 200 || image.getHeight() > 200;
-	}
-	
-	protected boolean validateIngredientsPhoto(MessageContext messageContext, MultipartFile file, String sourceField) throws IOException {
-		BufferedImage image = ImageIO.read(file.getInputStream());
-		
-		if (! isImageValid(file)) {
-			messageContext.addMessage(new MessageBuilder().error().source(sourceField).defaultText("Ingredients image is too small")
-					.code("uploadService.ingredientsImageIsTooSmall").build());
+	protected boolean validateImageSize(MessageContext messageContext, MultipartFile file, int size, String sourceField) throws IOException {
+		BufferedImage image = ImageIO.read(file.getInputStream());	
+		if (! isImageValid(file, size)) {
+			messageContext.addMessage(new MessageBuilder().error().source(sourceField).defaultText("The file you specified is too small.").code("uploadService.fileTooSmall").build());
 			return false;
 		}
-		
 		return true;
 	}
 
