@@ -2,6 +2,7 @@ package com.megalogika.sv.model;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -21,6 +22,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 import org.hibernate.annotations.Where;
+import org.springframework.util.Assert;
 
 import com.megalogika.sv.model.conversion.JsonFilterable;
 
@@ -334,10 +336,15 @@ public class E implements Serializable, JsonFilterable {
 	
 	@Transient
 	public int getApprovedProductCount() {
+		Assert.notNull(products);
+		
 		int ret = 0;
-		for (int i = 0; i < this.getProducts().size(); i++)
-			if (this.getProducts().get(i).isApproved())
+		for (Iterator<Product> product = products.iterator(); product.hasNext();) {
+			if (product.next().isApproved()) {
 				ret++;
+			}
+		}
+		
 		return ret;
 	}
 
