@@ -180,6 +180,7 @@ a.ico {
     color: #ff7b0f;
     font-weight: bold;
     text-decoration: underline;
+    border-bottom: none;
     font-size: 13px;
 }
 
