@@ -51,7 +51,8 @@
                                             y2: "label.cropping.y2",
                                             w: "label.cropping.width",
                                             h: "label.cropping.height"
-                                        }
+                                        },
+                                        setSelect: [${product.label.cropping.x1}*456/${product.label.width},${product.label.cropping.y1}*456/${product.label.width},${product.label.cropping.x2}*456/${product.label.width},${product.label.cropping.y2}*456/${product.label.width}]
                                     });
                                 })
                             // ]]>
@@ -129,7 +130,7 @@
                                             h: "ingredients.cropping.height"
                                         },
                                         crop: true,
-                                        setSelect: [0,0,imgW,imgH],
+                                        setSelect: [${product.ingredients.cropping.x1},${product.ingredients.cropping.y1},${product.ingredients.cropping.x2},${product.ingredients.cropping.y2}],
                                         minSize: [minW,minH]
                                     });
                                 })

@@ -73,7 +73,7 @@
 #product #product-info-edit h4,
 #product #product-info h4,
 .products-list .product h4 {
-    margin-bottom: 9px;
+    margin-bottom: zpx;
     font-size: 12px;
 }
 
@@ -337,7 +337,8 @@
 }
 
 #categories ul li {
-    margin-bottom: 9px;
+    margin-top: 4px;
+    margin-bottom: 5px;
 }
 
 #categories ul li ul {
