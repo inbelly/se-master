@@ -49,7 +49,7 @@
 	<bean id="authFilter" class="com.megalogika.sv.util.InBellyAuthenticationFilter">
 		<property name="authenticationManager" ref="authenticationManager"/>
 		<property name="authenticationFailureUrl" value="/spring/loginError"/>
-		<property name="defaultTargetUrl" value="/spring/createProduct"/>
+		<property name="defaultTargetUrl" value="/spring/productList"/>
 		<property name="filterProcessesUrl" value="/spring/loginProcess"/>
 		<property name="targetUrlResolver" ref="inbellyTargetUrlResolver" />
 		<security:custom-filter position="AUTHENTICATION_PROCESSING_FILTER" />        

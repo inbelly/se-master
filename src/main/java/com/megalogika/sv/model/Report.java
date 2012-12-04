@@ -12,6 +12,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 public class Report extends TimedEvent {
 
 	private Product product;
+	private String enteredByIp;	
 	
 	public Report() {
 		super();
@@ -34,7 +35,16 @@ public class Report extends TimedEvent {
 	public Report(Product p, User user) {
 		this(user);
 		setProduct(p);
+		if (user != null) setEnteredByIp(user.getUserAddres());
 	}
+	
+	public String getEnteredByIp() {
+		return enteredByIp;
+	}
+
+	public void setEnteredByIp(String enteredByIp) {
+		this.enteredByIp = enteredByIp;
+	}	
 
 	@Override
 	public String toString() {

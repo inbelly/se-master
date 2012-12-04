@@ -20,6 +20,7 @@ public class Confirmation extends TimedEvent implements Serializable {
 	protected transient Logger logger = Logger.getLogger(Confirmation.class);
 	
 	private Product product;
+	private String enteredByIp;
 	
 	public Confirmation() {
 		super();
@@ -33,6 +34,7 @@ public class Confirmation extends TimedEvent implements Serializable {
 	public Confirmation(Product p, User user) {
 		this(user);
 		setProduct(p);
+		if (user != null) setEnteredByIp(user.getUserAddres());
 	}
 
 	@Override
@@ -48,6 +50,14 @@ public class Confirmation extends TimedEvent implements Serializable {
 	public Product getProduct() {
 		return product;
 	}
+	
+	public String getEnteredByIp() {
+		return enteredByIp;
+	}
+
+	public void setEnteredByIp(String enteredByIp) {
+		this.enteredByIp = enteredByIp;
+	}	
 	
 	@Override
 	public int hashCode() {

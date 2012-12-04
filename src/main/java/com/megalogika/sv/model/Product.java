@@ -530,7 +530,15 @@ public class Product implements Serializable, JsonFilterable, Comparable {
 	@Transient
 	public boolean isConfirmedBy(User u) {
 		logger.debug("IS " + this + " CONFIRMED BY " + u);
-		return null != u && getConfirmations().contains(new Confirmation(this, u));
+		
+		for (Confirmation c : this.confirmations) {
+			if ((c.getEnteredByIp() != null && c.getEnteredByIp().equalsIgnoreCase(u.getUserAddres())) ||
+					c.getActor().getId() == u.getId()) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
 
 	public boolean canBeConfirmedBy(User u) {
@@ -582,7 +590,15 @@ public class Product implements Serializable, JsonFilterable, Comparable {
 	@Transient
 	public boolean isReportedBy(User u) {
 		logger.debug("IS " + this + " REPORTED BY " + u);
-		return null != u && getReports().contains(new Report(this, u));
+		
+		for (Report r : this.reports) {
+			if ((r.getEnteredByIp() != null && r.getEnteredByIp().equalsIgnoreCase(u.getUserAddres())) ||
+					r.getActor().getId() == u.getId()) {
+				return true;
+			}
+		}
+		
+		return false;		
 	}	
 	
 	@Transient
