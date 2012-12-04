@@ -170,7 +170,7 @@ public class E implements Serializable, JsonFilterable {
 	@ManyToMany(mappedBy = "conservants", fetch = FetchType.LAZY)//$NON-NLS-1$
 	@Where(clause="approved='true'")
 	@BatchSize(size = 64)
-	@LazyCollection(LazyCollectionOption.EXTRA)
+//	@LazyCollection(LazyCollectionOption.EXTRA)
 	public List<Product> getProducts() {
 		return products;
 	}
