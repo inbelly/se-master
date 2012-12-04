@@ -7,10 +7,10 @@
                 <#if criteria.containsFilter("UnapprovedProductFilter")>
                    <span class="UnapprovedContentFilter selected">Unapproved products</span>
                 <#else>
-                    <a class="UnapprovedContentFilter" href="${cp}spring/productList/filterByUnapprovedProducts">Unapproved products</a>
+                    <a class="UnapprovedContentFilter" href="${cp}spring/productList/filterByUnapprovedProducts">Icke godkända produkter</a>
                 </#if>
             <#else>
-                <a class="UnapprovedContentFilter" href="${cp}spring/productList/filterByUnapprovedProducts">Unapproved products</a>
+                <a class="UnapprovedContentFilter" href="${cp}spring/productList/filterByUnapprovedProducts">Icke godkända produkter</a>
             </#if>
         </li>
         <#list categoryList as category>
