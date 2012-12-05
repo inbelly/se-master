@@ -1,5 +1,4 @@
-<h2>Datakällor</h2>
-			<div class="entry">
+<div class="entry">
 				<p>Vi har samlat information om livsmedelstillsatser från källor som anges nedan. Vi arbetar kontinuerligt med att förbättra vår tjänst och är mycket tacksamma för påpekanden om eventuella inkonsekvenser eller fel som du stöter på. Tack på förhand!</p>
 <p><a href="http://www.foodstandards.gov.au/" target="_blank">Food Standards Australia New Zealand (FSANZ)<br />
 </a></p>
