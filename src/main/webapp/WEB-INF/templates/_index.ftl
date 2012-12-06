@@ -22,15 +22,13 @@
                         <#assign smallHelp = true />
 	   	        <#include "_helpus.ftl" />   
                     	<div class="post clearfix">
-			<p><strong>Idén</strong> om Inbelly är att samla all info om livsmedelstillsats (färger, konserveringsmedel, smakförstärkare och andra numren E) samt möjliga konsekvenser av deras konsumtion och visa de produkter som innehåller dessa.</p> 
+			<p><strong>Vår ide</strong> på inBelly är att ge dig all tillgänglig information om den mat du äter, så att du kan fatta välinformerade beslut om vad du vill äta. Vi samlar information om livsmedelstillsatser (färger, konserveringsmedel, smakförstärkare och sk e-nummer) och deras möjliga effekter på människan. Med vår app kan du se vad olika livsmedelsprodukter innehåller, och om de ämnen som ingår är förbjudna i andra länder.</p> 
 
-			<p>De <strong>datakällor</strong> inkluderar både myndigheter för livsmedelssäkerhet från andra länder och databaser som PubMed.</p>
+			<p>Våra <strong>datakällor</strong> myndigheter för livsmedelssäkerhet från andra länder (Kanada, USA, Australien och Nya Zealand) och databaser som PubMed. PubMed är en databas för akademiska publikationer inom området hälso och sjukvård.</p>
 
-			<p><strong>Målet</strong> är att uppmuntra livsmedelstillverkare att vara socialt ansvarsfulla och minska användningen av farliga livsmedelstillsatser inom livsmedelsindustrin.</p> 
+			<p>Förutom att ge dig alla verktyg du behöver för att fatta beslut om vad du och de dina äter, vill vi också uppmuntra livsmedelstillverkare att vara socialt ansvarsfulla och minska användningen av tveksamma livsmedelstillsatser inom livsmedelsindustrin.</p> 
 
-			<p>Den ultimata <strong>utmaningen</strong> är att främja ett förbud mot tillsatser som har visat farligt och förbjudet i andra länder i förteckningen över tillsatser som är officiellt är tillåtna inom EU.</p>
-
-			<p><strong>Gå med i</strong> vår kampanj och <strong>lägga</strong> till en produkt för att se vad du äter. Genom att göra detta kommer du att hjälpa andra se vad de äter också.</p>
+			<p><strong>Gå med i</strong> vår kampanj och lägg till en produkt för att se vad du äter. När du gör det så hjälper du också andra att se vad de äter.</p>
  			<p><a href="http://blog.inbelly.co.uk/?p=18#respond">Berätta vad du tycker!</a></p>                   	
 
 			</div>

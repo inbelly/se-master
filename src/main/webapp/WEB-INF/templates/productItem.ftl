@@ -31,7 +31,7 @@
                             <p class="additives">
 							<#if (p.conservants?? && p.conservants?size > 0)>
 								<#assign eList = "" />
-								<strong>Contains:</strong>
+								<strong>Innehåller:</strong>
 										<#if p.conservants?size < 6 >
 											<#assign listEnd = p.conservants?size - 1>
 										<#else/>

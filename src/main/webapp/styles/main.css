@@ -634,3 +634,7 @@ form.simple .field .input textarea {
 .error, .errorMsg {
 	color: red;
 }
+
+.entry ol {
+ padding-left: 50px;
+}
