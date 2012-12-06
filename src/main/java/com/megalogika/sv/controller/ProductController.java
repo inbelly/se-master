@@ -72,6 +72,8 @@ public class ProductController {
 	private CategoryService categoryService;
 	@Autowired
 	private UploadService uploadService;
+	
+	// Cia buvo Robinis.
 
 	@ModelAttribute("cmd")
 	public ProductEditCommand getCmd() {
@@ -860,34 +862,38 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/products/byBarcodeAdd.*", method = RequestMethod.POST)
-	public ModelMap createProduct(MultipartHttpServletRequest request, HttpServletResponse response,
-			@RequestParam(required = true, value = "barcode") String barcode)
+	@Secured({"ROLE_ANONYMOUS"})
+	public ModelMap createProduct(MultipartHttpServletRequest request,
+			HttpServletResponse response,
+			@RequestParam(required = true, value = "q") String barcode)
 			throws Exception {
-		Product p = productService.createProduct(request,
-				userService.getCurrentUser(), barcode);
 
-		logger.debug("CREATED PRODUCT: " + p);
+		User user = frontendService.getUserService()
+				.loadByUserId("196608");
+		Product p = productService.createProduct(request, user, barcode);
 
-		if (null == p.getCategory()) {
-			p.setCategory(categoryService
-					.getProductCategory(CategoryService.CATEGORY_MISC));
-		}
-
-		p.setLabel(uploadService.getPhoto(request, "labelPhoto"));
-		p.setIngredients(uploadService.getPhoto(request, "ingredientsPhoto"));
+		p.setCompany("???");
+		p.setName("???");
+		p.setConservantFree(true);
+		p.setCategory(categoryService.getProductCategory(CategoryService.CATEGORY_MISC));
+		
+		logger.debug("CREATED PRODUCT: " + p + ", CATEGORY: " + p.getCategory().getId());
+		
+		p.setLabel(uploadService.getPhoto(request, "image1"));
+		p.setIngredients(uploadService.getPhoto(request, "image2"));		
 
 		logger.debug("ASSIGNED PHOTOS: " + p);
 
-		productService.updateConservants(p);
-
-		logger.debug("UPDATED CONSERVANTS: " + p);
+		// productService.updateConservants(p);
+//		logger.debug("UPDATED CONSERVANTS: " + p);
 
 		p = productService.saveNew(p);
 
 		logger.debug("SAVED PRODUCT: " + p);
 
 		ModelMap m = new ModelMap();
-		m.addAttribute(KEY_PRODUCT_LIST, productService.getByBarcode(barcode.trim()));
+		m.addAttribute(KEY_PRODUCT_LIST,
+				productService.getByBarcode(barcode.trim()));
 
 		return m;
 	}

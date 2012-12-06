@@ -25,7 +25,7 @@
 
 			<#-->div class="product<#if !p.approved> notapproved</#if><#if !p.approvedContent> notapprovedcontent</#if>"-->
                             <a href="${cp}spring/product?id=${p.id}" title="${p.name?xhtml}"><img src="<#if (p.label?? && p.label.photo?? && p.label.photo?length > 0)>${cp}files/${p.label.photo}<#else/>${cp}/images/product.png</#if>" width="215" height="215" alt="${p.name?xhtml} photo" class="picture" /></a>
-                            <img src="${cp}images/hazard-${p.hazard}.png" width="45" height="45" alt="<@spring.message code="${hazardDescriptions[p.hazard]}" />" class="hazard" title="<@spring.message code="${hazardDescriptions[p.hazard]}" />"/>
+                            <#if p.hazard??><img src="${cp}images/hazard-${p.hazard}.png" width="45" height="45" alt="<@spring.message code="${hazardDescriptions[p.hazard]}" />" class="hazard" title="<@spring.message code="${hazardDescriptions[p.hazard]}" />"/></#if>
                             <h3><a href="${cp}spring/product?id=${p.id}" title="${p.name?xhtml}">${shortenString(p.name, 38)}</a></h3>
                             <h4><a class="gray" href="${cp}spring/productList/filterByCompany?company=<#if p.company??>${p.company?url('utf-8')}</#if>" title="products by ${p.company?xhtml}"><#if p.company??>${shortenString(p.company, 56)}</#if></a></h4>
                             <p class="additives">

@@ -132,7 +132,7 @@ public class UserService  {
 
 	@SuppressWarnings("unchecked")
 	public User loadByUserId(String userid) {
-		List<User> l = em.createQuery("select u from User u where LOWER(u.id) = LOWER(:userid)").setParameter("userid", userid).getResultList();
+		List<User> l = em.createQuery("select u from User u where u.id = :userid").setParameter("userid", Long.valueOf(userid)).getResultList();
 		if (CollectionUtils.isEmpty(l)) {
 			throw new UsernameNotFoundException("Nėra vartotojo, kurio id '" + userid + "'");
 		}
