@@ -139,6 +139,15 @@ public class UserService  {
 		return (User) l.get(0);
 	}
 	
+	@SuppressWarnings("unchecked")
+	public User loadByUserName(String username) {
+		List<User> l = em.createQuery("select u from User u where u.nick = :username").setParameter("username", username).getResultList();
+		if (CollectionUtils.isEmpty(l)) {
+			throw new UsernameNotFoundException("Nėra vartotojo, kurio nick '" + username + "'");
+		}
+		return (User) l.get(0);
+	}
+	
 	public void persist(User user) {
 		em.persist(user);
 	}

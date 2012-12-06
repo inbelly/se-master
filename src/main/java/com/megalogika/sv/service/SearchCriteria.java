@@ -149,6 +149,7 @@ public abstract class SearchCriteria {
 	}
 
 	protected void addFilter(Filter newFilter) {
+//		this.getFilters().clear();
 		if (! getFilters().contains(newFilter)) {
 			this.getFilters().add(newFilter);
 			logger.debug("FILTERS BEFORE: " + getFilters());

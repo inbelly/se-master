@@ -868,8 +868,7 @@ public class ProductController {
 			@RequestParam(required = true, value = "q") String barcode)
 			throws Exception {
 
-		User user = frontendService.getUserService()
-				.loadByUserId("196608");
+		User user = frontendService.getUserService().loadByUserName("iPhone user");
 		Product p = productService.createProduct(request, user, barcode);
 
 		p.setCompany("???");
@@ -880,12 +879,14 @@ public class ProductController {
 		logger.debug("CREATED PRODUCT: " + p + ", CATEGORY: " + p.getCategory().getId());
 		
 		p.setLabel(uploadService.getPhoto(request, "image1"));
-		p.setIngredients(uploadService.getPhoto(request, "image2"));		
+		p.setIngredients(uploadService.getPhoto(request, "image2"));
 
 		logger.debug("ASSIGNED PHOTOS: " + p);
 
-		// productService.updateConservants(p);
+//		productService.updateConservants(p);
 //		logger.debug("UPDATED CONSERVANTS: " + p);
+		p.setHazard(E.UNKNOWN_HAZARD);
+		p.setConservantsText("");
 
 		p = productService.saveNew(p);
 

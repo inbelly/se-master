@@ -65,21 +65,10 @@ public class ProductSearchCriteria extends SearchCriteria implements Serializabl
 		return ret;
 	}
 
-	/**
-	 * @param eid -
-	 *            konservanto id
-	 * @param name -
-	 *            konservanto numeris
-	 */
 	public void addEFilter(long eid, String name) {
 		setPage(0);
 		for (int i = 0; i < filters.size(); i++) {
-			if ((filters.get(i) instanceof HazardFilter) ||
-				(filters.get(i) instanceof EFilter ||
-						filters.get(i) instanceof TextKeywordFilter) ||
-				(filters.get(i) instanceof UnapprovedProductFilter ||
-						filters.get(i) instanceof CategoryFilter))  
-			{
+			if (!(filters.get(i) instanceof ApprovedProductFilter)) {
 				filters.remove(i);
 			}
 		}
@@ -90,11 +79,7 @@ public class ProductSearchCriteria extends SearchCriteria implements Serializabl
 		setPage(0);
 		CategoryFilter filter = new CategoryFilter(category, filters.isEmpty());
 		for (int i = 0; i < filters.size(); i++) {
-			if (filters.get(i) instanceof CategoryFilter) {
-				((CategoryFilter) filters.get(i)).setCategory(filter.getCategory());
-			}
-			if (filters.get(i) instanceof UnapprovedProductFilter ||
-					filters.get(i) instanceof TextKeywordFilter) {
+			if (!(filters.get(i) instanceof ApprovedProductFilter)) {
 				filters.remove(i);
 			}
 		}
@@ -104,52 +89,46 @@ public class ProductSearchCriteria extends SearchCriteria implements Serializabl
 	public void addCompanyFilter(String company) {
 		setPage(0);
 		for (int i = 0; i < filters.size(); i++) {
-			if (filters.get(i) instanceof TextKeywordFilter) {
+			if (!(filters.get(i) instanceof ApprovedProductFilter)) {
 				filters.remove(i);
 			}
 		}
-		
 		addFilter(new CompanyFilter(company, filters.isEmpty()));
 	}
 
 	public void addHazardFilter(String hazard, EService eService) {
 		setPage(0);
 		for (int i = 0; i < filters.size(); i++) {
-			if ((filters.get(i) instanceof HazardFilter) || 
-				(filters.get(i) instanceof EFilter) ||
-				(filters.get(i) instanceof TextKeywordFilter)) 
-			{
+			if (!(filters.get(i) instanceof ApprovedProductFilter)) {
 				filters.remove(i);
 			}
 		}
-
 		addFilter(new HazardFilter(hazard, eService, filters.isEmpty()));
 	}
 
 	public void addGmoFilter() {
 		setPage(0);
+		for (int i = 0; i < filters.size(); i++) {
+			if (!(filters.get(i) instanceof ApprovedProductFilter)) {
+				filters.remove(i);
+			}
+		}		
 		addFilter(new GmoFilter());
 	}
 
 	public void addApprovedContentFilter() {
 		setPage(0);
+		for (int i = 0; i < filters.size(); i++) {
+			if (!(filters.get(i) instanceof ApprovedProductFilter)) {
+				filters.remove(i);
+			}
+		}		
 		addFilter(new ApprovedContentFilter(true));
 	}
 
 	public void addUnapprovedProductFilter() {
 		setPage(0);
-		List<Filter> fList = this.getFilters();
-		// TODO: move this to new method removeFilter(String name)
-		logger.debug("GOING THROUGH FILTERS... [" + this.getFilters().size() + "]");
-		for (int i = 0; i < this.getFilters().size(); i++) {
-			logger.debug("FILTERS[" + this.getFilters().get(i).getDescriptionArgument() + "]");
-			if (fList.get(i).getDescriptionArgument().equalsIgnoreCase("ApprovedProductFilter")) {
-				logger.debug("REMOVING FILTER: " + fList.get(i).getDescriptionArgument());
-				logger.debug("FILTER INDEX: " + i);
-				this.removeFilter("" + i);
-				break;
-			}
-		}
+		filters.clear();
 		addFilter(new UnapprovedProductFilter(true));
 	}
 	
@@ -192,10 +171,20 @@ public class ProductSearchCriteria extends SearchCriteria implements Serializabl
 
 	public void addKeywordFilter(String query) {
 		setPage(0);
+		for (int i = 0; i < filters.size(); i++) {
+			if (!(filters.get(i) instanceof ApprovedProductFilter)) {
+				filters.remove(i);
+			}
+		}		
 		addFilter(new KeywordFilter(query, filters.isEmpty()));
 	}
 
 	public void addEFilter(E e) {
+		for (int i = 0; i < filters.size(); i++) {
+			if (!(filters.get(i) instanceof ApprovedProductFilter)) {
+				filters.remove(i);
+			}
+		}		
 		addEFilter(e.getId(), e.getName());
 	}
 
