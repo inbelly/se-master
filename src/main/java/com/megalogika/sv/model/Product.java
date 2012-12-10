@@ -184,19 +184,11 @@ public class Product implements Serializable, JsonFilterable, Comparable {
 	}
 
 	public void calculateHazard() {
-		System.out.println("--- 111 tikrinam conservantFree: " + conservantFree);
-		if (null == getConservants() || getConservants().size() == 0 || conservantFree) {
+		if (null == getConservants() || getConservants().size() == 0) {
 			setHazard(E.NO_HAZARD);
-//			logger.debug("111");
 		} else {
 			setHazard(E.MIN_HAZARD);
-//			logger.debug("222");
 			for (E e : getConservants()) {
-//				logger.debug("Test logger first");
-//				logger.debug("turime conservanta:" + e.toString());
-//				logger.debug("pavadinimas="+ e.getName());
-//				logger.debug("konservanto kategorija=" + e.getCategory());
-//              logger.debug("calculateHazard(): turime conservanta:" + e.toString() + ", pavadinimas="+ e.getName() +", konservanto kategorija=" + e.getCategory());
 				if (Integer.parseInt(e.getCategory()) > Integer.parseInt(hazard)) {
 					setHazard(e.getCategory());
 				}
