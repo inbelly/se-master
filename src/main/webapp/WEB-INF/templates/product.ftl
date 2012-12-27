@@ -8,7 +8,7 @@
                     <div id="product" class="inline">
                         <div id="product-info" class="clearfix">
                             <div id="product-info-quick">
-                            	<#if !p.approved>
+                            	<#if !product.approved>
 									<img src="${cp}img/aproval_1.png" alt="not approved" class="not-approved" title="<@spring.message code="productList.productNotApproved" />"/>
 								</#if>
                                 <img src="<#if (product.label?? && product.label.photo?exists && product.label.photo?length > 0)>${cp}files/${product.label.photo}<#else/>${cp}images/product.png</#if>" width="217" height="217" alt="${product.name?xhtml} photo" title="${product.name?xhtml}" class="picture" />
