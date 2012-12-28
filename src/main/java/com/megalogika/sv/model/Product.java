@@ -546,8 +546,9 @@ public class Product implements Serializable, JsonFilterable, Comparable {
 			);
 	}
 	
+	// Visi gali editint. Balius.
 	public boolean canBeEditedBy(User u) {
-		return (null != u && u.isAdmin()) || !this.isConfirmed() || !this.isEditedBy(u);
+		return true;
 	}
 	
 	public boolean canBeReportedBy(User u) {

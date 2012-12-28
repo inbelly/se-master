@@ -90,20 +90,31 @@ public class ProductService {
 		}
 	}
 
-	@Transactional
-	public Product save(Product p) {
-		if ((!userService.getCurrentUser().equals(p.getUser()) || p
-				.isApproved()) && !isActionPerformedByAdmin()) {
-			logger.error("NEGALIMA redaguoti svetimų produktų! Produktas: "
-					+ p.getName() + " vartotojas: "
-					+ userService.getCurrentUser().getEmail());
-			throw new IllegalArgumentException(
-					"NEGALIMA redaguoti svetimų produktų!");
-		}
-		updateConservants(p);
-		Product ret = em.merge(p);
-		return ret;
-	}
+//	@Transactional
+//	public Product save(Product p) {
+//		
+//		logger.debug("---- Man atrodo manes niekas nekviecia..");
+//
+//		// if ((!userService.getCurrentUser().equals(p.getUser()) || p
+//		// .isApproved()) && !isActionPerformedByAdmin()) {
+//		// logger.error("NEGALIMA redaguoti svetimų produktų! Produktas: "
+//		// + p.getName() + " vartotojas: "
+//		// + userService.getCurrentUser().getEmail());
+//		// throw new IllegalArgumentException(
+//		// "NEGALIMA redaguoti svetimų produktų!");
+//		// }
+//
+//		// Px, galima. Paeditinu, pakonfirminu ir norma.
+//
+//		removeConfirmations(p);
+//		updateConservants(p);
+//		User u = userService.getCurrentUser();
+//		Confirmation c = new Confirmation(p, u);
+//		confirm(p, c);
+//
+//		Product ret = em.merge(p);
+//		return ret;
+//	}
 
 	@Transactional
 	public Product saveNew(Product p) {
@@ -144,19 +155,21 @@ public class ProductService {
 		if (addRandomUnapprovedProduct) {
 			randomUnapprovedProduct = this.getRandomUnapprovedProduct();
 		}
-		
-		int itemsPerPage = (addRandomUnapprovedProduct && randomUnapprovedProduct != null) ? -1 : 0;
-		
+
+		int itemsPerPage = (addRandomUnapprovedProduct && randomUnapprovedProduct != null) ? -1
+				: 0;
+
 		List<Product> pList = criteria
 				.setParameters(em.createQuery(qString))
 				.setFirstResult(criteria.getPage() * criteria.getItemsPerPage())
-				.setMaxResults(criteria.getItemsPerPage() + itemsPerPage).getResultList();
-		
+				.setMaxResults(criteria.getItemsPerPage() + itemsPerPage)
+				.getResultList();
+
 		if (addRandomUnapprovedProduct && randomUnapprovedProduct != null) {
 			pList.add(this.getRandomUnapprovedProduct());
 			Collections.sort(pList);
 		}
-		
+
 		return pList;
 	}
 
@@ -165,7 +178,8 @@ public class ProductService {
 		String qString = "select p from Product p where p.approved = false order by p.entryDate "
 				+ ((Math.random() * 1) > 0.5 ? "asc" : "desc");
 		List<Product> pList = em.createQuery(qString).getResultList();
-		return (pList.size() > 0) ? pList.get((int) (Math.random() * pList.size())) : null;
+		return (pList.size() > 0) ? pList.get((int) (Math.random() * pList
+				.size())) : null;
 	}
 
 	public List<Product> getListContainingE(ProductSearchCriteria c, List<E> l) {
@@ -361,7 +375,7 @@ public class ProductService {
 
 		p.confirm(c);
 
-		removeEvents(p.getReports());
+//		removeEvents(p.getReports());
 		p.setReports(new ArrayList<Report>());
 	}
 
@@ -371,9 +385,11 @@ public class ProductService {
 		Assert.notNull(r);
 
 		p.addReport(r);
+		
+		logger.warn("BLOGU NUOTRAUKU REPORTAS CIA TURI SIUSTIS MEILU ADMINUI!!");
 
-		if (p.getReports().size() >= p.getReportsRequired())
-			removeConfirmations(p);
+//		if (p.getReports().size() >= p.getReportsRequired())
+//			removeConfirmations(p);
 	}
 
 	@Transactional
@@ -458,6 +474,7 @@ public class ProductService {
 		updateField(p, field, value);
 		addChange(p, new ProductChange(p, currentUser));
 		removeConfirmations(p);
+		confirm(p, new Confirmation(currentUser));
 	}
 
 }

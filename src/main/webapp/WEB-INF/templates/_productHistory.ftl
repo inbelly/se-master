@@ -37,7 +37,9 @@
 	                                <#if product.confirmations?? && 0 < product.confirmations?size>
 	                                	<@historyList product.confirmations "product.confirmedBy" />
 	                                </#if>
+	                                <#--
 	                                <#if product.reports?? && 0 < product.reports?size>
 	                                	<@historyList product.reports "product.reportedBy" />
-	                                </#if>   
+	                                </#if>
+	                                -->   
 	                            </div>

@@ -224,19 +224,23 @@ public class ProductController {
 			@RequestParam(required = true, value = "id") String id)
 			throws Exception {
 		Product p = productService.loadProduct(id);
-		if (null == p
-				|| p.isConfirmed()
-				|| !p.canBeEditedBy(frontendService.getUserService()
-						.getCurrentUser())) {
-			logger.error("Product " + p + " can not be edited now by "
-					+ frontendService.getUserService().getCurrentUser());
-			response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
-			return null;
-		} else {
+//		if (null == p
+//				|| p.isConfirmed()
+//				|| !p.canBeEditedBy(frontendService.getUserService()
+//						.getCurrentUser())) {
+//			logger.error("Product " + p + " can not be edited now by "
+//					+ frontendService.getUserService().getCurrentUser());
+//			response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+//			return null;
+//		} else {
+		
+		
 			ModelMap ret = getProduct(request, response, session, id);
 			session.setAttribute(KEY_EDITING, Boolean.TRUE);
 			return new ModelAndView("productEdit", ret);
-		}
+			
+
+//		}
 	}
 
 	@RequestMapping("/comment/page")

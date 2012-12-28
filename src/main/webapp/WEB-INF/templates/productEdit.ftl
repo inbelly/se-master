@@ -56,6 +56,8 @@
                             </div>
                                 
                             <div class="right" class="clearfix">
+
+                            <#--
                                 <div id="product-info-edit-actions" class="clearfix">
 								<@sec.authorize ifAnyGranted="ROLE_ADMIN,ROLE_USER">
             						<#if product.canBeReportedBy(currentUser)>
@@ -68,7 +70,9 @@
 	                                    	<a href="${cp}spring/product/confirm?id=${product.id}" onclick="return confirm('<@spring.message code="confirm.really" />');"><@spring.message code="productItem.confirm"/></a><br/>
 	                                    </div>
 	                                </#if>
-								</@sec.authorize>		
+								</@sec.authorize>
+							-->
+
 <#--                                        
 	                                <div class="ico edit-photo">
 	                                    <a href="">Edit photo<br />(crop or turn)</a>
