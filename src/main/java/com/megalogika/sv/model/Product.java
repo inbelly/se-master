@@ -506,6 +506,17 @@ public class Product implements Serializable, JsonFilterable, Comparable {
 	public Integer getReportsRequired() {
 		return reportsRequired;
 	}
+	
+	@Transient
+	public Confirmation getLatestConfirmation() {
+		List<Confirmation> l = this.getConfirmations();
+		Confirmation ret = null;
+		for (Confirmation c : l) {
+			if (ret == null || ret.getEventTime().before(c.getEventTime()))
+				ret = c;
+		}
+		return ret;
+	}
 
 	public void setReportsRequired(Integer reportsRequired) {
 		this.reportsRequired = reportsRequired;

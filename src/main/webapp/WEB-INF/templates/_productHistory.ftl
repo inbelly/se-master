@@ -34,8 +34,9 @@
 	                                <#if product.changes?? && 0 < product.changes?size>
 	                                	<@historyList product.changes "product.editedBy" />
 	                                </#if>
-	                                <#if product.confirmations?? && 0 < product.confirmations?size>
-	                                	<@historyList product.confirmations "product.confirmedBy" />
+	                                <#if product.confirmations?? && 1 < product.confirmations?size>
+	                                    <span><@spring.message code="product.confirmedBy" /></span>
+	                                    <span>${product.latestConfirmation.actor.nick} (${product.latestConfirmation.eventTime?string("yyyy-MM-dd")})</span>
 	                                </#if>
 	                                <#--
 	                                <#if product.reports?? && 0 < product.reports?size>
