@@ -473,6 +473,7 @@ public class ProductService {
 			User currentUser) throws Exception {
 		updateField(p, field, value);
 		addChange(p, new ProductChange(p, currentUser));
+		updateConservants(p);
 		removeConfirmations(p);
 		confirm(p, new Confirmation(currentUser));
 	}
