@@ -90,31 +90,29 @@ public class ProductService {
 		}
 	}
 
-//	@Transactional
-//	public Product save(Product p) {
-//		
-//		logger.debug("---- Man atrodo manes niekas nekviecia..");
-//
-//		// if ((!userService.getCurrentUser().equals(p.getUser()) || p
-//		// .isApproved()) && !isActionPerformedByAdmin()) {
-//		// logger.error("NEGALIMA redaguoti svetimų produktų! Produktas: "
-//		// + p.getName() + " vartotojas: "
-//		// + userService.getCurrentUser().getEmail());
-//		// throw new IllegalArgumentException(
-//		// "NEGALIMA redaguoti svetimų produktų!");
-//		// }
-//
-//		// Px, galima. Paeditinu, pakonfirminu ir norma.
-//
+	@Transactional
+	public Product save(Product p) {
+		
+		// if ((!userService.getCurrentUser().equals(p.getUser()) || p
+		// .isApproved()) && !isActionPerformedByAdmin()) {
+		// logger.error("NEGALIMA redaguoti svetimų produktų! Produktas: "
+		// + p.getName() + " vartotojas: "
+		// + userService.getCurrentUser().getEmail());
+		// throw new IllegalArgumentException(
+		// "NEGALIMA redaguoti svetimų produktų!");
+		// }
+
+		// Px, galima. Paeditinu, pakonfirminu ir norma.
+
 //		removeConfirmations(p);
 //		updateConservants(p);
 //		User u = userService.getCurrentUser();
 //		Confirmation c = new Confirmation(p, u);
 //		confirm(p, c);
-//
-//		Product ret = em.merge(p);
-//		return ret;
-//	}
+
+		Product ret = em.merge(p);
+		return ret;
+	}
 
 	@Transactional
 	public Product saveNew(Product p) {
