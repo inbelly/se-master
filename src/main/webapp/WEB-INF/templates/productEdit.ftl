@@ -68,6 +68,9 @@
 	                                    <p class="fr">
 		                                    <input type="hidden" name="id" value="${product.id}" />
 		                                    <button type="submit">Done editing</button>
+					        				<@sec.authorize ifAllGranted="ROLE_ADMIN">
+		                                    	<a href="${cp}spring/product/delete?id=${product.id}" class="red" onclick="return confirm('är du säker?');">bort produkten</a>
+											</@sec.authorize>    		                                    
 		                                </p>
 	                                </form>		                        	
 		                        </div>
