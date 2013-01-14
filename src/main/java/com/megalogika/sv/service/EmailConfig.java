@@ -36,7 +36,7 @@ public class EmailConfig {
 	}
 
 	String getProductLink(EmailActions emailActions, Product product) {
-		return product.getName() + emailActions.emailConfig.getProductUrl(product);
+		return product.getName() + " - " + emailActions.emailConfig.getProductUrl(product);
 	}
 
 	String getProductUrl(Product product) {
