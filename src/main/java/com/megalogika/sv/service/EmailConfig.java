@@ -6,10 +6,10 @@ public class EmailConfig {
 	static final String LOGIN_URL = "/login";
 	static final String PRODUCT_URL = "/product?id=";
 
-	private String siteUrlBase = "http://inbelly.co.uk/spring";
+	private String siteUrlBase = "http://se.inbelly.com/spring";
 	private String fromEmail = "team@inbelly.co.uk";
-	private String fromName = "InBelly";
-	private String problemsEmail = "info@inbelly.co.uk";
+	private String fromName = "InBelly (http://se.inbelly.com)";
+	private String problemsEmail = "susikaupk@gmail.com";
 
 	public String getFromEmail() {
 		return fromEmail;

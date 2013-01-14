@@ -428,12 +428,13 @@ public class ProductController {
 			if (p.canBeReportedBy(u)) {
 				Report r = new Report(p, u);
 				productService.report(p, r);
-				// emailActions.sendProductProblemEmail(p, emailFrom,
-				// emailText);
+			    emailActions.sendProductProblemEmail(p, "InBelly (http://se.inbelly.com)", "Product reported");
 			} else {
 				logger.warn("User " + u + " should not be confirming product "
 						+ p);
 			}
+			
+			
 
 			if (isEditing(session)) {
 				return "redirect:/spring/product/edit?id=" + p.getId();
