@@ -13,7 +13,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
 			<bean id="emailConfig" class="com.megalogika.sv.service.EmailConfig">
 				<property name="fromEmail" value="team@se.inbelly.com" />
 				<property name="fromName" value="InBelly (http://se.inbelly.com)" />
-				<property name="problemsEmail" value="susikaupk@gmail.com" />
+				<property name="problemsEmail" value="kristina@sveikasvaikas.lt" />
 				<property name="siteUrlBase" value="http://se.inbelly.com/spring" />
 			</bean>
 </beans>

@@ -9,7 +9,7 @@ public class EmailConfig {
 	private String siteUrlBase = "http://se.inbelly.com/spring";
 	private String fromEmail = "team@se.inbelly.com";
 	private String fromName = "InBelly (http://se.inbelly.com)";
-	private String problemsEmail = "susikaupk@gmail.com";
+	private String problemsEmail = "kristina@sveikasvaikas.lt";
 
 	public String getFromEmail() {
 		return fromEmail;
