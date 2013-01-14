@@ -430,7 +430,7 @@ public class ProductController {
 				productService.report(p, r);
 			    emailActions.sendProductProblemEmail(p, "InBelly (http://se.inbelly.com)", "Product reported");
 			} else {
-				logger.warn("User " + u + " should not be confirming product "
+				logger.warn("User " + u + " should not be reporting product "
 						+ p);
 			}
 			

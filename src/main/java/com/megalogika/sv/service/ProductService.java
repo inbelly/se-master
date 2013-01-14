@@ -384,8 +384,6 @@ public class ProductService {
 
 		p.addReport(r);
 		
-		logger.warn("BLOGU NUOTRAUKU REPORTAS CIA TURI SIUSTIS MEILU ADMINUI!!");
-
 //		if (p.getReports().size() >= p.getReportsRequired())
 //			removeConfirmations(p);
 	}

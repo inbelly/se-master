@@ -7,7 +7,7 @@ public class EmailConfig {
 	static final String PRODUCT_URL = "/product?id=";
 
 	private String siteUrlBase = "http://se.inbelly.com/spring";
-	private String fromEmail = "team@inbelly.co.uk";
+	private String fromEmail = "team@se.inbelly.com";
 	private String fromName = "InBelly (http://se.inbelly.com)";
 	private String problemsEmail = "susikaupk@gmail.com";
 
