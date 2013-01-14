@@ -36,13 +36,13 @@ public class EmailActions {
 	String sendNewPasswordEmail = "mail.body.sendNewPasswordEmail";
 	String sendNewPasswordSubject = "mail.subject.sendNewPasswordSubject";
 
-	public void sendProductProblemEmail(Product product, String text) {
-		text += messages.getMessage(productProblemEmail,
+	public void sendProductProblemEmail(Product product) {
+		String text = messages.getMessage(productProblemEmail,
 				new Object[] { emailConfig.getProductLink(this, product) },
 				null);
 		try {
 			mailService
-					.sendEmail("susikaupk@gmail.com", messages
+					.sendEmail(emailConfig.getProblemsEmail(), messages
 							.getMessage(productProblemSubject, null, null),
 							text, emailConfig.getFromEmail(), emailConfig
 									.getFromName());

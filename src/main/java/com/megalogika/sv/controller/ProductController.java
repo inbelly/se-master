@@ -429,7 +429,7 @@ public class ProductController {
 				Report r = new Report(p, u);
 				productService.report(p, r);
 				logger.debug("Attempting to send problem email..");
-			    emailActions.sendProductProblemEmail(p, "Product reported");
+			    emailActions.sendProductProblemEmail(p);
 			} else {
 				logger.warn("User " + u + " should not be reporting product "
 						+ p);
