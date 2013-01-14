@@ -428,7 +428,8 @@ public class ProductController {
 			if (p.canBeReportedBy(u)) {
 				Report r = new Report(p, u);
 				productService.report(p, r);
-			    emailActions.sendProductProblemEmail(p, "InBelly (http://se.inbelly.com)", "Product reported");
+				logger.debug("Attempting to send problem email..");
+			    emailActions.sendProductProblemEmail(p, "Product reported");
 			} else {
 				logger.warn("User " + u + " should not be reporting product "
 						+ p);
