@@ -40,7 +40,8 @@ public class ESearchCriteria extends SearchCriteria implements Serializable {
 	}
 	
 	private String getOrderByNumber(){
-		return "to_number(btrim(lower(number), '():;- abcdefghijklmnopqrstwvuxyząčęėįšųūž') || '0', '99999') asc, lower(number) asc";
+//		return "to_number(btrim(lower(number), '():;- abcdefghijklmnopqrstwvuxyząčęėįšųūž') || '0', '99999') asc, lower(number) asc";
+		return "number asc";
 	}
 	
 	private String getOrderByProductCount(){
