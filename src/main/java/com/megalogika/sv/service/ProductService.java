@@ -106,11 +106,10 @@ public class ProductService {
 
 		removeConfirmations(p);
 		updateConservants(p);
-//		User u = userService.getCurrentUser();
-//		Confirmation c = new Confirmation(p, u);
-//		confirm(p, c);
+		User u = userService.getCurrentUser();
+		Confirmation c = new Confirmation(p, u);
+		confirm(p, c);
 
-		logger.debug("Nesuprantu, kodel blet cia nuluzhta.");
 		Product ret = em.merge(p);
 		return ret;
 	}
@@ -118,7 +117,6 @@ public class ProductService {
 	@Transactional
 	public Product saveNew(Product p) {
 		
-		logger.debug("Pagal ideja, mane kviecia tik seivinant nauja produkta...");
 		Product ret = em.merge(p);
 		return ret;
 	}
@@ -470,6 +468,7 @@ public class ProductService {
 	@Transactional
 	public void updateProduct(Product p, String field, Object value,
 			User currentUser) throws Exception {
+		logger.debug("updateProduct(" + p + ", " + field + ", " + value + ", " + currentUser);
 		updateField(p, field, value);
 		addChange(p, new ProductChange(p, currentUser));
 		updateConservants(p);
