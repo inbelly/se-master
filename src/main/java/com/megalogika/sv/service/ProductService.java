@@ -110,6 +110,7 @@ public class ProductService {
 //		Confirmation c = new Confirmation(p, u);
 //		confirm(p, c);
 
+		logger.debug("Nesuprantu, kodel blet cia nuluzhta.");
 		Product ret = em.merge(p);
 		return ret;
 	}
