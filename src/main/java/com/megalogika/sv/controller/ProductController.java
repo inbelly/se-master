@@ -949,6 +949,15 @@ public class ProductController {
 		p = productService.saveNew(p);
 
 		logger.debug("SAVED PRODUCT: " + p);
+		
+		logger.debug("CONFIRMING NEW PRODUCT: " + p);
+		
+		User u = userService.getCurrentUser();
+		Confirmation c = new Confirmation(p, u);
+		productService.confirm(p, c);
+		p = productService.save(p);
+		
+		logger.debug("CONFIRMED & SAVED PRODUCT: " + p);
 
 		return "redirect:/spring/product?id=" + p.getId();
 

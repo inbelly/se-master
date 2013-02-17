@@ -117,6 +117,8 @@ public class ProductService {
 
 	@Transactional
 	public Product saveNew(Product p) {
+		
+		logger.debug("Pagal ideja, mane kviecia tik seivinant nauja produkta...");
 		Product ret = em.merge(p);
 		return ret;
 	}
