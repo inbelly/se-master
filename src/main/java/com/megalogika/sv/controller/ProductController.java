@@ -45,7 +45,8 @@ import com.megalogika.sv.service.UserService;
 
 @Controller("productController")
 public class ProductController {
-	public transient Logger logger = Logger.getLogger(ProductController.class);
+	static final transient Logger logger = Logger
+			.getLogger(ProductController.class);
 
 	public static final String KEY_VIEWED_IN_THIS_SESSION = "viewedInThisSession";
 	public final static String KEY_PRODUCT = "product";
@@ -950,15 +951,6 @@ public class ProductController {
 
 		logger.debug("SAVED PRODUCT: " + p);
 		
-		logger.debug("CONFIRMING NEW PRODUCT: " + p);
-		
-		User u = userService.getCurrentUser();
-		Confirmation c = new Confirmation(p, u);
-		productService.confirm(p, c);
-		p = productService.save(p);
-		
-		logger.debug("CONFIRMED & SAVED PRODUCT: " + p);
-
 		return "redirect:/spring/product?id=" + p.getId();
 
 	}

@@ -104,8 +104,8 @@ public class ProductService {
 
 		// Px, galima. Paeditinu, pakonfirminu ir norma.
 
-//		removeConfirmations(p);
-//		updateConservants(p);
+		removeConfirmations(p);
+		updateConservants(p);
 //		User u = userService.getCurrentUser();
 //		Confirmation c = new Confirmation(p, u);
 //		confirm(p, c);
