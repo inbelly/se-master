@@ -8,11 +8,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
 import org.apache.log4j.Logger;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
+//import org.hibernate.annotations.Cache;
+//import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
-@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+//@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Confirmation extends TimedEvent implements Serializable {
 	private static final long serialVersionUID = -7428117547697707665L;
 	

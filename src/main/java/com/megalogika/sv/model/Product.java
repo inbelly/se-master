@@ -545,16 +545,7 @@ public class Product implements Serializable, JsonFilterable, Comparable {
 	}
 
 	public boolean canBeConfirmedBy(User u) {
-		return (null != u && u.isAdmin()) ||
-			(
-				! this.isConfirmed() &&
-				(
-						! (
-//								this.isCreatedBy(u) || 
-								this.isConfirmedBy(u)
-						  )
-				)
-			);
+		return (!this.isConfirmed() && !this.isConfirmedBy(u));
 	}
 	
 	// Visi gali editint. Balius.
