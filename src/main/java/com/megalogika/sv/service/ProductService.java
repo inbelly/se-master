@@ -366,6 +366,7 @@ public class ProductService {
 			em.remove(c);
 		}
 	}
+	
 
 	@Transactional
 	public void confirm(Product p, Confirmation c) {
@@ -391,7 +392,10 @@ public class ProductService {
 
 	@Transactional
 	public void removeConfirmations(Product p) {
-		removeEvents(p.getConfirmations());
+//		removeEvents(p.getConfirmations());
+		for (Confirmation c : p.getConfirmations()) {
+			em.remove(c);
+		}
 		p.setConfirmations(new ArrayList<Confirmation>());
 		p.setConfirmationCount(0);
 	}

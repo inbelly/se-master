@@ -1,24 +1,41 @@
 package com.megalogika.sv.model;
 
 import java.io.Serializable;
+import java.util.Calendar;
+import java.util.Date;
 
+import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 import org.apache.log4j.Logger;
-//import org.hibernate.annotations.Cache;
-//import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
-//@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-public class Confirmation extends TimedEvent implements Serializable {
-	private static final long serialVersionUID = -7428117547697707665L;
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+public class Confirmation implements Serializable {
 	
+	/**
+	 * generated serialVersionUID
+	 */
+	private static final long serialVersionUID = 7102806200355464590L;
+
 	@Transient
 	protected transient Logger logger = Logger.getLogger(Confirmation.class);
 	
+	private long id;
+	protected Date eventTime;
+	private User actor;
 	private Product product;
 	private String enteredByIp;
 	
@@ -28,6 +45,7 @@ public class Confirmation extends TimedEvent implements Serializable {
 	
 	public Confirmation(User user) {
 		this();
+		eventTime = Calendar.getInstance().getTime();
 		setActor(user);
 	}	
 	
@@ -36,6 +54,35 @@ public class Confirmation extends TimedEvent implements Serializable {
 		setProduct(p);
 		if (user != null) setEnteredByIp(user.getUserAddres());
 	}
+	
+	public void setId(long id) {
+		this.id = id;
+	}	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	public long getId() {
+		return id;
+	}
+
+	public void setEventTime(Date changeTime) {
+		this.eventTime = changeTime;
+	}
+
+	@Basic
+	@Temporal(TemporalType.TIMESTAMP)
+	public Date getEventTime() {
+		return eventTime;
+	}
+
+	public void setActor(User user) {
+		this.actor = user;
+	}
+
+	@OneToOne(fetch = FetchType.LAZY, cascade={CascadeType.REFRESH})
+	public User getActor() {
+		return actor;
+	}	
 
 	@Override
 	public String toString() {
