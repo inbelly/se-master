@@ -194,7 +194,7 @@
 		</profile>
 
 		<profile>
-			<id>inbelly-se</id>
+			<id>sidekick</id>
 			<properties>
 				<serverId>inbelly_tomcat</serverId>
 				<site.db.host>localhost</site.db.host>
@@ -212,6 +212,27 @@
 				<blog.url>http://blog.inbelly.co.uk/?feed=rss2</blog.url>
 			</properties>
 		</profile>
+
+		<profile>
+			<id>fsdata</id>
+			<properties>
+				<serverId>fsdata_tomcat</serverId>
+				<site.db.host>localhost</site.db.host>
+				<site.db.database>se_inbelly</site.db.database>
+				<site.db.username>se_inbelly</site.db.username>
+				<site.db.password>nenervink173</site.db.password>
+				<site.files.directory>/home/webapps/files/se.inbelly.com</site.files.directory>
+				<flowDevelopment>false</flowDevelopment>
+				<tomcatMgr>http://beta.se.inbelly.com/manager/text</tomcatMgr>
+				<messages.locale>se_SE</messages.locale>
+				<e.dictionary.name>swedish_e</e.dictionary.name>
+				<dictionary.name>swedish</dictionary.name>
+				<site.mail.smtpHost>localhost</site.mail.smtpHost>
+				<webappPath>/</webappPath>
+				<blog.url>http://blog.inbelly.co.uk/?feed=rss2</blog.url>
+			</properties>
+		</profile>
+
 
 		<profile>
 			<id>production</id>
@@ -548,7 +569,7 @@
 		<dependency>
 			<groupId>postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>8.4-701.jdbc4</version>
+			<version>9.1-901.jdbc4</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
