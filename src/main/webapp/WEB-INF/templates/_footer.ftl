@@ -27,5 +27,5 @@
                             <a href="mailto:info@inbelly.co.uk">Kontakta oss</a>
                         </p>
 
-			<p><small>__build.tag__</small></p>
+			<p class="hidden"><small>__build.tag__</small></p>
                     </div>
