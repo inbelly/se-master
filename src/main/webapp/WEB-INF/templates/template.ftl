@@ -23,7 +23,7 @@
 		<link rel="stylesheet" type="text/css" href="${cp}styles/jquery.autocomplete.css"/>
         <!--[if lt IE 8]><link rel="stylesheet" href="${cp}styles/darkside.css" type="text/css" media="screen"><![endif]-->
 
-		<script type="text/javascript" src="${cp}js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
 		<script type="text/javascript" src="${cp}js/jquery.autocomplete.min.js"></script>
 		<script type="text/javascript" src="${cp}js/jquery.bgiframe.min.js"></script>
 		<script type="text/javascript" src="${cp}js/jquery.jeditable.js"></script>
