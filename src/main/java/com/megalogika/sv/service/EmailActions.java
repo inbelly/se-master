@@ -36,26 +36,35 @@ public class EmailActions {
 	String sendNewPasswordEmail = "mail.body.sendNewPasswordEmail";
 	String sendNewPasswordSubject = "mail.subject.sendNewPasswordSubject";
 
-	public void sendProductProblemEmail(Product product, String from, String text) {
-		text += messages.getMessage(productProblemEmail, new Object[] { emailConfig.getProductLink(this, product) }, null);
+	public void sendProductProblemEmail(Product product) {
+		String text = messages.getMessage(productProblemEmail,
+				new Object[] { emailConfig.getProductLink(this, product) },
+				null);
 		try {
-			mailService.sendEmail(emailConfig.getProblemsEmail(), messages.getMessage(productProblemSubject, null, null), text, from, from);
+			mailService
+					.sendEmail(emailConfig.getProblemsEmail(), messages
+							.getMessage(productProblemSubject, null, null),
+							text, emailConfig.getFromEmail(), emailConfig
+									.getFromName());
 		} catch (Exception e) {
-			// NOTHING
+			e.printStackTrace();
 		}
 	}
 
 	public void sendProductLink(Product product, String to, String text) {
-		text += messages.getMessage(sendProductEmail, new Object[] { messages.getMessage("site.name", null, null), emailConfig.getProductLink(this, product) }, null);
+		text += messages.getMessage(sendProductEmail,
+				new Object[] { messages.getMessage("site.name", null, null),
+						emailConfig.getProductLink(this, product) }, null);
 
 		StringTokenizer t = new StringTokenizer(to, " ,;");
 		while (t.hasMoreTokens()) {
 			try {
-				mailService.sendEmail(t.nextToken(), 
-							messages.getMessage(sendProductSubject, 
-								new Object[] { messages.getMessage("site.domain", null, null), 
-											   product.getName() }, null), 
-								text, emailConfig.getFromEmail(), emailConfig.getFromName());
+				mailService.sendEmail(
+						t.nextToken(),
+						messages.getMessage(sendProductSubject, new Object[] {
+								messages.getMessage("site.domain", null, null),
+								product.getName() }, null), text,
+						emailConfig.getFromEmail(), emailConfig.getFromName());
 			} catch (Exception e) {
 				// NOTHING
 			}
@@ -64,18 +73,22 @@ public class EmailActions {
 	}
 
 	public void sendProductApproveEmail(Product product) {
-		if (null == product.getUser() || null == product.getUser().getEmail() || !StringUtils.hasText(product.getUser().getEmail())) {
+		if (null == product.getUser() || null == product.getUser().getEmail()
+				|| !StringUtils.hasText(product.getUser().getEmail())) {
 			return;
 		}
-		String text = messages.getMessage(sendProductApproveEmail, 
+		String text = messages.getMessage(
+				sendProductApproveEmail,
 				new Object[] { messages.getMessage("site.name", null, null),
-							   messages.getMessage("site.domain", null, null),
-							   product.getName().trim(), 
-							   emailConfig.getProductUrl(product) }, null);
+						messages.getMessage("site.domain", null, null),
+						product.getName().trim(),
+						emailConfig.getProductUrl(product) }, null);
 		try {
-			mailService.sendEmail(product.getUser().getEmail(), 
-					messages.getMessage(sendProductApproveSubject, null, null), 
-					text, emailConfig.getFromEmail(), emailConfig.getFromName());
+			mailService
+					.sendEmail(product.getUser().getEmail(), messages
+							.getMessage(sendProductApproveSubject, null, null),
+							text, emailConfig.getFromEmail(), emailConfig
+									.getFromName());
 		} catch (Exception e) {
 			// NOTHING
 		}
@@ -83,17 +96,19 @@ public class EmailActions {
 
 	public void sendNewPassword(User u, String newPassword) {
 		Assert.notNull(u, "user should not be null to sendNewPassword");
-		Assert.hasText(newPassword, "new password should not be empty string to sendNewPassword");
+		Assert.hasText(newPassword,
+				"new password should not be empty string to sendNewPassword");
 
-		String text = messages.getMessage(sendNewPasswordEmail, 
-								new Object[] { messages.getMessage("site.name", null, null),
-											   messages.getMessage("site.domain", null, null), 
-											   newPassword, 
-											   emailConfig.getLoginUrl() }, null);
+		String text = messages.getMessage(sendNewPasswordEmail,
+				new Object[] { messages.getMessage("site.name", null, null),
+						messages.getMessage("site.domain", null, null),
+						newPassword, emailConfig.getLoginUrl() }, null);
 
 		try {
-			mailService.sendEmail(u.getEmail(), messages.getMessage(sendNewPasswordSubject, new Object[] { messages.getMessage("site.domain", null, null) }, null), text, emailConfig.getFromEmail(), emailConfig
-					.getFromName());
+			mailService.sendEmail(u.getEmail(), messages.getMessage(
+					sendNewPasswordSubject, new Object[] { messages.getMessage(
+							"site.domain", null, null) }, null), text,
+					emailConfig.getFromEmail(), emailConfig.getFromName());
 		} catch (Exception e) {
 			// NOTHING
 		}

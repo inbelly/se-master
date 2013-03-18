@@ -45,7 +45,8 @@ import com.megalogika.sv.service.UserService;
 
 @Controller("productController")
 public class ProductController {
-	public transient Logger logger = Logger.getLogger(ProductController.class);
+	static final transient Logger logger = Logger
+			.getLogger(ProductController.class);
 
 	public static final String KEY_VIEWED_IN_THIS_SESSION = "viewedInThisSession";
 	public final static String KEY_PRODUCT = "product";
@@ -224,19 +225,23 @@ public class ProductController {
 			@RequestParam(required = true, value = "id") String id)
 			throws Exception {
 		Product p = productService.loadProduct(id);
-		if (null == p
-				|| p.isConfirmed()
-				|| !p.canBeEditedBy(frontendService.getUserService()
-						.getCurrentUser())) {
-			logger.error("Product " + p + " can not be edited now by "
-					+ frontendService.getUserService().getCurrentUser());
-			response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
-			return null;
-		} else {
+//		if (null == p
+//				|| p.isConfirmed()
+//				|| !p.canBeEditedBy(frontendService.getUserService()
+//						.getCurrentUser())) {
+//			logger.error("Product " + p + " can not be edited now by "
+//					+ frontendService.getUserService().getCurrentUser());
+//			response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+//			return null;
+//		} else {
+		
+		
 			ModelMap ret = getProduct(request, response, session, id);
 			session.setAttribute(KEY_EDITING, Boolean.TRUE);
 			return new ModelAndView("productEdit", ret);
-		}
+			
+
+//		}
 	}
 
 	@RequestMapping("/comment/page")
@@ -424,12 +429,14 @@ public class ProductController {
 			if (p.canBeReportedBy(u)) {
 				Report r = new Report(p, u);
 				productService.report(p, r);
-				// emailActions.sendProductProblemEmail(p, emailFrom,
-				// emailText);
+				logger.debug("Attempting to send problem email..");
+			    emailActions.sendProductProblemEmail(p);
 			} else {
-				logger.warn("User " + u + " should not be confirming product "
+				logger.warn("User " + u + " should not be reporting product "
 						+ p);
 			}
+			
+			
 
 			if (isEditing(session)) {
 				return "redirect:/spring/product/edit?id=" + p.getId();
@@ -943,7 +950,7 @@ public class ProductController {
 		p = productService.saveNew(p);
 
 		logger.debug("SAVED PRODUCT: " + p);
-
+		
 		return "redirect:/spring/product?id=" + p.getId();
 
 	}

@@ -39,14 +39,14 @@
 													</#if>
 											<#else>
 													<#if currentUser?? && currentUser.admin>
-													<p class="action-delete">					
+													<#-- <p class="action-delete">					
 														<a class="red" href="${cp}spring/e?_eventId=edit&amp;eid=${e.id}"><@spring.message code="eTable.edit"/></a>
-													</p>
-													<#if !e.approved>
+													</p> -->
+													<#-- <#if !e.approved>
 														<p class="action-delete">					
 															<a class="red" href="${cp}spring/e/approve?eid=${e.id}" onclick="return confirm('<@spring.message code="confirm.really" />');"><@spring.message code="eTable.confirm"/></a>
 														</p>
-													</#if>
+													</#if> -->
 													<#if 0 == e.productCount >
 														<p class="action-delete">					
 															<a class="red" href="${cp}spring/e/delete?eid=${e.id}" onclick="return confirm('<@spring.message code="confirm.really" />');"><@spring.message code="eTable.delete"/></a>

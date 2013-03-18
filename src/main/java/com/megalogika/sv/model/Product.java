@@ -506,6 +506,17 @@ public class Product implements Serializable, JsonFilterable, Comparable {
 	public Integer getReportsRequired() {
 		return reportsRequired;
 	}
+	
+	@Transient
+	public Confirmation getLatestConfirmation() {
+		List<Confirmation> l = this.getConfirmations();
+		Confirmation ret = null;
+		for (Confirmation c : l) {
+			if (ret == null || ret.getEventTime().before(c.getEventTime()))
+				ret = c;
+		}
+		return ret;
+	}
 
 	public void setReportsRequired(Integer reportsRequired) {
 		this.reportsRequired = reportsRequired;
@@ -534,20 +545,12 @@ public class Product implements Serializable, JsonFilterable, Comparable {
 	}
 
 	public boolean canBeConfirmedBy(User u) {
-		return (null != u && u.isAdmin()) ||
-			(
-				! this.isConfirmed() &&
-				(
-						! (
-//								this.isCreatedBy(u) || 
-								this.isConfirmedBy(u)
-						  )
-				)
-			);
+		return (!this.isConfirmed() && !this.isConfirmedBy(u));
 	}
 	
+	// Visi gali editint. Balius.
 	public boolean canBeEditedBy(User u) {
-		return (null != u && u.isAdmin()) || !this.isConfirmed() || !this.isEditedBy(u);
+		return true;
 	}
 	
 	public boolean canBeReportedBy(User u) {

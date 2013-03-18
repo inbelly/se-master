@@ -6,10 +6,10 @@ public class EmailConfig {
 	static final String LOGIN_URL = "/login";
 	static final String PRODUCT_URL = "/product?id=";
 
-	private String siteUrlBase = "http://inbelly.co.uk/spring";
-	private String fromEmail = "team@inbelly.co.uk";
-	private String fromName = "InBelly";
-	private String problemsEmail = "info@inbelly.co.uk";
+	private String siteUrlBase = "http://se.inbelly.com/spring";
+	private String fromEmail = "team@se.inbelly.com";
+	private String fromName = "InBelly (http://se.inbelly.com)";
+	private String problemsEmail = "kristina@sveikasvaikas.lt";
 
 	public String getFromEmail() {
 		return fromEmail;
@@ -36,7 +36,7 @@ public class EmailConfig {
 	}
 
 	String getProductLink(EmailActions emailActions, Product product) {
-		return product.getName() + emailActions.emailConfig.getProductUrl(product);
+		return product.getName() + " - " + emailActions.emailConfig.getProductUrl(product);
 	}
 
 	String getProductUrl(Product product) {
