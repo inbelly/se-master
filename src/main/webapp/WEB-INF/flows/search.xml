@@ -30,6 +30,7 @@
 	<action-state id="setQ">
 		<on-entry>
 			<evaluate expression="productSearchCriteria.clear()" />
+            <set name="flowScope.currentUser" value="frontendService.getUserService().getCurrentUser()" />
 		</on-entry>
 		<evaluate expression="productSearchCriteria.setQ(q)" />
 		<transition to="searchResults" />

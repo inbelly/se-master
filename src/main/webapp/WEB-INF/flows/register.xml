@@ -13,7 +13,7 @@
 			<evaluate result="flowScope.cp" expression="frontendService.getContextPath(externalContext.contextPath)" />
 		</on-entry>
 		<transition on="submit" to="success">
-			<evaluate expression="userService.save(user)" />
+			<evaluate result="user" expression="userService.save(user)" />
 			<evaluate expression="userService.forceLogin(user)" />
 		</transition>
 		<transition on="cancel" to="cancelled" bind="false" validate="false"/>

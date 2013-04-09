@@ -32,6 +32,11 @@ table, td, th {
     vertical-align: middle;
 }
 
+td.edit-form-vertical-name {
+    text-align: right;
+    padding-right: 6px;
+}
+
 blockquote:before,
 blockquote:after,
 q:before,

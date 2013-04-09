@@ -10,8 +10,10 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -88,7 +90,101 @@ public class EController {
 		return "redirect:/spring/eList";
 	}
 	
+	
+	@SuppressWarnings("unchecked")
+	@RequestMapping("/eEdit")
+	@Secured({ "ROLE_ADMIN" })
+	public String showEditForm(HttpServletResponse response, ModelMap m, 
+	        @RequestParam(required=true, value="eid") String eid) 
+	                throws IOException 
+	{
+	    if (! StringUtils.hasText(eid)) {
+	        logger.debug("No id specified to edit E!");
+	        response.sendError(HttpServletResponse.SC_NOT_FOUND);
+	        return "redirect:/spring/404";
+	    } else {
+	        E e = eService.load(Long.parseLong(eid));
+	        if (null == e) {
+	            logger.debug("Conservant to edit not found: " + eid);
+	            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+	            return "redirect:/spring/404";
+	        } 
+	        m.put("e", e);
+	    }
+
+	    return "eEdit";
+	}
+
+	@RequestMapping("/e/edit")
+	@Secured({ "ROLE_ADMIN" })
+	public String editConservant(HttpServletRequest request, HttpServletResponse response, @RequestParam(required=true, value="eid") String eid) throws IOException 
+	{
+	    Assert.notNull(eid);
+	    E e = eService.load(eid);
+	    if (null == e) {
+            logger.debug("Conservant to edit not found: " + eid);
+            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            return "redirect:/spring/404";
+        }
+	    
+	    String approved = request.getParameter("approved");
+        e.setApproved(org.apache.commons.lang.StringUtils.isNotBlank(approved));
+	    
+	    String category = request.getParameter("category");
+	    e.setCategory(category);
+	    
+	    String name = request.getParameter("name");
+        e.setName(name);
+        
+        String nameEnglish = request.getParameter("nameEnglish");
+        e.setNameEnglish(nameEnglish);
+        
+        String aliases = request.getParameter("aliases");
+        e.setAliases(aliases);
+        
+        String function = request.getParameter("function");
+        e.setFunction(function);
+        
+        String properties = request.getParameter("properties");
+        e.setProperties(properties);
+        
+        String origin = request.getParameter("origin");
+        e.setOrigin(origin);
+        
+        String sideEffect = request.getParameter("sideEffect");
+        e.setSideEffect(sideEffect);
+        
+        String diseases = request.getParameter("diseases");
+        e.setDiseases(diseases);
+        
+        String linksDiseases = request.getParameter("linksDiseases");
+        e.setLinksDiseases(linksDiseases);
+        
+        String linksBanned = request.getParameter("linksBanned");
+        e.setLinksBanned(linksBanned);
+        
+        String vegan = request.getParameter("vegan");
+        e.setVegan(org.apache.commons.lang.StringUtils.isNotBlank(vegan));
+        
+        String gmo = request.getParameter("gmo");
+        e.setGmo(org.apache.commons.lang.StringUtils.isNotBlank(gmo));
+        
+        String bannedInUsa = request.getParameter("bannedInUsa");
+        e.setBannedInUsa(org.apache.commons.lang.StringUtils.isNotBlank(bannedInUsa));
+        
+        String bannedInCanada = request.getParameter("bannedInCanada");
+        e.setBannedInCanada(org.apache.commons.lang.StringUtils.isNotBlank(bannedInCanada));
+        
+        String bannedInAustralia = request.getParameter("bannedInAustralia");
+        e.setBannedInAustralia(org.apache.commons.lang.StringUtils.isNotBlank(bannedInAustralia));
+	    
+        eService.save(e);
+        
+	    return "redirect:/spring/eList";
+	}
+	
 	@RequestMapping("e/delete")
+	@Secured({ "ROLE_ADMIN" })
 	public String deleteConservant(HttpServletResponse response, 
 						@RequestParam(required=true, value="eid") String eid) 
 		throws IOException 

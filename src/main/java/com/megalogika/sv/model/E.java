@@ -3,6 +3,7 @@ package com.megalogika.sv.model;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -63,7 +64,7 @@ public class E implements Serializable, JsonFilterable {
 
 	@Transient
 	public Map<String, String> getHazardDescriptions() {
-		HashMap<String, String> ret = new HashMap<String, String>();
+		LinkedHashMap<String, String> ret = new LinkedHashMap<String, String>();
 		ret.put(UNKNOWN_HAZARD, "hazard.-1.desc");
 		ret.put(NO_HAZARD, "hazard.0.desc");
 		for (int i = 1; i < HAZARD_DESC.length; i++) {

@@ -55,7 +55,7 @@ public class InBellyAuthenticationFilter extends AuthenticationProcessingFilter 
 	    					+ request.getRemoteHost() + ")");
 	        		user.setEmail(fbEmail);
 	        		user.setNick(fbName);
-	        		userService.save(user);
+	        		user = userService.save(user);
 	        		
 	        		auth = new UsernamePasswordAuthenticationToken(user, user.getPassword(), user.getAuthorities());
         		} else {

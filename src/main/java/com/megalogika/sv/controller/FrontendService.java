@@ -35,6 +35,7 @@ public class FrontendService {
 	public final static String KEY_HAZARD_DESCRIPTIONS = "hazardDescriptions";
 	public final static String KEY_CATEGORY_LIST = "categoryList";
 	public final static String KEY_CONTEXT_PATH = "cp";
+	public final static String SETTINGS_MENU_MARKER = "settingsMenu";
 
 	@Autowired
 	private EService eService;

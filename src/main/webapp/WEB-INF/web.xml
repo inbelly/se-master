@@ -72,7 +72,7 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-	
+	<!-- //TODO: removed deps -->
 	<servlet>
 		<servlet-name>support</servlet-name>
 		<servlet-class>
@@ -84,7 +84,7 @@
 		</init-param>
 		<load-on-startup>2</load-on-startup>
 	</servlet>
-
+    
 	<servlet>
 		<servlet-name>freemarker</servlet-name>
 		<servlet-class>freemarker.ext.servlet.FreemarkerServlet</servlet-class>
@@ -141,11 +141,13 @@
 		<servlet-name>spring</servlet-name>
 		<url-pattern>/spring/*</url-pattern>
 	</servlet-mapping>
-
+    
+    <!-- //TODO: removed deps -->
 	<servlet-mapping>
 		<servlet-name>support</servlet-name>
 		<url-pattern>/files/*</url-pattern>
 	</servlet-mapping>
+    
 
 	<!--
 		Map all /resources requests to the Resource Servlet for handling

@@ -18,6 +18,12 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
 	<import resource="view-config.xml" />
 	<import resource="destdir.xml"/>
 	<import resource="jobs.xml" />
+    
+    <!-- Resolves placeholders in spring xml files ("${some}") to values in specified properties files.
+         Second record will override properties defined in first one.-->
+    <context:property-placeholder
+            location="classpath*:site.properties,
+                      classpath*:custom-site.properties"/>
 
 	<bean id="confirmationsRequired" class="java.lang.Integer">
 		<constructor-arg><value>${product.confirmationsRequired}</value></constructor-arg>
@@ -49,34 +55,26 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
 		<property name="feedImageUrl" value="/img/logo2.png" />
 		<property name="feedTitle" value="sveikasvaikas.lt" />
 	</bean>
-	
-
-	<bean id="propertyConfigurer"
-		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="locations">
-			<list>
-				<value>classpath:site.properties</value>
-			</list>
-		</property>
-	</bean>
 
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="10000000" />
 	</bean>
-
-	<bean id="messageSource"
-		class="org.springframework.context.support.ResourceBundleMessageSource">
-		<property name="basenames">
-			<list>
-				<value>messages_${messages.locale}</value>
-				<value>shoppingBasketmessages_${messages.locale}</value>
-			</list>
-		</property>
-	</bean>
+    
+    <bean id="messageSource"
+        class="com.megalogika.sv.util.DbMessageSource">
+        <property name="basenames">
+            <list>
+                <value>messages_${messages.locale}</value>
+                <value>shoppingBasketmessages_${messages.locale}</value>
+            </list>
+        </property>
+        <property name="useCodeAsDefaultMessage" value="true"/>
+        <property name="mainLocale" value="${messages.locale}"/>
+    </bean>
 	
 	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver" >
-		<property name="defaultLocale" value="en_GB"/>
-	</bean>	
+		<property name="defaultLocale" value="${messages.locale}"/>
+	</bean>
 	
 </beans>

@@ -9,7 +9,9 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
 			<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 				<property name="host" value="${site.mail.smtpHost}"/>
 			</bean>
+
 			<bean id="mailService" class="ml.walrus.service.MailService" autowire="byType"/>
+
 			<bean id="emailConfig" class="com.megalogika.sv.service.EmailConfig">
 				<property name="fromEmail" value="team@se.inbelly.com" />
 				<property name="fromName" value="InBelly (http://se.inbelly.com)" />

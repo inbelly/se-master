@@ -2,26 +2,32 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="
-http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
-http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
 	<import resource="destdir.xml" />
 	
-	<!-- bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="locations">
-			<list>
-				<value>classpath:walrus.properties</value>
-				<value>classpath:site.properties</value>
-			</list>
-		</property>
-	</bean-->
+	<!-- Resolves placeholders in spring xml files ("${some}") to values in specified properties files.
+         Second record will override properties defined in first one.-->
+    <context:property-placeholder
+            location="classpath*:site.properties,
+                      classpath*:custom-site.properties"/>
 
+<!-- 
+	<bean id="filesController" class="com.megalogika.sv.controller.FilesController">
+		<property name="cacheExpiresMinutes" value="3600"/>
+		<property name="destDir" ref="destDir" />
+	</bean>
+-->
 	<bean id="filesController" class="ml.filelist.controller.FilesController">
 		<property name="methodNameResolver" ref="filesDirMethodResolver"/>
 		<property name="destDir" ref="destDir" />
 	</bean>
-
+    
+    
 	<bean id="filesDirMethodResolver" class="ml.filelist.DefaultPropertiesMethodNameResolver">
 		<property name="defaultMethod" value="sendFile" />
 		<property name="mappings">
@@ -31,7 +37,8 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
 			</value>
 		</property>
 	</bean>
-
+    
+    
 	<bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
         	<value>

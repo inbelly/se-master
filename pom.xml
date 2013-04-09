@@ -7,6 +7,14 @@
 	<version>1.7</version>
 
 	<profiles>
+        <profile>
+            <id>rodu</id>
+            <properties>
+                <serverId>rodu</serverId>
+                <tomcatMgr>http://localhost:8080/manager</tomcatMgr>
+                <webappPath>/en-master</webappPath>
+            </properties>
+        </profile>
 		<profile>
 			<id>susikaupk</id>
 			<properties>
@@ -133,6 +141,14 @@
 				<site.mail.smtpHost>stoned</site.mail.smtpHost>
 			</properties>
 		</profile>
+        <profile>
+            <id>staging-se</id>
+            <properties>
+                <serverId>staging-se</serverId>
+                <tomcatMgr>http://localhost:8080/manager</tomcatMgr>
+                <webappPath>/ib</webappPath>
+            </properties>
+        </profile>
 		<profile>
 			<id>test</id>
 			<properties>
@@ -275,19 +291,21 @@
 		<webappPath>/${project.artifactId}</webappPath>
 		<docbase.on.server>${basedir}/target/${project.artifactId}</docbase.on.server>
 		<webapp.reloadable>true</webapp.reloadable>
-		<flowDevelopment>true</flowDevelopment>
+		<flowDevelopment>false</flowDevelopment>
 		<springFrameworkVersion>2.5.6.SEC01</springFrameworkVersion>
 		<webFlowVersion>2.0.9.RELEASE</webFlowVersion>
 		<springSecurityVersion>2.0.5.RELEASE</springSecurityVersion>
 		<tilesVersion>2.1.0</tilesVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- 
 		<site.mail.smtpHost>stoned</site.mail.smtpHost>
 		<messages.locale>en_GB</messages.locale>
 		<e.dictionary.name>english_e</e.dictionary.name>
 		<dictionary.name>english</dictionary.name>
 		<blog.url>http://blog.sveikasvaikas.lt/?feed=rss2</blog.url>
+        <site.files.directory>/tmp</site.files.directory>
+         -->
 		<build.tag>${env.BUILD_TAG}</build.tag>
-		<site.files.directory>/tmp</site.files.directory>
 	</properties>
 
 	<build>
@@ -345,7 +363,7 @@
 			<artifactId>rome</artifactId>
 			<version>1.0</version>
 		</dependency>
-
+        <!-- 
 		<dependency>
 			<groupId>com.megalogika</groupId>
 			<artifactId>walrus-jar</artifactId>
@@ -370,6 +388,7 @@
 			<artifactId>utils</artifactId>
 			<version>1.2-SNAPSHOT</version>
 		</dependency>
+         -->
 
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -381,6 +400,20 @@
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.15</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.sun.jmx</groupId>
+                    <artifactId>jmxri</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.sun.jdmk</groupId>
+                    <artifactId>jmxtools</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.jms</groupId>
+                    <artifactId>jms</artifactId>
+                </exclusion>
+            </exclusions>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>

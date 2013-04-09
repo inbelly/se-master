@@ -85,7 +85,8 @@
 /* product */
 
 #product,
-#e-list {
+#e-list,
+#conservant {
     float: left;
     width: 707px;
     margin-right: 10px;
