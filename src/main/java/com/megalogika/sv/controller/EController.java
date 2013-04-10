@@ -74,7 +74,8 @@ public class EController {
 		criteria.updatePageSize(pageSize);
 		m.addAttribute("conservants", eService.getList(criteria));
 		m.addAttribute(KEY_PRODUCT, null);
-		
+		m.remove(KEY_PRODUCT);
+		session.removeAttribute(KEY_PRODUCT);
 		m.addAttribute("additives", Boolean.TRUE);
 		
 		frontendService.addCriteria(m, session, ESearchCriteria.class);
