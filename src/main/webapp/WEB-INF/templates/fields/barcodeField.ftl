@@ -7,7 +7,7 @@
 	<label for="barcode">Barcode:</label>
     <div class="text">
 		<p id="barcode" class="editable">${product.barcode}</p>
-        <a id="barcodeEdit" class="action edit">edit</a>
+        <a id="barcodeEdit" class="action edit"><@spring.message code="eTable.edit"/></a>
     </div>
 </div>
 

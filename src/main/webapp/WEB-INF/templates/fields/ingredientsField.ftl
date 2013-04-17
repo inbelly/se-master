@@ -4,11 +4,15 @@
 <#assign spring=JspTaglibs["http://www.springframework.org/tags"]>
 
 <div class="field" >
-    <label for="conservantsText">Tillsatser:</label>
+    <label for="conservantsText"><@spring.message code="product.eList"/>:</label>
     <div class="text">
-        <h4 id="conservantsText" class="editable">${product.conservantsText}</h4> 
+        <h4 id="conservantsText" class="editable">
+            <#if product.conservantsText??>
+                ${product.conservantsText}
+            </#if>
+        </h4> 
     </div>
-    <a id="conservantsTextEdit" href="javascript:void(0);" class="action edit">edit</a>
+    <a id="conservantsTextEdit" href="javascript:void(0);" class="action edit"><@spring.message code="eTable.edit"/></a>
 </div>
 <#if product.canBeEditedBy(currentUser)>
 <script type="text/javascript">
