@@ -1,5 +1,8 @@
 <config>
 	<context-values>
+		<resource path="src/main/webapp/WEB-INF/templates/messagesList.ftl">
+			<value key="messagesList" object-class="java.util.LinkedList" item-class="com.megalogika.sv.model.I18Message"/>
+		</resource>
 		<resource path="src/main/webapp/WEB-INF/templates/_editProductData.ftl">
 			<value key="product" object-class="com.megalogika.sv.model.Product"/>
 			<value key="category" object-class="com.megalogika.sv.model.ProductCategory"/>

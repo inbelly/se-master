@@ -59,6 +59,7 @@ public class EmailActions {
 		StringTokenizer t = new StringTokenizer(to, " ,;");
 		while (t.hasMoreTokens()) {
 			try {
+			    
 				mailService.sendEmail(
 						t.nextToken(),
 						messages.getMessage(sendProductSubject, new Object[] {

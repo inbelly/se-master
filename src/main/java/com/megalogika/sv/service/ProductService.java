@@ -104,19 +104,19 @@ public class ProductService {
 
 		// Px, galima. Paeditinu, pakonfirminu ir norma.
 
-		removeConfirmations(p);
-		updateConservants(p);
-		User u = userService.getCurrentUser();
-		Confirmation c = new Confirmation(p, u);
-		confirm(p, c);
-
+//		removeConfirmations(p);
+//		updateConservants(p);
+//		User u = userService.getCurrentUser();
+//		Confirmation c = new Confirmation(p, u);
+//		confirm(p, c);
+	    logger.info("Saving product: " + p.getName() + "[" + p.getBarcode() + "] with id=" + p.getId() + "and confirmation count: " + p.getConfirmations().size());
+	    
 		Product ret = em.merge(p);
 		return ret;
 	}
 
 	@Transactional
 	public Product saveNew(Product p) {
-		
 		Product ret = em.merge(p);
 		return ret;
 	}
@@ -366,14 +366,17 @@ public class ProductService {
 			em.remove(c);
 		}
 	}
-	
 
 	@Transactional
 	public void confirm(Product p, Confirmation c) {
 		Assert.notNull(p);
 		Assert.notNull(c);
 
-		p.confirm(c);
+		//jei adminas - konfirminam taip, kad produktas iskart pasidarytu konfirmuotas.
+		if (null != c.getActor() && c.getActor().isAdmin())
+		    p.confirmAndOverrideCount(c);
+		else
+		    p.confirm(c);
 
 //		removeEvents(p.getReports());
 		p.setReports(new ArrayList<Report>());
@@ -392,11 +395,9 @@ public class ProductService {
 
 	@Transactional
 	public void removeConfirmations(Product p) {
-//		removeEvents(p.getConfirmations());
-		for (Confirmation c : p.getConfirmations()) {
-			em.remove(c);
-		}
-		p.setConfirmations(new ArrayList<Confirmation>());
+		for (Confirmation c: p.getConfirmations())
+		    em.remove(c);
+		p.getConfirmations().clear();
 		p.setConfirmationCount(0);
 	}
 
@@ -477,6 +478,8 @@ public class ProductService {
 		addChange(p, new ProductChange(p, currentUser));
 		updateConservants(p);
 		removeConfirmations(p);
+		
+		    
 		confirm(p, new Confirmation(currentUser));
 	}
 

@@ -185,6 +185,13 @@
 		<put-attribute name="categoryList" value="/WEB-INF/templates/_categoryList.ftl" cascade="true" />
 		<put-attribute name="paginatorURI" value="eList" type="string" cascade="true"  />
 	</definition>
+    
+    <definition name="eEdit" extends="template">
+        <put-attribute name="body" value="/WEB-INF/templates/eEdit.ftl"/>
+        <put-attribute name="title" value="/WEB-INF/templates/titles/eEdit.ftl"/>
+        <put-attribute name="breadcrumbs" value="/WEB-INF/templates/breadcrumbs/eEdit.ftl" />
+        <put-attribute name="categoryList" value="/WEB-INF/templates/_categoryList.ftl" cascade="true" />
+    </definition>
 	
 	<definition name="replaceE" extends="template">
 		<put-attribute name="breadcrumbs" value="/WEB-INF/templates/breadcrumbs/replaceEForm.ftl" />
@@ -262,6 +269,13 @@
 		<put-attribute name="body" value="/WEB-INF/templates/friends.ftl"/>
 		<put-attribute name="breadcrumbs" value="/WEB-INF/templates/breadcrumbs/friends.ftl" cascade="true" />
 	</definition>
+    
+    <definition name="messagesList" extends="template">
+        <put-attribute name="title" value="/WEB-INF/templates/titles/messagesList.ftl" />
+        <put-attribute name="legend" value="/WEB-INF/templates/none.ftl" cascade="true"/>
+        <put-attribute name="body" value="/WEB-INF/templates/messagesList.ftl"/>
+        <put-attribute name="breadcrumbs" value="/WEB-INF/templates/breadcrumbs/messagesList.ftl" cascade="true" />
+    </definition>
 	
 	<definition name="400" template="/WEB-INF/templates/error.ftl">
 		<put-attribute name="title" value="/WEB-INF/templates/titles/error.ftl" />

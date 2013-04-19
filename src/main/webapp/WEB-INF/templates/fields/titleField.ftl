@@ -7,7 +7,7 @@
     <label for="name">Namn:</label>
     <div class="text">
         <h3 id="name" class="editable">${product.name?xhtml}</h3>
-        <a id="titleEdit" href="javascript:void(0);" class="action edit">edit</a>
+        <a id="titleEdit" href="javascript:void(0);" class="action edit"><@spring.message code="eTable.edit"/></a>
     </div>
 </div>
 <#if product.canBeEditedBy(currentUser)>

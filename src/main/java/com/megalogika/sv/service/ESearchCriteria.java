@@ -1,6 +1,10 @@
 package com.megalogika.sv.service;
 
 import java.io.Serializable;
+import java.util.LinkedList;
+import java.util.List;
+
+import org.apache.commons.lang.StringUtils;
 
 import com.megalogika.sv.model.User;
 
@@ -19,23 +23,22 @@ public class ESearchCriteria extends SearchCriteria implements Serializable {
 	
 	@Override
 	public String getOrderByClause() {
-		String ret = "";
-		
-		logger.debug("E!!! BUILD ORDER BY CLAUSE, ORDERED BY: " + getOrderBy());
-		
-		if (hasAuthority(User.ROLE_ADMIN)) {
-			ret += " e.approved asc, ";
-		}
-		if (ORDER_BY_NUMBER.equals(orderBy)) {
-			ret += getOrderByNumber();
-		} else if (ORDER_BY_CATEGORY.equals(orderBy)) {
-			ret += "category desc, " + getOrderByNumber();
-		} else if (ORDER_BY_PRODUCT_COUNT.equals(orderBy)) {
-			ret += getOrderByProductCount() + ", " + getOrderByNumber();
-		}
-		
-		logger.debug("E!!! THE CLAUSE IS: " + ret);
-		
+	    List<String> orderClauses = new LinkedList<String>();
+	    if (hasAuthority(User.ROLE_ADMIN)) {
+           orderClauses.add("e.approved asc");
+        }
+        if (ORDER_BY_NUMBER.equals(orderBy)) {
+            orderClauses.add(getOrderByNumber());
+        } else if (ORDER_BY_CATEGORY.equals(orderBy)) {
+            orderClauses.add("category desc");
+            orderClauses.add(getOrderByNumber());
+        } else if (ORDER_BY_PRODUCT_COUNT.equals(orderBy)) {
+            orderClauses.add(getOrderByNumber());
+            orderClauses.add(getOrderByProductCount());
+        }
+	    
+        String ret = StringUtils.join(orderClauses, ", ");
+        logger.debug("E!!! THE CLAUSE IS: " + ret);
 		return ret;
 	}
 	

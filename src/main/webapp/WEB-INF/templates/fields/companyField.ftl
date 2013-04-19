@@ -7,7 +7,7 @@
     <label for="company">Producer:</label>
     <div class="text">
         <h3 id="company" class="editable"><#if product.company??>${product.company?html}<#else/>not specified</#if></h3>
-        <a id="companyEdit" href="javascript:void(0);" class="action edit">edit</a>
+        <a id="companyEdit" href="javascript:void(0);" class="action edit"><@spring.message code="eTable.edit"/></a>
     </div>
 </div>
 <#if product.canBeEditedBy(currentUser)>

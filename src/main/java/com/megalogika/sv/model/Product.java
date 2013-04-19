@@ -14,9 +14,11 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.OrderBy;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -116,6 +118,8 @@ public class Product implements Serializable, JsonFilterable, Comparable {
 		this.name = name;
 	}
 
+	//FIXME: save-hack
+	//@ManyToMany(targetEntity = E.class, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH })
 	@ManyToMany(targetEntity = E.class, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH })
 	@BatchSize(size = 64)
 	@OrderBy("category DESC")
@@ -383,6 +387,8 @@ public class Product implements Serializable, JsonFilterable, Comparable {
 		this.label = label;
 	}
 
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="label")
 	public Photo getLabel() {
 		return label;
 	}
@@ -391,6 +397,8 @@ public class Product implements Serializable, JsonFilterable, Comparable {
 		this.ingredients = ingredients;
 	}
 
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="ingredients")
 	public Photo getIngredients() {
 		return ingredients;
 	}
@@ -480,7 +488,7 @@ public class Product implements Serializable, JsonFilterable, Comparable {
 
 	public void setConfirmations(List<Confirmation> confirmations) {
 		this.confirmations = confirmations;
-		setConfirmationCount(null == confirmations ? 0 : confirmations.size());
+		//setConfirmationCount(null == confirmations ? 0 : confirmations.size());
 	}
 
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="product", cascade={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE})
@@ -529,6 +537,11 @@ public class Product implements Serializable, JsonFilterable, Comparable {
 			confirmationCount++;
 		}
 	}
+	
+	public void confirmAndOverrideCount(Confirmation c) {
+	    confirm(c);
+	    confirmationCount = null == confirmationsRequired ? 1 : confirmationsRequired.intValue();
+	}
 
 	@Transient
 	public boolean isConfirmedBy(User u) {
@@ -545,6 +558,8 @@ public class Product implements Serializable, JsonFilterable, Comparable {
 	}
 
 	public boolean canBeConfirmedBy(User u) {
+	    if (null == u)
+	        return false;
 		return (!this.isConfirmed() && !this.isConfirmedBy(u));
 	}
 	

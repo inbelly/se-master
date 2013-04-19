@@ -7,7 +7,7 @@
     <label for="category">Category:</label>
     <div class="input">
         <h4 id="category" class="editable"><#if product.category??>${product.category.name?html}<#else/>not specified</#if></h4>
-        <a id="categoryEdit" href="javascript:void(0);" class="action edit">edit</a>
+        <a id="categoryEdit" href="javascript:void(0);" class="action edit"><@spring.message code="eTable.edit"/></a>
     </div>
 </div>
 
